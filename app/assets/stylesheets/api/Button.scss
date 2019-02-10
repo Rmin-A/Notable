@@ -6,5 +6,36 @@
 
   width: 19px;
   height: 19px;
+}
 
+.Navbar-LogIn {
+  width: 150px;
+  height: 50px;
+  border: 2px solid rgb(75,165,64);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  text-align: center;
+}
+
+.Navbar-LogIn:hover {
+  background-color: rgb(75,165,64);
+  border: 2px solid rgb(75,165,64);
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+
+.Navbar-SignUp {
+  width: 60px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+  color: black;
+  transition: color 0.2s ease;
+  text-align: center;
+}
+
+.Navbar-SignUp:hover {
+  color: rgb(75,165,64);
 }

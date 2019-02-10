@@ -52,15 +52,23 @@ const navbar = (props) => {
         className="Navbar-items Navbar-items-right">
         <div
           className="Navbar-link">
-          <button></button>
+          <button
+            className="Navbar-SignUp">
+            Sign Up
+          </button>
         </div>
         <div
           className="Navbar-link">
-          <p></p>
+          <p>
+            or
+          </p>
         </div>
         <div
           className="Navbar-link">
-          <button></button>
+          <button
+            className="Navbar-LogIn">
+            Log in
+          </button>
         </div>
       </nav>
     </div>
