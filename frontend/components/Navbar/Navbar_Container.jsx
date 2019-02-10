@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import { logout } from '../../actions/session_actions';
-import Greeting from './Greeting';
+import Navbar from './Navbar';
 
 const mapStateToProps = ({ session, entities: { users } }) => {
   return {
@@ -16,7 +16,7 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Greeting);
+)(Navbar);
 
 
     // navLink: <Link to="/signup">sign up instead</Link>,

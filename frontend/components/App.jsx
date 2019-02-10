@@ -21,8 +21,3 @@ const App = () => (
 );
 
 export default App;
-
-/**
-<AuthRoute exact path="/login" component={} />
-<AuthRoute exact path="/signup" component={>} />
-*/
