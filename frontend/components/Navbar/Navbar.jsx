@@ -7,7 +7,7 @@ const navbar = (props) => {
     return (e) => {
       const mobileMenu = document.querySelectorAll('.Navbar-items');
       mobileMenu.forEach( (nav) => {
-        nav.classList.toggle('Navbar-link-toggle-show');
+        nav.id = 'Navbar-link-toggle-show';
       });
     };
   };
@@ -36,15 +36,23 @@ const navbar = (props) => {
         className="Navbar-items">
         <div
           className="Navbar-link">
-          <p><b>Plans</b></p>
+          <button>
+            Plans
+          </button>
         </div>
         <div
           className="Navbar-link">
-          <p><b>Featurs</b></p>
+          <button>
+            Featurs
+          </button>
+
         </div>
         <div
           className="Navbar-link">
-          <p><b>About</b></p>
+          <button>
+            About
+          </button>
+
         </div>
       </nav>
 
