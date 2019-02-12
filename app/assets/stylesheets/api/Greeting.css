@@ -40,6 +40,15 @@
 .Greeting-Footer p {
   margin: 10px 0px 10px 20px;
 }
+.Greeting-Footer img {
+  width: 25px;
+  height: 25px;
+  margin-right: 20px;
+}
+
+.Greeting-Footer-Icons {
+  display: flex;
+}
 
 @media only screen and (max-width: 768px) {
   .Greeting-Demo-Login {
@@ -57,9 +66,9 @@
     font-family: Indie Flower;
     font-size: 20px;
 
-}
+  }
 
   .Greeting-Demo-Login p {
       margin: 10px 0px 10px 0px;
-}
+  }
 }

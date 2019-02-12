@@ -28,14 +28,18 @@ const greeting = () => {
         className="Greeting-Footer">
         <p>This is an Evernote clone for practice purposes and not for any commercial use!</p>
 
-        <div>
-          <image
+        <div
+          className="Greeting-Footer-Icons">
+          <img
             src={window.staticImages.github}>
-          </image>
-          <image>
-          </image>
-          <image>
-          </image>
+          </img>
+          <img
+            src={window.staticImages.gmail}>
+          </img>
+          <img
+            src={window.staticImages.linkedin}>
+          </img>
+
         </div>
       </div>
 
