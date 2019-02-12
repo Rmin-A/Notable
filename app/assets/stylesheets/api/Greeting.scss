@@ -2,26 +2,20 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
     height: 100vh;
 }
 
 .Greeting-Demo-Login {
-
     background-color: rgb(26,26,26);
     color: rgb(247,247,247);
-
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items:center;
-
     font-family: Indie Flower;
     font-size: 30px;
-
     flex-wrap: wrap;
 }
-
 
 .Greeting-Demo-Login button {
     margin: 25px 0px 25px 60px;
@@ -40,6 +34,7 @@
 .Greeting-Footer p {
   margin: 10px 0px 10px 20px;
 }
+
 .Greeting-Footer img {
   width: 25px;
   height: 25px;
@@ -48,6 +43,19 @@
 
 .Greeting-Footer-Icons {
   display: flex;
+}
+
+.Greeting-Mid-Panel {
+  background-image: image-url("midBack.png");
+  background-color: solid rgb(75,165,64);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.Greeting-Mid-Panel img {
+  width: 400px;
+  height: 400px;
 }
 
 @media only screen and (max-width: 768px) {

@@ -19,8 +19,23 @@ const greeting = () => {
           </button>
         </div>
 
-        <div>
-          <p>hello</p>
+        <div
+          className="Greeting-Mid-Panel">
+          <div>
+            <img
+              src={window.staticImages.mid1}>
+            </img>
+          </div>
+          <div>
+            <img
+              src={window.staticImages.mid2}>
+            </img>
+          </div>
+          <div>
+            <img
+              src={window.staticImages.mid3}>
+            </img>
+          </div>
         </div>
       </div>
 
