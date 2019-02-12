@@ -1,0 +1,65 @@
+.Greeting {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 100vh;
+}
+
+.Greeting-Demo-Login {
+
+    background-color: rgb(26,26,26);
+    color: rgb(247,247,247);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+
+    font-family: Indie Flower;
+    font-size: 30px;
+
+    flex-wrap: wrap;
+}
+
+
+.Greeting-Demo-Login button {
+    margin: 25px 0px 25px 60px;
+}
+
+.Greeting-Footer {
+  display: flex;
+  width: 80%;
+  border-top: 1px solid rgb(26,26,26);
+  justify-content: space-between;
+  align-items: center;
+  align-self: center;
+  font-family: Raleway;
+}
+
+.Greeting-Footer p {
+  margin: 10px 0px 10px 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .Greeting-Demo-Login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  .Greeting-Demo-Login button {
+      margin: 0px 0px 10px 0px;
+  }
+
+  .Greeting-Demo-Login {
+    font-family: Indie Flower;
+    font-size: 20px;
+
+}
+
+  .Greeting-Demo-Login p {
+      margin: 10px 0px 10px 0px;
+}
+}
