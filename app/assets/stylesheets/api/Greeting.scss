@@ -1,29 +1,60 @@
 .Greeting {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .Greeting-Demo-Login {
-    background-color: rgb(26,26,26);
-    color: rgb(247,247,247);
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items:center;
-    font-family: Indie Flower;
-    font-size: 30px;
-    flex-wrap: wrap;
+  background-color: rgb(26,26,26);
+  color: rgb(247,247,247);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items:center;
+  font-family: Indie Flower;
+  font-size: 30px;
+  flex-wrap: wrap;
 }
 
 .Greeting-Demo-Login button {
-    margin: 25px 0px 25px 60px;
+  margin: 25px 0px 25px 60px;
+}
+
+.Greeting-Demo-Login img {
+  width: 70px;
+  height: 70px;
+  margin-right: 20px;
+}
+
+.Greeting-Mid-Panel {
+  background-color: solid rgb(75,165,64);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.Greeting-Mid_Panel-Boxes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Raleway;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.Greeting-Mid-Panel img {
+  width: 400px;
+  height: 400px;
+  margin-top: 50px;
+  margin-bottom: 20px;
 }
 
 .Greeting-Footer {
-  display: flex;
+display: block;
+
   width: 80%;
+  height: 70px;
   border-top: 1px solid rgb(26,26,26);
   justify-content: space-between;
   align-items: center;
@@ -32,51 +63,44 @@
 }
 
 .Greeting-Footer p {
-  margin: 10px 0px 10px 20px;
+  display: inline-block;
+  font-size: 15px;
 }
 
 .Greeting-Footer img {
-  width: 25px;
-  height: 25px;
-  margin-right: 20px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
 }
 
 .Greeting-Footer-Icons {
   display: flex;
 }
 
-.Greeting-Mid-Panel {
-  background-image: image-url("midBack.png");
-  background-color: solid rgb(75,165,64);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-}
-.Greeting-Mid-Panel img {
-  width: 400px;
-  height: 400px;
-}
-
 @media only screen and (max-width: 768px) {
+
   .Greeting-Demo-Login {
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    font-family: Indie Flower;
+    font-size: 20px;
   }
 
   .Greeting-Demo-Login button {
-      margin: 0px 0px 10px 0px;
-  }
-
-  .Greeting-Demo-Login {
-    font-family: Indie Flower;
-    font-size: 20px;
-
+    margin: 0px 0px 10px 0px;
   }
 
   .Greeting-Demo-Login p {
-      margin: 10px 0px 10px 0px;
+    margin: 10px 0px 10px 0px;
   }
+
+  .Greeting-Demo-Login img {
+    display: none;
+  }
+
+  .Greeting-Footer p {
+    display: none;
+  }
+
 }

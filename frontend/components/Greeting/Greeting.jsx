@@ -12,6 +12,9 @@ const greeting = () => {
 
         <div
           class="Greeting-Demo-Login">
+          <img
+            src={window.staticImages.dl}>
+          </img>
           <p>For your NOTABLE notes! and more!</p>
           <button
             className="Demo-Login">
@@ -21,27 +24,35 @@ const greeting = () => {
 
         <div
           className="Greeting-Mid-Panel">
-          <div>
+          <div
+            className="Greeting-Mid_Panel-Boxes">
             <img
               src={window.staticImages.mid1}>
             </img>
+            <p>Focus on what matters most!</p>
           </div>
-          <div>
+          <div
+            className="Greeting-Mid_Panel-Boxes">
             <img
               src={window.staticImages.mid2}>
             </img>
+            <p>Remember everything important</p>
           </div>
-          <div>
+          <div
+            className="Greeting-Mid_Panel-Boxes">
             <img
               src={window.staticImages.mid3}>
             </img>
+            <p>Stay organized, wherever you are</p>
           </div>
         </div>
       </div>
 
       <div
         className="Greeting-Footer">
-        <p>This is an Evernote clone for practice purposes and not for any commercial use!</p>
+        <div>
+          <p>This is an Evernote clone for practice purposes and not for any commercial use!</p>
+        </div>
 
         <div
           className="Greeting-Footer-Icons">
@@ -54,8 +65,8 @@ const greeting = () => {
           <img
             src={window.staticImages.linkedin}>
           </img>
-
         </div>
+
       </div>
 
     </div>
