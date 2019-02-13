@@ -1,19 +1,17 @@
 .Greeting {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+
 }
 
 .Greeting-Demo-Login {
   background-color: rgb(26,26,26);
   color: rgb(247,247,247);
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items:center;
   font-family: Indie Flower;
   font-size: 30px;
-  flex-wrap: wrap;
 }
 
 .Greeting-Demo-Login button {
@@ -27,7 +25,6 @@
 }
 
 .Greeting-Mid-Panel {
-  background-color: solid rgb(75,165,64);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -40,37 +37,37 @@
   align-items: center;
   font-family: Raleway;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 40px;
+
 }
 
 .Greeting-Mid-Panel img {
-  width: 400px;
-  height: 400px;
   margin-top: 50px;
   margin-bottom: 20px;
 }
 
 .Greeting-Footer {
-display: block;
-
-  width: 80%;
-  height: 70px;
+  width: 85%;
+  display: flex;
   border-top: 1px solid rgb(26,26,26);
   justify-content: space-between;
   align-items: center;
   align-self: center;
   font-family: Raleway;
+  margin-top: 20px;
 }
 
 .Greeting-Footer p {
-  display: inline-block;
   font-size: 15px;
+  margin-left: 20px;
 }
 
 .Greeting-Footer img {
-  display: inline-block;
   width: 20px;
   height: 20px;
+  margin: 20px 20px 20px 0px;
+
+
 }
 
 .Greeting-Footer-Icons {
@@ -78,6 +75,11 @@ display: block;
 }
 
 @media only screen and (max-width: 768px) {
+
+  .Greeting {
+    background-color:  rgb(75,165,64);
+    color: rgb(247,247,247);
+  }
 
   .Greeting-Demo-Login {
     display: flex;
@@ -96,6 +98,10 @@ display: block;
   }
 
   .Greeting-Demo-Login img {
+    display: none;
+  }
+
+  .Greeting-Mid-Panel img {
     display: none;
   }
 
