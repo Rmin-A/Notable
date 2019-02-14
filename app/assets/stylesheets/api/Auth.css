@@ -86,5 +86,19 @@
 
 
 @media only screen and (max-width: 768px) {
+  .Auth-Page {
+    background-color: white;
+  }
+
+  .Auth-Form {
+    background-color: white;
+    position: inherit;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    transform: none;
+    box-shadow: none;
+    border-radius: 0px;
+  }
 
 }
