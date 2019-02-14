@@ -10,10 +10,12 @@ import {
 import { AuthRoute, ProtectedRoute } from '../utils/route_util';
 
 import Greeting from './Greeting/Greeting_Container.jsx';
+import SignIn from './Auth/SignIn_Container.jsx';
 
 const App = () => (
   <div>
     <Switch>
+      <AuthRoute exact path="/signin" component={SignIn} />
       <Route exact path="/" component={Greeting} />
     </Switch>
   </div>

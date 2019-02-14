@@ -1,4 +1,6 @@
 import { connect } from 'react-redux';
+import { withRouter } from "react-router";
+
 
 import { logout } from '../../actions/session_actions';
 import Greeting from './Greeting';
@@ -13,10 +15,7 @@ const mapDispatchToProps = dispatch => ({
 
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(Greeting);
-
-
-    // navLink: <Link to="/signup">sign up instead</Link>,
+)(Greeting));

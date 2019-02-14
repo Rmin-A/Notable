@@ -62,7 +62,7 @@ const navbar = (props) => {
           className="Navbar-link">
           <button
             className="Navbar-SignUp">
-            Sign Up
+            {props.signUpNavLink}
           </button>
         </div>
         <div
@@ -75,7 +75,7 @@ const navbar = (props) => {
           className="Navbar-link">
           <button
             className="Navbar-LogIn">
-            Log in
+            {props.signInNavLink}
           </button>
         </div>
       </nav>
