@@ -23,25 +23,25 @@ const greeting = () => {
       <div
         className="Greeting-Mid-Panel">
         <div
-          className="Greeting-Mid_Panel-Boxes">
+          className="Greeting-Mid-Panel-1Box">
           <img
             src={window.staticImages.mid1}>
           </img>
           <p>Focus on what matters most!</p>
         </div>
         <div
-          className="Greeting-Mid_Panel-Boxes">
+          className="Greeting-Mid-Panel-2Box">
           <img
             src={window.staticImages.mid2}>
           </img>
-          <p>Remember everything important</p>
+          <p>Remember everything important!</p>
         </div>
         <div
-          className="Greeting-Mid_Panel-Boxes">
+          className="Greeting-Mid-Panel-3Box">
           <img
             src={window.staticImages.mid3}>
           </img>
-          <p>Stay organized, wherever you are</p>
+          <p>Stay strong, with or without this app!</p>
         </div>
       </div>
       <div
