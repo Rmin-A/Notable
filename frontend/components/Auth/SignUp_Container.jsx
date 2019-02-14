@@ -1,19 +1,19 @@
 import { connect } from 'react-redux';
 import { withRouter } from "react-router";
 
-
 import { signup } from '../../actions/session_actions';
 import Auth from './Auth';
 
-const mapStateToProps = ({ erros: { session } }) => {
+const mapStateToProps = ({ errors: { session } }) => {
   return {
+    formType: "Sign up",
     sessionError: session,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return({
-    logIn: (user) => dispatch(signup(user)),
+    signUp: (user) => dispatch(signup(user)),
   });
 };
 
