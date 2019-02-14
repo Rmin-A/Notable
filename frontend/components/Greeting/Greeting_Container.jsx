@@ -5,7 +5,7 @@ import { withRouter } from "react-router";
 import { logout } from '../../actions/session_actions';
 import Greeting from './Greeting';
 
-const mapStateToProps = ({ session, entities: { users } }) => {
+const mapStateToProps = () => {
   return {
 
   };

@@ -13,7 +13,7 @@ const mapStateToProps = ({ errors: { session } }) => {
 
 const mapDispatchToProps = dispatch => {
   return({
-    logIn: (user) => dispatch(login(user)),
+    submit: (user) => dispatch(login(user)),
   });
 };
 

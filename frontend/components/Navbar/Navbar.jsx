@@ -27,7 +27,7 @@ const navbar = (props) => {
           className="Navbar-link Navbar-link-toggle">
           <button
             className="Hamburgermenu"
-            onClick={toggleClickHandler()}>
+            onClick={ toggleClickHandler() }>
           </button>
         </div>
       </div>
@@ -62,7 +62,7 @@ const navbar = (props) => {
           className="Navbar-link">
           <button
             className="Navbar-SignUp">
-            {props.signUpNavLink}
+            { props.signUpNavLink }
           </button>
         </div>
         <div
@@ -75,7 +75,7 @@ const navbar = (props) => {
           className="Navbar-link">
           <button
             className="Navbar-LogIn">
-            {props.signInNavLink}
+            { props.signInNavLink }
           </button>
         </div>
       </nav>

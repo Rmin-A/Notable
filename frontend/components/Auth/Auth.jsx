@@ -5,13 +5,14 @@ import { Link } from 'react-router-dom';
 class Auth extends Component {
 
   state = {
-    email: null,
+    username: null,
     password: null
   }
 
   handleSubmit = () => {
     return(e) => {
-      alert('hi');
+      Object.freeze(this.state);
+      this.props.submit(this.state);
     }
   }
 
@@ -50,6 +51,14 @@ class Auth extends Component {
     )
   }
 
+  handleStateUpdate = (key) => {
+    return (e) => {
+      let newState = Object.assign({}, this.state);
+      newState[key] = e.currentTarget.value;
+      this.setState(newState);
+    }
+  }
+
   render() {
     return(
       <div
@@ -67,12 +76,13 @@ class Auth extends Component {
             </p>
           </div>
           <input
-            placeholder="Email"
-            type="email">
+            placeholder="username"
+            onChange={this.handleStateUpdate("username")}>
           </input>
           <input
             placeholder="Password"
-            type="password">
+            type="password"
+            onChange={this.handleStateUpdate("password")}>
           </input>
           {this.handleFormButton()}
         </form>
