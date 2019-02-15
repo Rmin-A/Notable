@@ -1,0 +1,51 @@
+.Main {
+  display: flex;
+
+}
+
+.Main-Sidebar {
+  order: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(26,26,26);
+  width: 240px;
+  height: 100vh;
+  font-family: Roboto;
+  color: white;
+}
+
+.Main-Sidebar-User {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.Main-Sidebar-Searchbar {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.Main-Sidebar-New-Note {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.Main-Sidebar-New-Note img {
+  height: 31px;
+  width: 31px;
+  margin-right: 15px;
+}
+
+.Main-Sidebar-Menu {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.Main-List {
+  order: 2;
+}
+
+.Main-Editor {
+  order: 3;
+
+}
