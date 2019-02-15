@@ -4,10 +4,11 @@ import { withRouter } from "react-router";
 import { signup } from '../../actions/session_actions';
 import Auth from './Auth';
 
-const mapStateToProps = ({ errors: { session } }) => {
+const mapStateToProps = ({ errors: { session }, session: { currentUser } }) => {
   return {
     formType: "Sign up",
     sessionError: session,
+    currentUser
   };
 };
 
