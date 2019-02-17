@@ -18,12 +18,39 @@ module.exports = {
             presets: ['@babel/env', '@babel/react']
           }
         },
-      }
+      },
+        {
+      test: /\.ts$/,
+      use: [{
+        loader: 'ts-loader',
+        options: {
+          compilerOptions: {
+            declaration: false,
+            target: 'es5',
+            module: 'commonjs'
+          },
+          transpileOnly: true
+        }
+      }]
+      },
+      {
+        test: /\.svg$/,
+        use: [{
+          loader: 'html-loader',
+          options: {
+            minimize: true
+          }
+        }]
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
     ]
   },
-  devtool: 'source-map',
   resolve: {
-    extensions: [".js", ".jsx", "*"]
+    extensions: [".js", ".jsx",'.svg', "*"]
   },
+  devtool: 'source-map',
   mode: "development"
 };

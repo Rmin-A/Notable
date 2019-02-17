@@ -1,14 +1,18 @@
 import React, { Component }from 'react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 class Editor extends Component {
+  state={
 
-  state ={
-
-  };
+  }
 
   render() {
     return(
-      <div>Hi this is editor</div>
+      <div>
+        <ReactQuill value={this.state.text}
+                    onChange={this.handleChange} />
+      </div>
     )
   }
 }
