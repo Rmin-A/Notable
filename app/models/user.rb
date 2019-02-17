@@ -1,5 +1,12 @@
 class User < ApplicationRecord
 
+  has_many :notes
+  has_many :notebooks
+  has_many :tags
+  has_many :taggings, :through => :tags
+  has_many :favings
+
+
   attr_reader :password
 
   validates :username, :password_digest, :session_token, presence: true

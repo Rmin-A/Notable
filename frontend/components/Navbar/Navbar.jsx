@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 const navbar = (props) => {
 
@@ -62,7 +62,7 @@ const navbar = (props) => {
           className="Navbar-link">
           <button
             className="Navbar-SignUp">
-            { props.signUpNavLink }
+            <Link to="/signup">Sign Up</Link>
           </button>
         </div>
         <div
@@ -75,10 +75,12 @@ const navbar = (props) => {
           className="Navbar-link">
           <button
             className="Navbar-LogIn">
-            { props.signInNavLink }
+            <Link to="/signin">Sign in</Link>
           </button>
         </div>
       </nav>
+
+
     </div>
   );
 };

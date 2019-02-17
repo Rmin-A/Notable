@@ -9,12 +9,6 @@ class Auth extends Component {
     password: null
   }
 
-  componentWillReceiveProps(nextProps) {
-    if ( nextProps.currentUser.id ) {
-      this.props.history.push('/main');
-    }
-  }
-
   handleSubmit = () => {
     return(e) => {
       Object.freeze(this.state);

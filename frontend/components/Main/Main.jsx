@@ -1,54 +1,21 @@
 import React, { Component } from 'react';
 
+import Sidebar  from '../Sidebar/Sidebar';
+
 class Main extends Component {
 
-  state = {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
 
+  ComponentWillReceiveProps(nextProps) {
+    window.scrollTo(0, 0);
   }
 
   render() {
     return (
-      <div
-        className="Main">
-
-        <div
-          className="Main-Sidebar">
-          <div
-            className="Main-Sidebar-User">
-            Hi {this.props.currentUser.username}
-          </div>
-          <div
-            className="Main-Sidebar-Searchbar">
-            this is the search bar
-          </div>
-          <div
-            className="Main-Sidebar-Menu">
-            <button
-              className="Main-Sidebar-New-Note">
-              <img
-                src= { window.staticImages.new }>
-              </img>
-              New Note
-            </button>
-            <button
-              onClick={ () => this.props.logOut() }>
-              Log out
-            </button>
-          </div>
-        </div>
-
-        <div
-          className="Main-List">
-          this is the list bar
-        </div>
-
-        <div
-          className="Main-Editor">
-          this is the editor
-        </div>
-
-      </div>
-    )
+      <Sidebar logOut={this.props.logOut}/>
+    );
   }
 }
 

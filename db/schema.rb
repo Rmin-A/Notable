@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_15_052818) do
+ActiveRecord::Schema.define(version: 2019_02_15_060052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favings", force: :cascade do |t|
+    t.integer "note_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["note_id"], name: "index_favings_on_note_id"
+    t.index ["user_id"], name: "index_favings_on_user_id"
+  end
+
+  create_table "notebooks", force: :cascade do |t|
+    t.string "name"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_notebooks_on_name"
+    t.index ["user_id"], name: "index_notebooks_on_user_id"
+  end
 
   create_table "notes", force: :cascade do |t|
     t.string "title"
@@ -21,9 +39,26 @@ ActiveRecord::Schema.define(version: 2019_02_15_052818) do
     t.integer "notebook_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "fav"
     t.index ["notebook_id"], name: "index_notes_on_notebook_id"
     t.index ["title"], name: "index_notes_on_title"
+  end
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer "note_id"
+    t.integer "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["note_id"], name: "index_taggings_on_note_id"
+    t.index ["tag_id"], name: "index_taggings_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_tags_on_name"
+    t.index ["user_id"], name: "index_tags_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,8 +1,13 @@
 import React from 'react';
 
-import Navbar from '../Navbar/Navbar_container';
+import { AuthRoute, ProtectedRoute } from '../../utils/route_util';
+
+import Navbar from '../Navbar/Navbar';
+import SignIn from '../Auth/SignIn_Container';
+import SignUp from '../Auth/SignUp_Container';
 
 const greeting = () => {
+
   return(
     <div
       className="Greeting">
@@ -12,7 +17,7 @@ const greeting = () => {
       <div
         className="Greeting-Demo-Login">
         <img
-          src={window.staticImages.dl}>
+          src={ window.staticImages.dl }>
         </img>
         <p>For your NOTABLE notes! and more!</p>
         <button
@@ -25,21 +30,21 @@ const greeting = () => {
         <div
           className="Greeting-Mid-Panel-1Box">
           <img
-            src={window.staticImages.mid1}>
+            src={ window.staticImages.mid1 }>
           </img>
           <p>Focus on what matters most!</p>
         </div>
         <div
           className="Greeting-Mid-Panel-2Box">
           <img
-            src={window.staticImages.mid2}>
+            src={ window.staticImages.mid2 }>
           </img>
           <p>Remember everything important!</p>
         </div>
         <div
           className="Greeting-Mid-Panel-3Box">
           <img
-            src={window.staticImages.mid3}>
+            src={ window.staticImages.mid3 }>
           </img>
           <p>Stay strong, with or without this app!</p>
         </div>
@@ -52,13 +57,13 @@ const greeting = () => {
         <div
           className="Greeting-Footer-Icons">
           <img
-            src={window.staticImages.github}>
+            src={ window.staticImages.github }>
           </img>
           <img
-            src={window.staticImages.gmail}>
+            src={ window.staticImages.gmail }>
           </img>
           <img
-            src={window.staticImages.linkedin}>
+            src={ window.staticImages.linkedin }>
           </img>
         </div>
       </div>

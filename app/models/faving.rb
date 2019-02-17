@@ -1,0 +1,2 @@
+class Faving < ApplicationRecord
+end
