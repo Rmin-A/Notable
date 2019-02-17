@@ -1,5 +1,8 @@
-  import React, { Component }from 'react';
-  import ReactQuill from 'react-quill';
+import React, { Component }from 'react';
+import ReactQuill from 'react-quill';
+
+import TagBar from '../TagBar/TagBar_Container';
+import ActionBar from '../ActionBar/ActionBar_Container';
 
 class Editor extends Component {
   state = {
@@ -18,11 +21,26 @@ class Editor extends Component {
     return(
       <div
         className="Editor">
-        <ReactQuill
-          value={this.state.text}
-          onChange={this.handleChange()}
-          modules={modules}
-        />
+        <div
+          className="Editor-top">
+          <div
+            className="Editor-ActionBar">
+            <ActionBar />
+          </div>
+          <div
+            className="Editor-Quill">
+            <ReactQuill
+              value={this.state.text}
+              onChange={this.handleChange()}
+              modules={modules}
+              placeholder="Start writing..."
+              />
+          </div>
+        </div>
+        <div
+          className="Editor-Bottom">
+          <TagBar />
+        </div>
       </div>
     )
   }
