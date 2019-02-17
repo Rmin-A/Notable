@@ -3,7 +3,8 @@ export const COLORS = {
   black: 'rgb(0,0,0)',
   lightBlack: 'rgb(26,26,26)',
   grey: 'rgb(247,247,247)',
-  white: 'rgb(275,275,275)'
+  white: 'rgb(275,275,275)',
+  border: 'rgb(230,230,230)',
 };
 
 export const FONTS = {
