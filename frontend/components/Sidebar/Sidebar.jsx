@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const sideBar = (props) => {
   return(
@@ -19,8 +20,15 @@ const sideBar = (props) => {
             <img
               src= { window.staticImages.new }>
             </img>
-            New Note
+            <Link
+              to="/notes/new">
+              New Note
+            </Link>
           </button>
+          <Link
+            to="/notes">
+            All Notes
+          </Link>
           <button
             onClick={props.logOut}>
             Log out
