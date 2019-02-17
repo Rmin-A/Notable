@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 
-import Sidebar  from '../Sidebar/Sidebar';
+import Sidebar  from '../Sidebar/Sidebar_Container';
+import ShowBar from '../ShowBar/ShowBar_Container';
+import Editor from '../Editor/Editor_Container';
 
 class Main extends Component {
 
-  componentDidMount() {
-    window.scrollTo(0, 0);
-  }
-
-  ComponentWillReceiveProps(nextProps) {
-    window.scrollTo(0, 0);
-  }
-
   render() {
     return (
-      <Sidebar logOut={this.props.logOut}/>
+      <div
+        className='Main'>
+        <Sidebar logOut={this.props.logOut}/>
+        <ShowBar />
+        <Editor />
+      </div>
     );
   }
 }

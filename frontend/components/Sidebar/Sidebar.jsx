@@ -2,23 +2,20 @@ import React from 'react';
 
 const sideBar = (props) => {
   return(
-    <div
-      className="Main">
-
       <div
-        className="Main-Sidebar">
+        className="Sidebar">
         <div
-          className="Main-Sidebar-User">
+          className="Sidebar-User">
           Hi {}
         </div>
         <div
-          className="Main-Sidebar-Searchbar">
+          className="Sidebar-Searchbar">
           this is the search bar
         </div>
         <div
-          className="Main-Sidebar-Menu">
+          className="Sidebar-Menu">
           <button
-            className="Main-Sidebar-New-Note">
+            className="Sidebar-New-Note">
             <img
               src= { window.staticImages.new }>
             </img>
@@ -30,18 +27,6 @@ const sideBar = (props) => {
           </button>
         </div>
       </div>
-
-      <div
-        className="Main-List">
-        this is the list bar
-      </div>
-
-      <div
-        className="Main-Editor">
-        this is the editor
-      </div>
-
-    </div>
   );
 };
 
