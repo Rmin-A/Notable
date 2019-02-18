@@ -2,6 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const sideBar = (props) => {
+
+  const handleNewNote = () => {
+    return (e) => {
+      e.preventDefault();
+      props.createNote();
+    };
+  };
+
   return(
       <div
         className="Sidebar">
@@ -21,7 +29,8 @@ const sideBar = (props) => {
               src= { window.staticImages.new }>
             </img>
             <Link
-              to="/notes/new">
+              to="/notes/new"
+              onClick={ handleNewNote() }>
               New Note
             </Link>
           </button>

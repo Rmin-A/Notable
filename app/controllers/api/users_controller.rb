@@ -4,6 +4,7 @@ class Api::UsersController < ApplicationController
 
     if @user.save
       login(@user)
+      Notebook.create({ name: "General", user_id: @user.id })
       render "api/users/show"
     else
       render json: @user.errors.full_messages, status: 422
@@ -15,5 +16,5 @@ class Api::UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :password)
   end
-  
+
 end
