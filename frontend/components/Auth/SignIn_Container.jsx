@@ -14,7 +14,7 @@ const mapStateToProps = ({ errors: { session }, session: { currentUser } }) => {
 
 const mapDispatchToProps = dispatch => {
   return({
-    submit: (user) => dispatch(login(user)),
+    handleFormProcess: (user) => dispatch(login(user)),
   });
 };
 

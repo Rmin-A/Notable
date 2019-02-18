@@ -15,8 +15,7 @@ class Main extends Component {
         <Sidebar logOut={this.props.logOut}/>
 
         <ProtectedRoute exact path='/notes' component={ ShowBar } />
-        <ProtectedRoute exact path='/notes' component={ Editor } />
-        <ProtectedRoute path='/notes/new'   component={ Editor } />
+        <ProtectedRoute path='/notes' component={ Editor } />
       </div>
     );
   }

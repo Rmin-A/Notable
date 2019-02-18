@@ -5,6 +5,10 @@
   justify-content: space-between;
 }
 
+.quill {
+  min-width: 700px;
+}
+
 .Editor-ActionBar {
   height: 55px;
   margin: 0px 20px 15px 20px;
@@ -13,6 +17,25 @@
 
 .Editor-Quill {
   margin: 0px 30px 0px 30px;
+}
+
+.Editor-Quill-Body .ql-container.ql-snow {
+  padding-top: 70px;
+  font-family: Raleway;
+  font-size: 15px;
+  font-style: normal;
+}
+
+.Editor-Quill-Title .ql-container.ql-snow {
+  padding-top: 0px;
+  font-family: Raleway;
+  font-size: 30px;
+  font-style: normal;
+  color: black;
+}
+.Editor-Quill-Title {
+  position: absolute;
+  top: 125px;
 }
 
 .Editor-Bottom {

@@ -7,7 +7,7 @@ const sideBar = (props) => {
         className="Sidebar">
         <div
           className="Sidebar-User">
-          Hi {}
+          Hi {props.currentUser.username}
         </div>
         <div
           className="Sidebar-Searchbar">

@@ -11,8 +11,9 @@ class Auth extends Component {
 
   handleSubmit = () => {
     return(e) => {
+      e.preventDefault();
       Object.freeze(this.state);
-      this.props.submit(this.state);
+      this.props.handleFormProcess(this.state);
     }
   }
 

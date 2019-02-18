@@ -6,13 +6,14 @@ import ActionBar from '../ActionBar/ActionBar_Container';
 
 class Editor extends Component {
   state = {
+    title: null,
     text: null,
   }
 
-  handleChange = () => {
+  handleChange = (key) => {
     return (e) => {
       let newState = Object.assign({}, this.state);
-      newState.text = e;
+      newState[key] = e;
       this.setState(newState);
     }
   }
@@ -29,12 +30,24 @@ class Editor extends Component {
           </div>
           <div
             className="Editor-Quill">
-            <ReactQuill
-              value={this.state.text}
-              onChange={this.handleChange()}
-              modules={modules}
-              placeholder="Start writing..."
-              />
+            <div
+              className="Editor-Quill-Body">
+              <ReactQuill
+                value={ this.state.text }
+                onChange={ this.handleChange('text') }
+                modules={ modules }
+                placeholder="Start writing..."
+                />
+            </div>
+            <div
+              className="Editor-Quill-Title">
+              <ReactQuill
+                value={ this.state.title }
+                onChange={ this.handleChange('title') }
+                modules={ { toolbar: "" } }
+                placeholder="Title"
+                />
+            </div>
           </div>
         </div>
         <div

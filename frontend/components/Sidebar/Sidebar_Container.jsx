@@ -3,9 +3,9 @@ import { withRouter } from "react-router";
 
 import SideBar from './SideBar';
 
-const mapStateToProps = () => {
+const mapStateToProps = ({ session: { currentUser }}) => {
   return {
-
+    currentUser,
   };
 };
 
