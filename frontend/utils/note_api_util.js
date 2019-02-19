@@ -5,7 +5,7 @@ export const fetchAllNotes = () => (
   })
 );
 
-export const createNote = (note = {title: null, body: null, notebook_id: null}) => (
+export const createNote = (note = {name: null, body: null, notebook_id: null}) => (
   $.ajax({
     url: '/api/notes',
     method: 'POST',

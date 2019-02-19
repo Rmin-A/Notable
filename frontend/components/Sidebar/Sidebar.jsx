@@ -24,15 +24,12 @@ const sideBar = (props) => {
         <div
           className="Sidebar-Menu">
           <button
-            className="Sidebar-New-Note">
+            className="Sidebar-New-Note"
+            onClick={ handleNewNote() }>
             <img
               src= { window.staticImages.new }>
             </img>
-            <Link
-              to="/notes/new"
-              onClick={ handleNewNote() }>
-              New Note
-            </Link>
+            New Note
           </button>
           <Link
             to="/notes">

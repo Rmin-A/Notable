@@ -13,8 +13,11 @@ class Api::NotesController < ApplicationController
         name: "General"
       }).id
     end
-    debugger
-    @note.save
+    if @note.save
+      render :show
+    else
+      render json: { errors: @note.errors.full_messages }, status: 500
+    end
   end
 
   def updated
@@ -24,7 +27,7 @@ class Api::NotesController < ApplicationController
   end
 
   def note_params
-    params.require(:note).permit(:title, :body, :notebook_id)
+    params.require(:note).permit(:name, :body, :notebook_id)
   end
 
 end

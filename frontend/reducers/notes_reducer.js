@@ -1,3 +1,4 @@
+import { merge } from 'lodash';
 import {
   RECEIVE_ALL_NOTES,
   RECEIVE_NOTE,
@@ -7,10 +8,10 @@ const sessionReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_ALL_NOTES:
-      return { notes: action.notes };
+      return action.notes;
     case RECEIVE_NOTE:
       let newState = Object.assign({}, state);
-      newState[action.note.id] = action.note;
+      newState = merge(newState, action.note);
       return newState;
     default:
       return state;

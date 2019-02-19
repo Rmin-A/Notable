@@ -5,9 +5,10 @@ import { logout, login, signup } from '../../actions/session_actions';
 import { fetchAllNotes } from '../../actions/note_actions';
 import Main from './Main';
 
-const mapStateToProps = ({ session: { currentUser } }) => {
+const mapStateToProps = ({ session: { currentUser }, entities: { notes } }) => {
   return {
-    currentUser
+    currentUser,
+    notes
   };
 };
 

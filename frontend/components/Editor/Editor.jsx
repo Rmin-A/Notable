@@ -6,7 +6,7 @@ import ActionBar from '../ActionBar/ActionBar_Container';
 
 class Editor extends Component {
   state = {
-    title: null,
+    name: null,
     text: null,
   }
 
@@ -42,8 +42,8 @@ class Editor extends Component {
             <div
               className="Editor-Quill-Title">
               <ReactQuill
-                value={ this.state.title }
-                onChange={ this.handleChange('title') }
+                value={ this.state.name }
+                onChange={ this.handleChange('name') }
                 modules={ { toolbar: "" } }
                 placeholder="Title"
                 />

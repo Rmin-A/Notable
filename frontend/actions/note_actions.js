@@ -30,7 +30,7 @@ export const fetchAllNotes = () => dispatch => (
 
 export const createNote = note => dispatch => (
   APIUtil.createNote(note).then( payload =>
-    (dispatch(receiveNote(note))
+    (dispatch(receiveNote(payload))
   ), err => (
     dispatch(receiveNoteErrors(err.responseJSON))
   ))
