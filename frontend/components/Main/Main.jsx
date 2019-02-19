@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { merge } from 'lodash';
 
 import { ProtectedRoute } from '../../utils/route_util';
 import { fetchAllNotes } from '../../actions/note_actions';
@@ -13,7 +14,12 @@ import Editor   from '../Editor/Editor_Container';
 class Main extends Component {
 
   state = {
-    showBarType: "All Notes"
+    showBarType: "All Notes",
+    editorNote: {
+      id: null,
+      name: null,
+      body: null,
+    }
   }
 
   componentDidMount() {
@@ -21,14 +27,14 @@ class Main extends Component {
   }
 
   handleShowBarProps = () => {
-    let items = {
+    let list = {
       type: null,
-      data: null
+      notes: null
     }
     switch ( this.state.showBarType ) {
       case "All Notes":
-        items.type = "All Notes";
-        items.data = this.props.notes;
+        list.type = "All Notes";
+        list.notes = this.props.notes;
       break;
       case "Notebook":
       break;
@@ -37,10 +43,17 @@ class Main extends Component {
       default:
       break;
     }
-    return items;
+    
+    return list;
+  }
+
+  handleShowBarSelect = (note) => {
+    let newState = merge({}, this.state, {editorNote: note});
+    this.setState(newState);
   }
 
   render() {
+    debugger
     return (
       <div
         className='Main'>
@@ -49,7 +62,10 @@ class Main extends Component {
         <ProtectedRoute
           exact path='/notes'
           component={
-            () => <ShowBar items={ this.handleShowBarProps() } />
+            () => <ShowBar
+                    list={this.handleShowBarProps()}
+                    handleItemSelect={ this.handleShowBarSelect }
+                  />
           }
         />
         <ProtectedRoute

@@ -23,7 +23,7 @@ const showBar = (props) => {
   };
 
   const handleItems = () => {
-    if ( !props.items.data ) {
+    if ( !props.list.notes ) {
       return(
         <div
           className="Showbar-Items-Boxes">
@@ -31,28 +31,29 @@ const showBar = (props) => {
       );
     }
     let itemBoxes = [];
-    Object.values(props.items.data).forEach( (item) => {
+    Object.values(props.list.notes).forEach( (note, idx) => {
         itemBoxes.push(
           <div
             className="ShowBar-Item-Box"
-            key={item.id}>
+            key={note.id}
+            onClick={ (e) => props.handleItemSelect(note)}>
             <div>
               <div
                 className="ShowBar-Item-Title">
                 {
-                  (item.name) ? item.name : "Untitled"
+                  (note.name) ? note.name : "Untitled"
                 }
               </div>
               <div
                 className="ShowBar-Item-body">
                 {
-                  (item.body) ? item.body : null
+                  (note.body) ? note.body : null
                 }
               </div>
             </div>
             <div
               className="ShowBar-Item-Time">
-              {handleCalculateUpdateHours(item.updated_at)}
+              {handleCalculateUpdateHours(note.updated_at)}
             </div>
           </div>
         );
@@ -61,7 +62,7 @@ const showBar = (props) => {
   };
 
   const handleItemCount = () => {
-    let count = Object.keys(props.items.data).length;
+    let count = Object.keys(props.list.notes).length;
     switch (count) {
       case undefined:
         return "";
@@ -77,7 +78,7 @@ const showBar = (props) => {
       className="ShowBar">
       <div
         className="ShowBar-Header">
-        <div>{ props.items.type }</div>
+        <div>{ props.list.type }</div>
         <div>{ handleItemCount() }</div>
       </div>
       <div

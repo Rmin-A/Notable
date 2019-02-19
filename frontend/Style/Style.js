@@ -11,7 +11,7 @@ export const COLORS = {
 
 export const FONTS = {
   fansy: 'Indie Flower',
-  title: 'Raleway',
+  title: 'Lato',
 };
 
 export const ADVPANEL = {
