@@ -30,11 +30,7 @@ class Main extends Component {
         items.type = "All Notes";
         items.data = this.props.notes;
       break;
-      case "Notebooks":
-      break;
       case "Notebook":
-      break;
-      case "Tags":
       break;
       case "Tag":
       break;

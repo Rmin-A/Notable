@@ -1,13 +1,6 @@
 import React from 'react';
 
 const showBar = (props) => {
-  if ( !props.items.data ) {
-    return(
-      <div
-        className="ShowBar">
-      </div>
-    );
-  }
 
   const handleCalculateUpdateHours = (date) => {
     // get total seconds between the times
@@ -30,24 +23,35 @@ const showBar = (props) => {
   };
 
   const handleItems = () => {
+    if ( !props.items.data ) {
+      return(
+        <div
+          className="Showbar-Items-Boxes">
+        </div>
+      );
+    }
     let itemBoxes = [];
     Object.values(props.items.data).forEach( (item) => {
         itemBoxes.push(
           <div
             className="ShowBar-Item-Box"
             key={item.id}>
-            <div
-              className="ShowBar-Item-Title">
-              {item.name}
+            <div>
+              <div
+                className="ShowBar-Item-Title">
+                {
+                  (item.name) ? item.name : "Untitled"
+                }
+              </div>
+              <div
+                className="ShowBar-Item-body">
+                {
+                  (item.body) ? item.body : null
+                }
+              </div>
             </div>
             <div
-              className="ShowBar-Item-Title">
-              {
-                (item.body) ? item.body : null
-              }
-            </div>
-            <div
-              className="ShowBar-Item-Title">
+              className="ShowBar-Item-Time">
               {handleCalculateUpdateHours(item.updated_at)}
             </div>
           </div>
@@ -56,10 +60,30 @@ const showBar = (props) => {
     return itemBoxes.reverse();
   };
 
+  const handleItemCount = () => {
+    let count = Object.keys(props.items.data).length;
+    switch (count) {
+      case undefined:
+        return "";
+      case 1:
+        return "1 note";
+      default:
+        return `${count} notes`;
+    }
+  };
+
   return(
     <div
       className="ShowBar">
-      { handleItems() }
+      <div
+        className="ShowBar-Header">
+        <div>{ props.items.type }</div>
+        <div>{ handleItemCount() }</div>
+      </div>
+      <div
+        className="Showbar-Items-Boxes">
+        { handleItems() }
+      </div>
     </div>
   );
 
