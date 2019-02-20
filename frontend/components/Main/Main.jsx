@@ -52,7 +52,6 @@ class Main extends Component {
     let that = this;
     return (id) => {
       let newState = merge({}, that.state, { editorNote: that.props.notes[id] });
-      debugger
       that.setState(newState);
     }
   }
