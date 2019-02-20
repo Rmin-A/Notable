@@ -13,14 +13,15 @@ import Editor   from '../Editor/Editor_Container';
 
 class Main extends Component {
 
-  state = {
-    showBarType: "All Notes",
-    editorNote: {
-      id: null,
-      name: null,
-      body: null,
+    state = {
+      showBarType: "All Notes",
+      editorNote: {
+        id: null,
+        name: null,
+        body: null,
+      }
     }
-  }
+
 
   componentDidMount() {
     this.props.fetchAllNotes();
@@ -43,17 +44,20 @@ class Main extends Component {
       default:
       break;
     }
-    
+
     return list;
   }
 
-  handleShowBarSelect = (note) => {
-    let newState = merge({}, this.state, {editorNote: note});
-    this.setState(newState);
+  handleShowBarSelect = () => {
+    let that = this;
+    return (id) => {
+      let newState = merge({}, that.state, { editorNote: that.props.notes[id] });
+      debugger
+      that.setState(newState);
+    }
   }
 
   render() {
-    debugger
     return (
       <div
         className='Main'>
@@ -64,7 +68,8 @@ class Main extends Component {
           component={
             () => <ShowBar
                     list={this.handleShowBarProps()}
-                    handleItemSelect={ this.handleShowBarSelect }
+                    handleItemSelect={ this.handleShowBarSelect() }
+                    selectedNoteId={ this.state.editorNote.id }
                   />
           }
         />

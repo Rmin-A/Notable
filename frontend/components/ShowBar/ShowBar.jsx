@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const showBar = (props) => {
+class ShowBar extends Component {
 
-  const handleCalculateUpdateHours = (date) => {
+  componentDidMount() {
+    const items = document.querySelectorAll(".ShowBar-Item-Box");
+    if ( !this.props.selectedNoteId ) {
+      if ( items.length > 0) {
+        let firstNoteId = items[0].getAttribute('note-id');
+        this.props.handleItemSelect(firstNoteId);
+      }
+    } else {
+      let that = this;
+      let selectedNote = Array.prototype.slice.call(items).find( (item) => {
+        return item.getAttribute('note-id') === that.props.selectedNoteId.toString()
+      })
+      debugger
+      selectedNote.classList.toggle('ShowBar-Item-Box-Selected');
+    }
+  }
+
+  handleCalculateUpdateHours = (date) => {
     // get total seconds between the times
     var delta = Math.abs(new Date() - new Date(date)) / 1000;
     if ( delta >= 86400 && delta < 172800) {
@@ -20,74 +37,76 @@ const showBar = (props) => {
     } else {
       return "Less than an hour ago";
     }
-  };
+  }
 
-  const handleItems = () => {
-    if ( !props.list.notes ) {
+  handleItems = () => {
+    if ( !this.props.list.notes ) {
       return(
         <div
-          className="Showbar-Items-Boxes">
+          className="ShowBar-Item-Boxes">
         </div>
       );
     }
     let itemBoxes = [];
-    Object.values(props.list.notes).forEach( (note, idx) => {
-        itemBoxes.push(
-          <div
-            className="ShowBar-Item-Box"
-            key={note.id}
-            onClick={ (e) => props.handleItemSelect(note)}>
-            <div>
-              <div
-                className="ShowBar-Item-Title">
-                {
-                  (note.name) ? note.name : "Untitled"
-                }
-              </div>
-              <div
-                className="ShowBar-Item-body">
-                {
-                  (note.body) ? note.body : null
-                }
-              </div>
+    Object.values(this.props.list.notes).forEach( (note, idx ) => {
+      itemBoxes.push(
+        <div
+          className="ShowBar-Item-Box"
+          key={note.id}
+          note-id={note.id}
+          onClick={ (e) => alert('hi')}>
+          <div>
+            <div
+              className="ShowBar-Item-Title">
+              {
+                (note.name) ? note.name : "Untitled"
+              }
             </div>
             <div
-              className="ShowBar-Item-Time">
-              {handleCalculateUpdateHours(note.updated_at)}
+              className="ShowBar-Item-body">
+              {
+                (note.body) ? note.body : null
+              }
             </div>
           </div>
-        );
-      });
+          <div
+            className="ShowBar-Item-Time">
+            {this.handleCalculateUpdateHours(note.updated_at)}
+          </div>
+        </div>
+      );
+    });
     return itemBoxes.reverse();
-  };
+  }
 
-  const handleItemCount = () => {
-    let count = Object.keys(props.list.notes).length;
+  handleItemCount = () => {
+    let count = Object.keys(this.props.list.notes).length;
     switch (count) {
       case undefined:
-        return "";
+      return "";
       case 1:
-        return "1 note";
+      return "1 note";
       default:
-        return `${count} notes`;
+      return `${count} notes`;
     }
-  };
+  }
 
-  return(
-    <div
-      className="ShowBar">
+  render() {
+    return (
       <div
-        className="ShowBar-Header">
-        <div>{ props.list.type }</div>
-        <div>{ handleItemCount() }</div>
+        className="ShowBar">
+        <div
+          className="ShowBar-Header">
+          <div>{ this.props.list.type }</div>
+          <div>{ this.handleItemCount() }</div>
+        </div>
+        <div
+          className="ShowBar-Item-Boxes">
+          { this.handleItems() }
+        </div>
       </div>
-      <div
-        className="Showbar-Items-Boxes">
-        { handleItems() }
-      </div>
-    </div>
-  );
+    )
+  }
+}
 
-};
-
-export default showBar;
+export default ShowBar;
