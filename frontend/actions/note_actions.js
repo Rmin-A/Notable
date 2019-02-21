@@ -35,3 +35,11 @@ export const createNote = note => dispatch => (
     dispatch(receiveNoteErrors(err.responseJSON))
   ))
 );
+
+export const updateNote = note => dispatch => (
+  APIUtil.updateNote(note).then( payload =>
+    (dispatch(receiveNote(payload))
+  ), err => (
+    dispatch(receiveNoteErrors(err.responseJSON))
+  ))
+);

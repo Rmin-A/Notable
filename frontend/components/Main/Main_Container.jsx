@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from "react-router";
 
 import { logout, login, signup } from '../../actions/session_actions';
-import { fetchAllNotes } from '../../actions/note_actions';
+import { fetchAllNotes, createNote } from '../../actions/note_actions';
 import Main from './Main';
 
 const mapStateToProps = ({ session: { currentUser }, entities: { notes } }) => {
@@ -17,6 +17,7 @@ const mapDispatchToProps = dispatch => ({
   signIn: () => dispatch(login()),
   signUp: () => dispatch(signup()),
   fetchAllNotes: () => dispatch(fetchAllNotes()),
+  createNote: () => dispatch(createNote()),
 });
 
 export default withRouter(connect(

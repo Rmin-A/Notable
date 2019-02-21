@@ -5,20 +5,39 @@ import TagBar from '../TagBar/TagBar_Container';
 import ActionBar from '../ActionBar/ActionBar_Container';
 
 class Editor extends Component {
+
   state = {
+    id: null,
     name: null,
-    text: null,
+    body: null,
+  };
+
+  componentDidMount() {
+    this.setState( this.props.selectedNote );
+    // this.interval = setInterval( () => {
+    //   alert('this is auto save')
+    // }, 10000)
   }
 
-  handleChange = (key) => {
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+  handleState = (key) => {
     return (e) => {
       let newState = Object.assign({}, this.state);
       newState[key] = e;
       this.setState(newState);
+      // this.props.handleEditorSetState(key, e)
     }
   }
 
+  handleAutoSave = () => {
+    
+  }
+
   render() {
+        debugger
     return(
       <div
         className="Editor">
@@ -33,8 +52,8 @@ class Editor extends Component {
             <div
               className="Editor-Quill-Body">
               <ReactQuill
-                value={ this.state.text }
-                onChange={ this.handleChange('text') }
+                value={ this.state.body }
+                onChange={ this.handleState('body') }
                 modules={ modules }
                 placeholder="Start writing..."
                 />
@@ -43,7 +62,7 @@ class Editor extends Component {
               className="Editor-Quill-Title">
               <ReactQuill
                 value={ this.state.name }
-                onChange={ this.handleChange('name') }
+                onChange={ this.handleState('name') }
                 modules={ { toolbar: "" } }
                 placeholder="Title"
                 />
@@ -55,7 +74,7 @@ class Editor extends Component {
           <TagBar />
         </div>
       </div>
-    )
+    );
   }
 }
 

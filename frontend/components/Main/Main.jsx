@@ -4,12 +4,9 @@ import { merge } from 'lodash';
 import { ProtectedRoute } from '../../utils/route_util';
 import { fetchAllNotes } from '../../actions/note_actions';
 
-import Sidebar  from '../Sidebar/Sidebar_Container';
+import Sidebar  from '../Sidebar/Sidebar';
 import ShowBar  from '../ShowBar/ShowBar_Container';
 import Editor   from '../Editor/Editor_Container';
-
-//to avoid sending too many ajaxes i think we should keep the data
-//here and in component will receive props, send the update too notes.
 
 class Main extends Component {
 
@@ -44,37 +41,50 @@ class Main extends Component {
       default:
       break;
     }
-
     return list;
   }
 
-  handleShowBarSelect = () => {
+  handleShowBarSelect = (id) => {
     let that = this;
-    return (id) => {
-      let newState = merge({}, that.state, { editorNote: that.props.notes[id] });
-      that.setState(newState);
-    }
+    let newState = merge({}, that.state, { editorNote: that.props.notes[id] });
+    that.setState(newState);
+  }
+
+  handleEditorSetState = (key, value) => {
+    let that = this;
+    let newState = Object.assign( {}, that.state );
+    newState.editorNote[key] = value;
+    that.setState(newState);
   }
 
   render() {
+
     return (
       <div
         className='Main'>
-        <Sidebar logOut={this.props.logOut} />
+        <Sidebar logOut={this.props.logOut}
+                 createNote={this.props.createNote}
+                 currentUser={this.props.currentUser}
+        />
 
         <ProtectedRoute
           exact path='/notes'
           component={
             () => <ShowBar
                     list={this.handleShowBarProps()}
-                    handleItemSelect={ this.handleShowBarSelect() }
-                    selectedNoteId={ this.state.editorNote.id }
+                    handleShowBarSelect={this.handleShowBarSelect}
+                    selectedNoteId={this.state.editorNote.id}
                   />
           }
         />
         <ProtectedRoute
           exact path='/notes'
-          component={ Editor }
+          component={
+            () => <Editor
+                    selectedNote={this.state.editorNote}
+                    handleEditorSetState={this.handleEditorSetState}
+                  />
+          }
         />
       </div>
     );

@@ -7,7 +7,7 @@ class ShowBar extends Component {
     if ( !this.props.selectedNoteId ) {
       if ( items.length > 0) {
         let firstNoteId = items[0].getAttribute('note-id');
-        this.props.handleItemSelect(firstNoteId);
+        this.props.handleShowBarSelect(firstNoteId);
       }
     } else {
       let that = this;
@@ -19,21 +19,27 @@ class ShowBar extends Component {
   }
 
   handleCalculateUpdateHours = (date) => {
-    // get total seconds between the times
     var delta = Math.abs(new Date() - new Date(date)) / 1000;
-    if ( delta >= 86400 && delta < 172800) {
+    if ( delta >= 86400 && delta < 172800)
+    {
       return "A day ago";
-    } else if (delta > 86400) {
-      // calculate (and subtract) whole days
+    }
+    else if (delta >= 172800)
+    {
       var days = Math.floor(delta / 86400);
       return (days.toString() + " days ago");
-    } else if ( delta >= 360 && delta < 720 ) {
+    }
+    else if ( delta >= 3600 && delta < 7200 )
+    {
       return "An hour ago";
-    } else if (delta >= 720 && delta < 86400){
-      // calculate (and subtract) whole hours
+    }
+    else if (delta >= 7200 && delta < 86400)
+    {
       var hours = Math.floor(delta / 3600) % 24;
       return (hours.toString() + " hours ago");
-    } else {
+    }
+    else
+    {
       return "Less than an hour ago";
     }
   }
@@ -53,7 +59,7 @@ class ShowBar extends Component {
           className="ShowBar-Item-Box"
           key={note.id}
           note-id={note.id}
-          onClick={ (e) => alert('hi')}>
+          onClick={ (e) => this.props.handleShowBarSelect(note.id)}>
           <div>
             <div
               className="ShowBar-Item-Title">
