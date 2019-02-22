@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 class ShowBar extends Component {
 
+// this method needs to be refactored to immediatly select the new note.
   componentDidMount() {
     const items = document.querySelectorAll(".ShowBar-Item-Box");
     if ( !this.props.selectedNoteId ) {

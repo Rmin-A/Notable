@@ -33,7 +33,7 @@ class Editor extends Component {
   }
 
   handleAutoSave = () => {
-    
+
   }
 
   render() {

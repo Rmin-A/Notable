@@ -6,7 +6,9 @@ const sideBar = (props) => {
   const handleNewNote = () => {
     return (e) => {
       e.preventDefault();
-      props.createNote();
+      props.createNote()
+      .then(
+        (payload) => props.handleShowBarSelect(parseInt(Object.keys(payload.note)[0])));
     };
   };
 

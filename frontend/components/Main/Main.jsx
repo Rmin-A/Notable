@@ -12,13 +12,12 @@ class Main extends Component {
 
     state = {
       showBarType: "All Notes",
-      editorNote: {
+      selectedNote: {
         id: null,
         name: null,
         body: null,
       }
     }
-
 
   componentDidMount() {
     this.props.fetchAllNotes();
@@ -46,46 +45,39 @@ class Main extends Component {
 
   handleShowBarSelect = (id) => {
     let that = this;
-    let newState = merge({}, that.state, { editorNote: that.props.notes[id] });
+    let newState = merge({}, that.state, { selectedNote: that.props.notes[id] });
     that.setState(newState);
   }
 
   handleEditorSetState = (key, value) => {
     let that = this;
     let newState = Object.assign( {}, that.state );
-    newState.editorNote[key] = value;
+    newState.selectedNote[key] = value;
     that.setState(newState);
   }
 
   render() {
-
     return (
       <div
         className='Main'>
-        <Sidebar logOut={this.props.logOut}
-                 createNote={this.props.createNote}
-                 currentUser={this.props.currentUser}
-        />
-
+        <Sidebar
+          logOut={this.props.logOut}
+          createNote={this.props.createNote}
+          handleShowBarSelect={this.handleShowBarSelect}
+          currentUser={this.props.currentUser} />
         <ProtectedRoute
           exact path='/notes'
           component={
-            () => <ShowBar
-                    list={this.handleShowBarProps()}
-                    handleShowBarSelect={this.handleShowBarSelect}
-                    selectedNoteId={this.state.editorNote.id}
-                  />
-          }
-        />
+          () => <ShowBar
+            list={this.handleShowBarProps()}
+            handleShowBarSelect={this.handleShowBarSelect}
+            selectedNoteId={this.state.selectedNote.id} /> } />
         <ProtectedRoute
           exact path='/notes'
           component={
-            () => <Editor
-                    selectedNote={this.state.editorNote}
-                    handleEditorSetState={this.handleEditorSetState}
-                  />
-          }
-        />
+          () => <Editor
+            selectedNote={this.state.selectedNote}
+            handleEditorSetState={this.handleEditorSetState} /> } />
       </div>
     );
   }
