@@ -5,7 +5,7 @@ import { ProtectedRoute } from '../../utils/route_util';
 import { fetchAllNotes } from '../../actions/note_actions';
 
 import Sidebar  from '../Sidebar/Sidebar';
-import ShowBar  from '../ShowBar/ShowBar_Container';
+import ShowBar  from '../ShowBar/ShowBar';
 import Editor   from '../Editor/Editor';
 
 class Main extends Component {
@@ -41,6 +41,9 @@ class Main extends Component {
   handleShowBarSelect = (id) => {
     const that = this;
     const note = that.props.notes[id];
+    if (that.props.currentNote.id) {
+      that.props.updateNote(that.props.currentNote);
+    }
     that.props.setCurrentNote(note);
   }
 
@@ -68,7 +71,7 @@ class Main extends Component {
           () => <Editor
             currentNote={this.props.currentNote}
             updateCurrentNoteBody={this.props.updateCurrentNoteBody}
-            updateCurrentNoteTitle={this.props.updateCurrentNoteTitle} 
+            updateCurrentNoteTitle={this.props.updateCurrentNoteTitle}
           /> } />
       </div>
     );

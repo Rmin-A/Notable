@@ -16,7 +16,7 @@ export const createNote = (note = {name: null, body: null, notebook_id: null}) =
 export const updateNote = (note) => (
   $.ajax({
     url: `/api/notes/${note.id}`,
-    method: 'POST',
+    method: 'PATCH',
     data: { note: note }
   })
 );

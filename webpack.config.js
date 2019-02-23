@@ -51,6 +51,9 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx",'.svg', "*"]
   },
+  node: {
+    fs: "empty"
+  },
   devtool: 'source-map',
   mode: "development"
 };

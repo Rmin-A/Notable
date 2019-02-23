@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import htmlToText from 'html-to-text';
 
 class ShowBar extends Component {
 
@@ -65,13 +66,13 @@ class ShowBar extends Component {
             <div
               className="ShowBar-Item-Title">
               {
-                (note.name) ? note.name : "Untitled"
+                (note.name) ? htmlToText.fromString(note.name) : "Untitled"
               }
             </div>
             <div
               className="ShowBar-Item-body">
               {
-                (note.body) ? note.body : null
+                (note.body) ? htmlToText.fromString(note.body) : "Untitled"
               }
             </div>
           </div>
