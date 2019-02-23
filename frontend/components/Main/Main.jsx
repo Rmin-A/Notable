@@ -18,6 +18,10 @@ class Main extends Component {
     this.props.fetchAllNotes();
   }
 
+  componentWillUnmount() {
+    this.props.updateNote(this.props.currentNote);
+  }
+
   handleShowBarProps = () => {
     let list = {
       type: null,

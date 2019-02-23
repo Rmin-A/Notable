@@ -2,8 +2,7 @@ import * as APIUtil from '../utils/note_api_util';
 
 export const RECEIVE_NOTE_ERRORS  = 'RECEIVE_NOTE_ERRORS';
 export const RECEIVE_ALL_NOTES    = 'RECEIVE_ALL_NOTES';
-export const RECEIVE_NOTE = 'RECEIVE_NOTE';
-
+export const RECEIVE_NOTE         = 'RECEIVE_NOTE';
 
 export const receiveAllNotes = notes => ({
   type: RECEIVE_ALL_NOTES,
