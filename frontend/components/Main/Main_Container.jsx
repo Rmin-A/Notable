@@ -7,11 +7,15 @@ import { setCurrentNote, updateCurrentNoteBody, updateCurrentNoteTitle } from '.
 
 import Main from './Main';
 
-const mapStateToProps = ({ session: { currentUser }, entities: { notes }, entities: { interactions: {currentNote}} }) => {
+const mapStateToProps = ({
+  session: { currentUser },
+  entities: { notes },
+  entities: { interactions: {currentNote}},
+}) => {
   return {
     currentUser,
     notes,
-    currentNote
+    currentNote,
   };
 };
 
