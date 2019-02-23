@@ -10,23 +10,23 @@ const _nullNote = Object.freeze({
   id: null
 });
 
-const interactionReducer = (state = { currentNote: _nullNote }, action) => {
+const uiReducer = (state = { currentNote: false }, action) => {
   Object.freeze(state);
   let newState;
   switch(action.type) {
-    case SET_CURRENT_NOTE:
-    return merge({}, state, { currentNote: Object.assign({}, action.note)});
+    case RECEIVE_NOTE:
+    return merge({}, state, { currentNote: false });
     case UPDATE_CURRENT_NOTE_BODY:
       newState = Object.assign({}, state);
-      newState.currentNote.body = action.body;
+      newState.currentNote = true;
       return newState;
     case UPDATE_CURRENT_NOTE_TITLE:
       newState = Object.assign({}, state);
-      newState.currentNote.name = action.title;
+      newState.currentNote = true;
       return newState;
     default:
       return state;
   }
 };
 
-export default interactionReducer;
+export default uiReducer;

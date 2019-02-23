@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import notes from './notes_reducer';
+import unsavedChanges from './unsaved_changes_reducer';
 
 export default combineReducers({
-  notes
+  unsavedChanges
 });
