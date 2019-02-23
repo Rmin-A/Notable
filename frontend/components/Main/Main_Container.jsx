@@ -8,7 +8,6 @@ import { setCurrentNote, updateCurrentNoteBody, updateCurrentNoteTitle } from '.
 import Main from './Main';
 
 const mapStateToProps = ({ session: { currentUser }, entities: { notes }, entities: { interactions: {currentNote}} }) => {
-  debugger
   return {
     currentUser,
     notes,
