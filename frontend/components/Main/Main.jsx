@@ -6,17 +6,12 @@ import { fetchAllNotes } from '../../actions/note_actions';
 
 import Sidebar  from '../Sidebar/Sidebar';
 import ShowBar  from '../ShowBar/ShowBar_Container';
-import Editor   from '../Editor/Editor_Container';
+import Editor   from '../Editor/Editor';
 
 class Main extends Component {
 
     state = {
       showBarType: "All Notes",
-      selectedNote: {
-        id: null,
-        name: null,
-        body: null,
-      }
     }
 
   componentDidMount() {
@@ -43,10 +38,16 @@ class Main extends Component {
     return list;
   }
 
+  // handleShowBarSelect = (id) => {
+  //   let that = this;
+  //   let newState = merge({}, that.state, { selectedNote: that.props.notes[id] });
+  //   that.setState(newState);
+  // }
+
   handleShowBarSelect = (id) => {
-    let that = this;
-    let newState = merge({}, that.state, { selectedNote: that.props.notes[id] });
-    that.setState(newState);
+    const that = this;
+    const note = that.props.notes[id];
+    that.props.setCurrentNote(note);
   }
 
   handleEditorSetState = (key, value) => {
@@ -65,18 +66,20 @@ class Main extends Component {
           createNote={this.props.createNote}
           handleShowBarSelect={this.handleShowBarSelect}
           currentUser={this.props.currentUser} />
+
         <ProtectedRoute
           exact path='/notes'
           component={
           () => <ShowBar
             list={this.handleShowBarProps()}
             handleShowBarSelect={this.handleShowBarSelect}
-            selectedNoteId={this.state.selectedNote.id} /> } />
+            selectedNoteId={this.props.currentNote.id} /> } />
+
         <ProtectedRoute
           exact path='/notes'
           component={
           () => <Editor
-            selectedNote={this.state.selectedNote}
+            selectedNote={this.props.currentNote}
             handleEditorSetState={this.handleEditorSetState} /> } />
       </div>
     );

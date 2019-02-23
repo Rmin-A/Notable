@@ -37,7 +37,6 @@ class Editor extends Component {
   }
 
   render() {
-        debugger
     return(
       <div
         className="Editor">
