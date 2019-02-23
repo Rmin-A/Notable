@@ -4,6 +4,10 @@ export const RECEIVE_NOTE_ERRORS  = 'RECEIVE_NOTE_ERRORS';
 export const RECEIVE_ALL_NOTES    = 'RECEIVE_ALL_NOTES';
 export const RECEIVE_NOTE         = 'RECEIVE_NOTE';
 
+export const SET_CURRENT_NOTE  = 'SET_CURRENT_NOTE';
+export const UPDATE_CURRENT_NOTE_BODY    = 'UPDATE_CURRENT_NOTE_BODY';
+export const UPDATE_CURRENT_NOTE_TITLE   = 'UPDATE_CURRENT_NOTE_TITLE';
+
 export const receiveAllNotes = notes => ({
   type: RECEIVE_ALL_NOTES,
   notes
@@ -17,6 +21,20 @@ export const receiveNote = note => ({
 export const receiveNoteErrors = errors => ({
   type: RECEIVE_NOTE_ERRORS,
   errors
+});
+
+export const setCurrentNote = note => ({
+  type: SET_CURRENT_NOTE,
+  note
+});
+
+export const updateCurrentNoteBody = body => ({
+  type: UPDATE_CURRENT_NOTE_BODY,
+  body
+});
+export const updateCurrentNoteTitle = title => ({
+  type: UPDATE_CURRENT_NOTE_TITLE,
+  title
 });
 
 export const fetchAllNotes = () => dispatch => (
