@@ -6,35 +6,31 @@ import ActionBar from '../ActionBar/ActionBar_Container';
 
 class Editor extends Component {
 
-  state = {
-    id: null,
-    name: null,
-    body: null,
-  };
+  // state = {
+  //   id: null,
+  //   name: null,
+  //   body: null,
+  // };
 
-  componentDidMount() {
-    this.setState( this.props.selectedNote );
-    // this.interval = setInterval( () => {
-    //   alert('this is auto save')
-    // }, 10000)
-  }
+  // componentDidMount() {
+  //   this.setState( this.props.selectedNote );
+  // }
 
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
+  // componentWillUnmount() {
+  //   clearInterval(this.interval);
+  // }
 
-  handleState = (key) => {
-    return (e) => {
-      let newState = Object.assign({}, this.state);
-      newState[key] = e;
-      this.setState(newState);
-      // this.props.handleEditorSetState(key, e)
-    }
-  }
+  // handleState = (key) => {
+  //   return (e) => {
+  //     let newState = Object.assign({}, this.state);
+  //     newState[key] = e;
+  //     this.setState(newState);
+  //   }
+  // }
 
-  handleAutoSave = () => {
-
-  }
+  // handleAutoSave = () => {
+  //
+  // }
 
   render() {
     return(
@@ -51,8 +47,8 @@ class Editor extends Component {
             <div
               className="Editor-Quill-Body">
               <ReactQuill
-                value={ this.state.body }
-                onChange={ this.handleState('body') }
+                value={this.props.currentNote.body}
+                onChange={this.props.updateCurrentNoteBody}
                 modules={ modules }
                 placeholder="Start writing..."
                 />
@@ -60,8 +56,8 @@ class Editor extends Component {
             <div
               className="Editor-Quill-Title">
               <ReactQuill
-                value={ this.state.name }
-                onChange={ this.handleState('name') }
+                value={this.props.currentNote.name}
+                onChange={this.props.updateCurrentNoteTitle}
                 modules={ { toolbar: "" } }
                 placeholder="Title"
                 />

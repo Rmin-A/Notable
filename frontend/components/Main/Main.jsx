@@ -38,23 +38,10 @@ class Main extends Component {
     return list;
   }
 
-  // handleShowBarSelect = (id) => {
-  //   let that = this;
-  //   let newState = merge({}, that.state, { selectedNote: that.props.notes[id] });
-  //   that.setState(newState);
-  // }
-
   handleShowBarSelect = (id) => {
     const that = this;
     const note = that.props.notes[id];
     that.props.setCurrentNote(note);
-  }
-
-  handleEditorSetState = (key, value) => {
-    let that = this;
-    let newState = Object.assign( {}, that.state );
-    newState.selectedNote[key] = value;
-    that.setState(newState);
   }
 
   render() {
@@ -79,8 +66,10 @@ class Main extends Component {
           exact path='/notes'
           component={
           () => <Editor
-            selectedNote={this.props.currentNote}
-            handleEditorSetState={this.handleEditorSetState} /> } />
+            currentNote={this.props.currentNote}
+            updateCurrentNoteBody={this.props.updateCurrentNoteBody}
+            updateCurrentNoteTitle={this.props.updateCurrentNoteTitle} 
+          /> } />
       </div>
     );
   }
