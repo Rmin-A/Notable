@@ -1,7 +1,8 @@
 export const SET_CURRENT_NOTE  = 'SET_CURRENT_NOTE';
 export const UPDATE_CURRENT_NOTE_BODY    = 'UPDATE_CURRENT_NOTE_BODY';
 export const UPDATE_CURRENT_NOTE_TITLE   = 'UPDATE_CURRENT_NOTE_TITLE';
-export const SET_INTERVAL_REFRENCE   = 'SET_INTERVAL_REFRENCE';
+export const SET_INTERVAL_ID   = 'SET_INTERVAL_ID';
+export const CLEAR_INTERVAL_ID   = 'CLEAR_INTERVAL_ID';
 
 export const setCurrentNote = note => ({
   type: SET_CURRENT_NOTE,
@@ -18,7 +19,12 @@ export const updateCurrentNoteTitle = title => ({
   title
 });
 
-export const setIntervalRefrence = id => ({
-  type: SET_INTERVAL_REFRENCE,
+export const setIntervalId = id => ({
+  type: SET_INTERVAL_ID,
+  id
+});
+
+export const clearIntervalId = id => ({
+  type: CLEAR_INTERVAL_ID,
   id
 });

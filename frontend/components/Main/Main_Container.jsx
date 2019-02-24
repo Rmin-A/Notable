@@ -12,7 +12,8 @@ import {
 } from '../../actions/note_actions';
 
 import {
-  setIntervalRefrence
+  setIntervalId,
+  clearIntervalId
 } from '../../actions/interaction_actions';
 
 import Main from './Main';
@@ -42,7 +43,8 @@ const mapDispatchToProps = dispatch => ({
   setCurrentNote: (note) => dispatch(setCurrentNote(note)),
   updateCurrentNoteBody: (body) => dispatch(updateCurrentNoteBody(body)),
   updateCurrentNoteTitle: (title) => dispatch(updateCurrentNoteTitle(title)),
-  setIntervalRefrence: (id) => dispatch(setIntervalRefrence(id)),
+  setIntervalId: (id) => dispatch(setIntervalId(id)),
+  clearIntervalId: (id) => dispatch(clearIntervalId(id)),
 });
 
 export default withRouter(connect(

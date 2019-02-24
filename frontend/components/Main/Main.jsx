@@ -16,20 +16,25 @@ class Main extends Component {
 
   componentDidMount() {
     this.props.fetchAllNotes();
-    if (!this.props.currentNoteChanges) {
-      clearInterval(this.props.intervalId);
-    }
+    // if (!this.props.currentNoteChanges) {
+    //   clearInterval(this.props.intervalId);
+    // }
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps, prevState) {
+    // let that = this;
+    // if(that.props.currentNoteChanges && !that.props.intervalId) {
+    //   that.interval = setInterval( () => this.handleUpdate(that.props.intervalId), 6000);
+    //   that.props.setIntervalId(that.interval);
+    // }
+  }
+
+  handleUpdate = (intervalId) => {
     let that = this;
-    if(that.props.currentNoteChanges && !that.props.intervalId) {
-      that.interval = setInterval( () => console.log('hello'), 6000);
-      that.props.setIntervalRefrence(that.interval);
-    }
+    that.props.updateNote(that.props.currentNote).then(
+      () => that.props.clearIntervalId(intervalId)
+    )
   }
-
-
 
   handleShowBarProps = () => {
     let list = {
@@ -55,7 +60,7 @@ class Main extends Component {
     const that = this;
     const note = that.props.notes[id];
     if (that.props.currentNote.id) {
-      that.props.updateNote(that.props.currentNote);
+      this.handleUpdate(that.props.intervalId)
     }
     that.props.setCurrentNote(note);
   }
