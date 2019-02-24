@@ -16,6 +16,10 @@ import {
   clearIntervalId
 } from '../../actions/interaction_actions';
 
+import {
+  fetchAllNotebooks,
+} from '../../actions/notebook_actions';
+
 import Main from './Main';
 
 const mapStateToProps = ({
@@ -38,6 +42,7 @@ const mapDispatchToProps = dispatch => ({
   signIn: () => dispatch(login()),
   signUp: () => dispatch(signup()),
   fetchAllNotes: () => dispatch(fetchAllNotes()),
+  fetchAllNotebooks: () => dispatch(fetchAllNotebooks()),
   createNote: () => dispatch(createNote()),
   updateNote: (note) => dispatch(updateNote(note)),
   setCurrentNote: (note) => dispatch(setCurrentNote(note)),

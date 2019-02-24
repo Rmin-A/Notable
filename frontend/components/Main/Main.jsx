@@ -16,17 +16,11 @@ class Main extends Component {
 
   componentDidMount() {
     this.props.fetchAllNotes();
-    // if (!this.props.currentNoteChanges) {
-    //   clearInterval(this.props.intervalId);
-    // }
+    this.props.fetchAllNotebooks();
   }
 
   componentDidUpdate(prevProps, prevState) {
-    // let that = this;
-    // if(that.props.currentNoteChanges && !that.props.intervalId) {
-    //   that.interval = setInterval( () => this.handleUpdate(that.props.intervalId), 6000);
-    //   that.props.setIntervalId(that.interval);
-    // }
+
   }
 
   handleUpdate = (intervalId) => {
