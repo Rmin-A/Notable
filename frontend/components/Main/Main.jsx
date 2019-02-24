@@ -6,7 +6,7 @@ import { fetchAllNotes } from '../../actions/note_actions';
 
 import Sidebar  from '../Sidebar/Sidebar';
 import ShowBar  from '../ShowBar/ShowBar';
-import Editor   from '../Editor/Editor';
+import Editor   from '../Editor/Editor_Container';
 
 class Main extends Component {
 
@@ -67,11 +67,7 @@ class Main extends Component {
 
         <ProtectedRoute
           exact path='/notes'
-          component={
-          () => <Editor
-            currentNote={this.props.currentNote}
-            updateCurrentNoteBody={this.props.updateCurrentNoteBody}
-            updateCurrentNoteTitle={this.props.updateCurrentNoteTitle} /> } />
+          component={Editor} />
       </div>
     );
   }

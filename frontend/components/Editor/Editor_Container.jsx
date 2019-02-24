@@ -9,7 +9,7 @@ import {
 import Editor from './Editor';
 
 const mapStateToProps = ({
-  entities: { interactions: { currentNote }},
+  entities: { interactions: { currentNote } },
 }) => {
   return {
     currentNote,
