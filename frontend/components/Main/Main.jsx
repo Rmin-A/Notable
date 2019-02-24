@@ -18,10 +18,6 @@ class Main extends Component {
     this.props.fetchAllNotes();
   }
 
-  componentWillUnmount() {
-    this.props.updateNote(this.props.currentNote);
-  }
-
   handleShowBarProps = () => {
     let list = {
       type: null,
@@ -75,8 +71,7 @@ class Main extends Component {
           () => <Editor
             currentNote={this.props.currentNote}
             updateCurrentNoteBody={this.props.updateCurrentNoteBody}
-            updateCurrentNoteTitle={this.props.updateCurrentNoteTitle}
-          /> } />
+            updateCurrentNoteTitle={this.props.updateCurrentNoteTitle} /> } />
       </div>
     );
   }

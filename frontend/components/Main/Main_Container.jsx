@@ -16,12 +16,14 @@ import Main from './Main';
 const mapStateToProps = ({
   session: { currentUser },
   entities: { notes },
-  entities: { interactions: {currentNote}},
+  entities: { interactions: { currentNote }},
+  ui: { unsavedChanges }
 }) => {
   return {
+    currentNote,
     currentUser,
     notes,
-    currentNote,
+    unsavedChanges,
   };
 };
 

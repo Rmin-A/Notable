@@ -3,11 +3,12 @@ import {
   SET_CURRENT_NOTE,
   UPDATE_CURRENT_NOTE_BODY,
   UPDATE_CURRENT_NOTE_TITLE,
-  RECEIVE_NOTE
 } from '../actions/note_actions';
 
 const _nullNote = Object.freeze({
-  id: null
+  id: null,
+  body: null,
+  name: null,
 });
 
 const currentNoteReducer = (state = { currentNote: _nullNote }, action) => {
