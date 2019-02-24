@@ -8,8 +8,12 @@ import {
   updateNote,
   setCurrentNote,
   updateCurrentNoteBody,
-  updateCurrentNoteTitle
+  updateCurrentNoteTitle,
 } from '../../actions/note_actions';
+
+import {
+  setIntervalRefrence
+} from '../../actions/interaction_actions';
 
 import Main from './Main';
 
@@ -17,13 +21,14 @@ const mapStateToProps = ({
   session: { currentUser },
   entities: { notes },
   entities: { interactions: { currentNote }},
-  ui: { unsavedChanges }
+  ui: { unsavedChanges: {intervalId}, unsavedChanges: { currentNoteChanges }},
 }) => {
   return {
     currentNote,
     currentUser,
     notes,
-    unsavedChanges,
+    currentNoteChanges,
+    intervalId
   };
 };
 
@@ -37,6 +42,7 @@ const mapDispatchToProps = dispatch => ({
   setCurrentNote: (note) => dispatch(setCurrentNote(note)),
   updateCurrentNoteBody: (body) => dispatch(updateCurrentNoteBody(body)),
   updateCurrentNoteTitle: (title) => dispatch(updateCurrentNoteTitle(title)),
+  setIntervalRefrence: (id) => dispatch(setIntervalRefrence(id)),
 });
 
 export default withRouter(connect(

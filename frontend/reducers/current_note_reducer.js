@@ -16,7 +16,7 @@ const currentNoteReducer = (state = { currentNote: _nullNote }, action) => {
   let newState;
   switch(action.type) {
     case SET_CURRENT_NOTE:
-    return merge({}, state, { currentNote: Object.assign({}, action.note)});
+      return merge({}, state, { currentNote: Object.assign({}, action.note)});
     case UPDATE_CURRENT_NOTE_BODY:
       newState = Object.assign({}, state);
       newState.currentNote.body = action.body;

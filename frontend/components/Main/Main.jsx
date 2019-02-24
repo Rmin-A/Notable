@@ -16,7 +16,20 @@ class Main extends Component {
 
   componentDidMount() {
     this.props.fetchAllNotes();
+    if (!this.props.currentNoteChanges) {
+      clearInterval(this.props.intervalId);
+    }
   }
+
+  componentDidUpdate() {
+    let that = this;
+    if(that.props.currentNoteChanges && !that.props.intervalId) {
+      that.interval = setInterval( () => console.log('hello'), 6000);
+      that.props.setIntervalRefrence(that.interval);
+    }
+  }
+
+
 
   handleShowBarProps = () => {
     let list = {
