@@ -10,9 +10,11 @@ import Editor from './Editor';
 
 const mapStateToProps = ({
   entities: { interactions: { currentNote } },
+  entities: { notebooks }
 }) => {
   return {
     currentNote,
+    notebooks
   };
 };
 

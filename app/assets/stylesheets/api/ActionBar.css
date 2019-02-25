@@ -1,0 +1,19 @@
+.ActionBar {
+  display: flex;
+  justify-content: space-between;
+  font-family: Lato;
+}
+
+.ActionBar-Left {
+  display: flex;
+}
+
+.ActionBar-Left div:last-child{
+  margin-left: 15px;
+}
+
+.ActionBar-Left-Logo {
+  width: 20px;
+  height: 20px;
+  margin: auto;
+}

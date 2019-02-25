@@ -2,7 +2,7 @@ import React, { Component }from 'react';
 import ReactQuill from 'react-quill';
 
 import TagBar from '../TagBar/TagBar_Container';
-import ActionBar from '../ActionBar/ActionBar_Container';
+import ActionBar from '../ActionBar/ActionBar';
 
 const editor = (props) => {
   return(
@@ -12,7 +12,9 @@ const editor = (props) => {
         className="Editor-top">
         <div
           className="Editor-ActionBar">
-          <ActionBar />
+          <ActionBar
+            notebooks={props.notebooks}
+            currentNote={props.currentNote}/>
         </div>
         <div
           className="Editor-Quill">

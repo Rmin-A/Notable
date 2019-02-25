@@ -25,6 +25,7 @@ import Main from './Main';
 const mapStateToProps = ({
   session: { currentUser },
   entities: { notes },
+  entities: { notebooks },
   entities: { interactions: { currentNote }},
   ui: { unsavedChanges: {intervalId}, unsavedChanges: { currentNoteChanges }},
 }) => {
@@ -32,6 +33,7 @@ const mapStateToProps = ({
     currentNote,
     currentUser,
     notes,
+    notebooks,
     currentNoteChanges,
     intervalId
   };

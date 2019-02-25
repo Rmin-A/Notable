@@ -7,6 +7,7 @@ import { fetchAllNotes } from '../../actions/note_actions';
 import Sidebar  from '../Sidebar/Sidebar';
 import ShowBar  from '../ShowBar/ShowBar';
 import Editor   from '../Editor/Editor_Container';
+import AllNotebooks   from '../Notebook/Notebooks';
 
 class Main extends Component {
 
@@ -70,7 +71,13 @@ class Main extends Component {
           currentUser={this.props.currentUser} />
 
         <ProtectedRoute
-          exact path='/notes'
+          exact path='/client/notebooks'
+          component={
+            () => <AllNotebooks
+            notebooks={this.props.notebooks}/> } />
+
+        <ProtectedRoute
+          exact path='/client/notes'
           component={
           () => <ShowBar
             list={this.handleShowBarProps()}
@@ -78,7 +85,7 @@ class Main extends Component {
             selectedNoteId={this.props.currentNote.id} /> } />
 
         <ProtectedRoute
-          exact path='/notes'
+          exact path='/client/notes'
           component={Editor} />
       </div>
     );

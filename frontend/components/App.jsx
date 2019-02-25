@@ -17,7 +17,7 @@ import Main     from './Main/Main_Container';
 const App = () => (
   <div>
     <Switch>
-      <ProtectedRoute  path="/notes" component={ Main } />
+      <ProtectedRoute  path="/client" component={ Main } />
       <AuthRoute exact path="/signin" component={ SignIn } />
       <AuthRoute exact path="/signup" component={ SignUp } />
       <AuthRoute exact path="/" component={ Greeting } />

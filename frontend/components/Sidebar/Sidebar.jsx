@@ -34,8 +34,12 @@ const sideBar = (props) => {
             New Note
           </button>
           <Link
-            to="/notes">
+            to="/client/notes">
             All Notes
+          </Link>
+          <Link
+            to="/client/notebooks">
+            All Notebooks
           </Link>
           <button
             onClick={props.logOut}>
