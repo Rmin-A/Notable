@@ -7,7 +7,7 @@ import { fetchAllNotes } from '../../actions/note_actions';
 import Sidebar  from '../Sidebar/Sidebar';
 import ShowBar  from '../ShowBar/ShowBar';
 import Editor   from '../Editor/Editor_Container';
-import AllNotebooks   from '../Notebook/Notebooks';
+import AllNotebooks   from '../ShowPage/ShowPage';
 
 class Main extends Component {
 
