@@ -25,6 +25,10 @@
   margin-right: 20px;
 }
 
+.Sidebar-Menu button {
+  margin-bottom: 20px;
+}
+
 .Sidebar-New-Note {
   display: flex;
   align-items: center;
