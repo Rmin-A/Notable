@@ -11,7 +11,6 @@ const notebooks = (props) => {
             className="Notebook_Box"
             key={key}>
             <div>
-              {props.notebooks[key].name}
             </div>
           </div>
         );
