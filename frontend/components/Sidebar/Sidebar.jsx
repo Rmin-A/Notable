@@ -21,7 +21,7 @@ const sideBar = (props) => {
         </div>
         <div
           className="Sidebar-Searchbar">
-          this is the search bar
+          
         </div>
         <div
           className="Sidebar-Menu">
@@ -43,6 +43,12 @@ const sideBar = (props) => {
             <Link
               to="/client/notebooks">
               All Notebooks
+            </Link>
+          </button>
+          <button>
+            <Link
+              to="/client/tags">
+              All Tags
             </Link>
           </button>
           <button

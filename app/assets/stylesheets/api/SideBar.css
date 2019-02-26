@@ -4,6 +4,7 @@
   background-color: rgb(26,26,26);
   min-width: 240px;
   height: 100vh;
+  min-height: 400px;
   font-family: Roboto;
   color: white;
 }
@@ -14,8 +15,12 @@
 }
 
 .Sidebar-Searchbar {
+  width: 80%;
+  height: 25px;
   margin: 20px auto;
   text-align: center;
+  background-color: rgb(169,169,169);
+  color: rgb(26,26,26);
 }
 
 .Sidebar-Menu {

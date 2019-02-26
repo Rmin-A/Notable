@@ -6,7 +6,7 @@ export const COLORS = {
   white: 'rgb(275,275,275)',
   border: 'rgb(230,230,230)',
   ListBackground: 'rgb(248,248,248)',
-  lightText: 'rgb(169,169,169)';
+  lightText: 'rgb(169,169,169)'
 };
 
 export const FONTS = {

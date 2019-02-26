@@ -7,7 +7,7 @@ import { fetchAllNotes } from '../../actions/note_actions';
 import Sidebar  from '../Sidebar/Sidebar';
 import ShowBar  from '../ShowBar/ShowBar';
 import Editor   from '../Editor/Editor_Container';
-import AllNotebooks   from '../ShowPage/ShowPage';
+import ShowPage   from '../ShowPage/ShowPage';
 
 class Main extends Component {
 
@@ -73,7 +73,15 @@ class Main extends Component {
         <ProtectedRoute
           exact path='/client/notebooks'
           component={
-            () => <AllNotebooks
+            () => <ShowPage
+            formType="Notebooks"
+            notebooks={this.props.notebooks}/> } />
+
+        <ProtectedRoute
+          exact path='/client/tags'
+          component={
+            () => <ShowPage
+            formType="Tags"
             notebooks={this.props.notebooks}/> } />
 
         <ProtectedRoute
