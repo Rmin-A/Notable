@@ -1,6 +1,23 @@
 import React from 'react';
 
+import Notebooks from './Notebooks';
+import Tags from './Tags';
+
 const showPage = (props) => {
+
+  const handleChildCompnentRender = () => {
+    if(props.formType === "Notebooks") {
+      return(
+        <Notebooks
+          notebooks={props.notebooks}/>
+      );
+    } else {
+      return(
+        <Tags />
+      );
+    }
+  };
+
   return(
     <div
       className="ShowPage">
@@ -27,6 +44,10 @@ const showPage = (props) => {
             {(props.formType === 'Notebooks') ? "New notebook" : "New tags"}
           </button>
         </div>
+      </div>
+      <div
+        className="ShowPage-Content">
+        {handleChildCompnentRender()}
       </div>
     </div>
   );
