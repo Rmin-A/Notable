@@ -7,3 +7,16 @@
   z-index: 3;
   background-color: rgb(92, 97, 102, 0.5);
 }
+
+.Modal_Foreground {
+  background-color: white;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  box-shadow: 10px 10px 30px #888888;
+  width: 700px;
+  height: 300px;
+  z-index: 4;
+}

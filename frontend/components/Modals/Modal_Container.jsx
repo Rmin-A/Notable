@@ -10,8 +10,8 @@ import { closeModal }
 import { createNotebook }
   from '../../actions/notebook_actions';
 
-import NotebookModal
-  from './Notebook_Modal';
+import CreateNew
+  from './CreateNew_Modal';
 
 const modal = (props) => {
   if (!props.modal) {
@@ -22,7 +22,11 @@ const modal = (props) => {
   switch (props.modal) {
     case 'Notebook':
       cssClass = 'Notebook-Modal';
-      component = null;
+      component = <CreateNew
+                    type="notebook"
+                    handleSubmit={props.createNotebook}
+                    closeModal={props.closeModal}
+                  />;
     break;
     default:
      return null;
@@ -30,11 +34,11 @@ const modal = (props) => {
 
   return(
     <div
-      className="Modal_Background"
-      onClick={ () => props.closeModal()}>
+      className="Modal_Background">
       <div
-        className={cssClass}
+        className="Modal_Foreground"
         onClick={e => e.stopPropagation()}>
+        { component }
       </div>
     </div>
   );
