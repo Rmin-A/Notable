@@ -46,8 +46,9 @@ const modal = (props) => {
       component = <Notebooks
                     closeModal={props.closeModal}
                     notebooks={props.notebooks}
+                    className="Notebooks-Modal"
                   />;
-      background = "Menu-ModaL-Background";
+      background = "Modal-Background";
     break;
     default:
      return null;

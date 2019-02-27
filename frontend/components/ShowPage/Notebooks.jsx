@@ -59,7 +59,7 @@ const notebooks = (props) => {
 
   return (
     <div
-      className="Notebooks Notebooks-Header">
+      className={`Notebooks Notebooks-Header ${ (props.className) ? props.className : ""}`}>
       <div
         className="Notebook-Box Notebook-Box-Header">
         <div
