@@ -6,6 +6,10 @@ import {
   updateCurrentNoteTitle
 } from '../../actions/note_actions';
 
+import {
+  openModal,
+} from '../../actions/modal_actions';
+
 import Editor from './Editor';
 
 const mapStateToProps = ({
@@ -21,6 +25,7 @@ const mapStateToProps = ({
 const mapDispatchToProps = dispatch => ({
   updateCurrentNoteBody: (body) => dispatch(updateCurrentNoteBody(body)),
   updateCurrentNoteTitle: (title) => dispatch(updateCurrentNoteTitle(title)),
+  openModal: (modal) => dispatch(openModal(modal)),
 });
 
 export default withRouter(connect(

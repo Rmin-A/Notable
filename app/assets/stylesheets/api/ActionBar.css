@@ -18,3 +18,10 @@
   height: 20px;
   margin: auto;
 }
+
+.ActionBar-Right {
+  height: 25px;
+  width: 25px;
+  padding-left: 10px;
+  cursor: pointer;
+}

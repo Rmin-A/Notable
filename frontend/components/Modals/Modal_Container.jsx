@@ -13,12 +13,16 @@ import { createNotebook }
 import CreateNew
   from './CreateNew_Modal';
 
+import CornerMenu
+  from './CornerMenu_Modal';
+
 const modal = (props) => {
   if (!props.modal) {
     return null;
   }
 
   let component;
+  let background;
   switch (props.modal) {
     case 'Notebook':
       component = <CreateNew
@@ -26,6 +30,14 @@ const modal = (props) => {
                     handleSubmit={props.createNotebook}
                     closeModal={props.closeModal}
                   />;
+      background = "Modal-Background";
+    break;
+    case 'Corner_Menu':
+      component = <CornerMenu
+                    handleSubmit={props.createNotebook}
+                    closeModal={props.closeModal}
+                  />;
+      background = "Menu-ModaL-Background";
     break;
     default:
      return null;
@@ -33,7 +45,8 @@ const modal = (props) => {
 
   return(
     <div
-      className="Modal-Background">
+      className={background}
+      onClick={props.closeModal}>
         { component }
     </div>
   );

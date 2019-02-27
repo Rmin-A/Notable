@@ -13,15 +13,17 @@ const actionBar = (props) => {
         </div>
         <div>
           {
-             (Object.keys(props.notebooks).length > 0 && props.currentNote.id) ?
-             props.notebooks[props.currentNote.notebook_id].name :
-             null
+           (Object.keys(props.notebooks).length > 0 && props.currentNote.id) ?
+           props.notebooks[props.currentNote.notebook_id].name :
+           null
           }
         </div>
       </div>
       <div
         className="ActionBar-Right">
-        this is a menu
+        <img
+          src={window.staticImages.dotsMenu}
+          onClick={ () => props.openModal('Corner_Menu')}/>
       </div>
     </div>
   );
