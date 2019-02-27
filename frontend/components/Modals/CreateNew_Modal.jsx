@@ -17,6 +17,17 @@ const createNewModal = (props) => {
     };
   };
 
+  const handleInputChange = () => {
+    return (e) => {
+      let submitButton = document.querySelectorAll(".Modal-Box-Form-Buttons-Submit")[0];
+      if (e.currentTarget.value === "") {
+        submitButton.disabled = true;
+      } else {
+        submitButton.disabled = false;
+      }
+    };
+  };
+
   return(
       <div
         className="Modal-Box"
@@ -48,7 +59,8 @@ const createNewModal = (props) => {
                 Name
               </div>
               <input
-                placeholder={`Enter ${props.type} name`}>
+                placeholder={`Enter ${props.type} name`}
+                onChange={handleInputChange()}>
               </input>
             </div>
             <div
@@ -59,6 +71,7 @@ const createNewModal = (props) => {
                 Cancel
               </button>
               <button
+                type="submit"
                 className="Modal-Box-Form-Buttons-Submit"
                 disabled={true}>
                 Submit
