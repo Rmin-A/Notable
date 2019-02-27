@@ -22,6 +22,22 @@ const notebooks = (props) => {
     return `${months[updateDate.getMonth()]} ${updateDate.getDay()}`;
   };
 
+  const handleClick = (notebookId) => {
+    return (e) => {
+      e.preventDefault();
+      if (props.formType === "modal") {
+        let note = Object.assign({}, props.currentNote);
+        note.notebook_id = notebookId;
+        props.onCLick(note).then(
+          (payload) => props.setCurrentNote(Object.values(payload.note)[0])
+        );
+        props.closeModal();
+      } else {
+        alert(`hello ${notebookId}`);
+      }
+    };
+  };
+
   const notebooksRender= () => {
     let items = [];
     if (Object.keys(props.notebooks).length > 0) {
@@ -29,7 +45,8 @@ const notebooks = (props) => {
         items.push(
           <div
             className="Notebook-Box"
-            key={key}>
+            key={key}
+            onClick={handleClick(key)}>
 
             <div
                 className="Notebook-Box-Title">

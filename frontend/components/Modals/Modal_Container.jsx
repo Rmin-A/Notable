@@ -7,8 +7,12 @@ import React
 
 import { closeModal, openModal }
   from '../../actions/modal_actions';
+
 import { createNotebook }
   from '../../actions/notebook_actions';
+
+import { updateNote, setCurrentNote }
+  from '../../actions/note_actions';
 
 import CreateNew
   from './CreateNew_Modal';
@@ -46,6 +50,10 @@ const modal = (props) => {
       component = <Notebooks
                     closeModal={props.closeModal}
                     notebooks={props.notebooks}
+                    currentNote={props.currentNote}
+                    onCLick={props.updateNote}
+                    setCurrentNote={props.setCurrentNote}
+                    formType="modal"
                     className="Notebooks-Modal"
                   />;
       background = "Modal-Background";
@@ -66,6 +74,7 @@ const modal = (props) => {
 const mapStateToProps = state => {
   return {
     modal: state.ui.modal,
+    currentNote: state.entities.interactions.currentNote,
     notebooks: state.entities.notebooks
   };
 };
@@ -74,6 +83,8 @@ const mapDispatchToProps = dispatch => {
   return {
     openModal: (m) => dispatch(openModal(m)),
     closeModal: () => dispatch(closeModal()),
+    updateNote: (note) => dispatch(updateNote(note)),
+    setCurrentNote: (note) => dispatch(setCurrentNote(note)),
     createNotebook: (notebook) => dispatch(createNotebook(notebook)),
   };
 };
