@@ -1,5 +1,6 @@
 export const COLORS = {
   green: 'rgb(75,165,64)',
+  greenHover: "#327029",
   black: 'rgb(0,0,0)',
   lightBlack: 'rgb(26,26,26)',
   grey: 'rgb(247,247,247)',

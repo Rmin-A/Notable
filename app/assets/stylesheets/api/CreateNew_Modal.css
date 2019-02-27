@@ -1,27 +1,86 @@
-.Modal-Forground-Box {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  width: 95%;
-  margin: 15px auto;
-  font-family: Lato;
+.Modal-Box {
+  background-color: white;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  box-shadow: 10px 10px 30px #888888;
+  width: 700px;
+  height: 350px;
+  z-index: 4;
   color: rgb(100,100,100);
 }
 
-.Modal-Forground-Header {
+.Modal-Box-Header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.Modal-Box-Header button{
+  font-weight: bold;
+}
+
+.Modal-Box-Header button:hover{
+  color: black;
+}
+
+.Modal-Box-Header div:last-child{
+  margin-top: 20px;
+}
+
+.Modal-Box-Header-Navbar {
   display: flex;
   justify-content: space-between;
 }
 
-.Modal-Forground-Header div:first-child{
-  font-size: 20px;
+.Modal-Box-Form {
+  padding: 20px;
 }
 
-.Modal-Forground-Header button:hover {
+.Modal-Box-Form input{
+  width: 100%;
+  height: 40px;
+  margin-top: 15px;
+  border: 1px solid rgb(230,230,230);
+  text-indent: 10px;
+}
+
+.Modal-Box-Form-Buttons {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  border-top: 1px solid rgb(230,230,230);
+  margin-top: 70px;
+}
+
+.Modal-Box-Form-Buttons button{
+  width: 90px;
+  height: 35px;
+  border: 1px solid rgb(230,230,230);
+  text-align: center;
+}
+
+.Modal-Box-Form-Buttons-Cancel:hover {
+  border: 1px solid black;
   color: black;
 }
 
-.Modal-Forground-Title {
+.Modal-Box-Form-Buttons-Submit {
+  margin-left: 10px;
+}
 
+.Modal-Box-Form-Buttons-Submit:disabled {
+  color: white;
+  background-color: rgb(230,230,230);
+}
+.Modal-Box-Form-Buttons-Submit:enabled {
+  color: white;
+  background-color: rgb(75,165,64);
+}
+.Modal-Box-Form-Buttons-Submit:enabled:hover {
+  color: white;
+  background-color: #327029;
 }

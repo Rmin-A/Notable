@@ -19,29 +19,51 @@ const createNewModal = (props) => {
 
   return(
       <div
-        className="Modal-Forground-Box">
+        className="Modal-Box"
+        onClick={ e => e.stopPropagation() }>
         <div
-          className="Modal-Forground-Header">
-          <div>
-            {`Create new ${props.type}`}
+          className="Modal-Box-Header">
+          <div
+            className="Modal-Box-Header-Navbar">
+            <div>
+              {`Create new ${props.type}`}
+            </div>
+            <button
+              onClick={handleClose()}>
+              X
+            </button>
           </div>
-          <button
-            onClick={handleClose()}>
-            X
-          </button>
+          <div
+            className="Modal-Box-Header-Navbar">
+            Notebooks are useful for grouping notes around a common topic.
+            But Notable Tag system is way cooler than notebooks :)
+          </div>
         </div>
         <div
-          className="Modal-Forground-Title">
-          Notebooks are useful for grouping notes around a common topic.
-          But Notable Tag system is way cooler than notebooks :)
-        </div>
-        <div
-          className="Modal-Forground-Form">
+          className="Modal-Box-Form">
           <form
             onSubmit={handleSubmit()}>
-            <input
-              placeholder={`Enter ${props.type} name`}>
-            </input>
+            <div>
+              <div>
+                Name
+              </div>
+              <input
+                placeholder={`Enter ${props.type} name`}>
+              </input>
+            </div>
+            <div
+              className="Modal-Box-Form-Buttons">
+              <button
+                className="Modal-Box-Form-Buttons-Cancel"
+                onClick={handleClose()}>
+                Cancel
+              </button>
+              <button
+                className="Modal-Box-Form-Buttons-Submit"
+                disabled={true}>
+                Submit
+              </button>
+            </div>
           </form>
         </div>
       </div>

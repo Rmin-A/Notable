@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   background-color: rgb(247,247,247);
-  font-family: Lato;
 }
 
 .Navbar img {
@@ -44,7 +43,7 @@
 }
 
 .Greeting-Footer {
-  
+
 }
 
 /* ############### */

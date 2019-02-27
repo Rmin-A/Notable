@@ -18,10 +18,9 @@ const modal = (props) => {
     return null;
   }
 
-  let component, cssClass;
+  let component;
   switch (props.modal) {
     case 'Notebook':
-      cssClass = 'Notebook-Modal';
       component = <CreateNew
                     type="notebook"
                     handleSubmit={props.createNotebook}
@@ -34,12 +33,8 @@ const modal = (props) => {
 
   return(
     <div
-      className="Modal_Background">
-      <div
-        className="Modal_Foreground"
-        onClick={e => e.stopPropagation()}>
+      className="Modal-Background">
         { component }
-      </div>
     </div>
   );
 };
