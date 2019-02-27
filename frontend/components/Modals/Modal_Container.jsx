@@ -5,7 +5,7 @@ import { withRouter }
 import React
   from 'react';
 
-import { closeModal }
+import { closeModal, openModal }
   from '../../actions/modal_actions';
 import { createNotebook }
   from '../../actions/notebook_actions';
@@ -15,6 +15,9 @@ import CreateNew
 
 import CornerMenu
   from './CornerMenu_Modal';
+
+import Notebooks
+  from '../ShowPage/Notebooks';
 
 const modal = (props) => {
   if (!props.modal) {
@@ -34,8 +37,15 @@ const modal = (props) => {
     break;
     case 'Corner_Menu':
       component = <CornerMenu
-                    handleSubmit={props.createNotebook}
                     closeModal={props.closeModal}
+                    openModal={props.openModal}
+                  />;
+      background = "Menu-ModaL-Background";
+    break;
+    case 'Notebook_Move':
+      component = <Notebooks
+                    closeModal={props.closeModal}
+                    notebooks={props.notebooks}
                   />;
       background = "Menu-ModaL-Background";
     break;
@@ -54,12 +64,14 @@ const modal = (props) => {
 
 const mapStateToProps = state => {
   return {
-    modal: state.ui.modal
+    modal: state.ui.modal,
+    notebooks: state.entities.notebooks
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
+    openModal: (m) => dispatch(openModal(m)),
     closeModal: () => dispatch(closeModal()),
     createNotebook: (notebook) => dispatch(createNotebook(notebook)),
   };
