@@ -1,0 +1,39 @@
+.Notebooks {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5px;
+  border-bottom: 0.5px solid rgb(26,26,26);
+}
+
+.Notebooks-Header {
+  border-bottom: none;
+}
+
+.Notebook-Box {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Notebook-Box:hover{
+  background-color: rgb(240,240,240);
+}
+
+.Notebook-Box-Header{
+  background-color: rgb(180,180,180);
+}
+
+.Notebook-Box-Header:hover{
+  background-color: rgb(180,180,180);
+}
+
+.Notebook-Box-Title {
+  display: flex;
+}
+
+.Notebook-Box-Image {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+}

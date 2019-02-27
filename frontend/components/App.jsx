@@ -1,5 +1,7 @@
-import React from 'react';
-import { Provider } from 'react-redux';
+import React
+  from 'react';
+import { Provider }
+  from 'react-redux';
 import {
   Route,
   Redirect,
@@ -7,20 +9,36 @@ import {
   Link,
   HashRouter
 } from 'react-router-dom';
-import { AuthRoute, ProtectedRoute } from '../utils/route_util';
+import { AuthRoute, ProtectedRoute }
+  from '../utils/route_util';
 
-import Greeting from './Greeting/Greeting';
-import SignIn   from './Auth/SignIn_Container';
-import SignUp   from './Auth/SignUp_Container';
-import Main     from './Main/Main_Container';
+import Greeting
+  from './Greeting/Greeting';
+import SignIn
+  from './Auth/SignIn_Container';
+import SignUp
+  from './Auth/SignUp_Container';
+import Main
+  from './Main/Main_Container';
+import Modal
+  from './Modals/Modal_Container';
 
 const App = () => (
   <div>
+    <Modal />
     <Switch>
-      <ProtectedRoute  path="/client" component={ Main } />
-      <AuthRoute exact path="/signin" component={ SignIn } />
-      <AuthRoute exact path="/signup" component={ SignUp } />
-      <AuthRoute exact path="/" component={ Greeting } />
+      <ProtectedRoute
+        path="/client"
+        component={ Main } />
+      <AuthRoute
+        exact path="/signin"
+        component={ SignIn } />
+      <AuthRoute
+        exact path="/signup"
+        component={ SignUp } />
+      <AuthRoute
+        exact path="/"
+        component={ Greeting } />
     </Switch>
   </div>
 );

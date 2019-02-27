@@ -18,6 +18,18 @@ const showPage = (props) => {
     }
   };
 
+  const handleOnClick = () => {
+    
+    return (e) => {
+      e.preventDefault();
+      if(props.formType === "Notebooks") {
+        props.openModal("Notebook");
+      } else {
+        props.openModal("Tag");
+      }
+    };
+  };
+
   return(
     <div
       className="ShowPage">
@@ -32,22 +44,23 @@ const showPage = (props) => {
         className="ShowPage-Footer">
         <div
           className="ShowPage-Footer-left">
-          {(props.formType === 'Notebooks') ? "My notebook list" : "My tag list"}
+          { (props.formType === 'Notebooks') ? "My notebook list" : "My tag list" }
         </div>
         <div
           className="ShowPage-Footer-right">
           <button
-            className="ShowPage-Add">
+            className="ShowPage-Add"
+            onClick={handleOnClick()}>
             <img
               src= { window.staticImages.add }>
             </img>
-            {(props.formType === 'Notebooks') ? "New notebook" : "New tags"}
+            { (props.formType === 'Notebooks') ? "New notebook" : "New tags" }
           </button>
         </div>
       </div>
       <div
         className="ShowPage-Content">
-        {handleChildCompnentRender()}
+        { handleChildCompnentRender() }
       </div>
     </div>
   );

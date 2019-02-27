@@ -75,14 +75,18 @@ class Main extends Component {
           component={
             () => <ShowPage
             formType="Notebooks"
-            notebooks={this.props.notebooks}/> } />
+            notebooks={this.props.notebooks}
+            openModal={this.props.openModal}
+            closeModal={this.props.closeModal}/> } />
 
         <ProtectedRoute
           exact path='/client/tags'
           component={
             () => <ShowPage
             formType="Tags"
-            notebooks={this.props.notebooks}/> } />
+            notebooks={this.props.notebooks}
+            openModal={this.props.openModal}
+            closeModal={this.props.closeModal}/> } />
 
         <ProtectedRoute
           exact path='/client/notes'

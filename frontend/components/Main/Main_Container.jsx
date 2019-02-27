@@ -20,6 +20,11 @@ import {
   fetchAllNotebooks,
 } from '../../actions/notebook_actions';
 
+import {
+  openModal,
+  closeModal
+} from '../../actions/modal_actions';
+
 import Main from './Main';
 
 const mapStateToProps = ({
@@ -52,6 +57,9 @@ const mapDispatchToProps = dispatch => ({
   updateCurrentNoteTitle: (title) => dispatch(updateCurrentNoteTitle(title)),
   setIntervalId: (id) => dispatch(setIntervalId(id)),
   clearIntervalId: (id) => dispatch(clearIntervalId(id)),
+  openModal: (modal) => dispatch(openModal(modal)),
+  closeModal: () => dispatch(closeModal()),
+
 });
 
 export default withRouter(connect(
