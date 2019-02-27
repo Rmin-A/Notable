@@ -12,6 +12,10 @@
   color: rgb(75,165,64);
 }
 
+.ShowPage-Add:hover{
+  color: #327029;
+}
+
 .ShowPage-Add img {
   height: 19px;
   width: 19px;

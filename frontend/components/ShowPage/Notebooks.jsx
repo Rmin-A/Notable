@@ -41,7 +41,7 @@ const notebooks = (props) => {
               </div>
               <div
                 className="Notebook-Box-Text">
-                {props.notebooks[key].name}
+                {`${props.notebooks[key].name} (${props.notebooks[key].number_of_notes})`}
               </div>
             </div>
 
@@ -65,7 +65,7 @@ const notebooks = (props) => {
         <div
             className="Notebook-Box-Title">
           <div
-            className="Notebook-Box-Text">
+            className="Notebook-Box-Name">
             Name
           </div>
         </div>
@@ -73,7 +73,6 @@ const notebooks = (props) => {
           className="Notebook-Box-Date">
           Last update
         </div>
-
       </div>
       {notebooksRender()}
     </div>
