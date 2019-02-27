@@ -5,13 +5,13 @@ export const fetchAllNotebooks = () => (
   })
 );
 
-export const createNotebook = (notebook) => (
-  $.ajax({
+export const createNotebook = (notebook) => {
+  return $.ajax({
     url: '/api/notebooks',
     method: 'POST',
     data: { notebook: notebook }
-  })
-);
+  });
+};
 
 export const updateNotebook = (notebook) => (
   $.ajax({

@@ -12,7 +12,8 @@ const createNewModal = (props) => {
   const handleSubmit = () => {
     return (e) => {
       e.preventDefault();
-      props.handleSubmit({ name: e.target.currentvalue});
+      let inputBox = document.querySelectorAll(".Modal-Box-Form-Input")[0];
+      props.handleSubmit({ name: inputBox.value});
       props.closeModal();
     };
   };
@@ -59,6 +60,7 @@ const createNewModal = (props) => {
                 Name
               </div>
               <input
+                className="Modal-Box-Form-Input"
                 placeholder={`Enter ${props.type} name`}
                 onChange={handleInputChange()}>
               </input>
