@@ -21,7 +21,10 @@ class Main extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-
+    if (this.props.currentNote.id === prevProps.currentNote.id &&
+        this.props.currentNote.notebook_id !== prevProps.currentNote.notebook_id ) {
+      this.props.fetchAllNotebooks();
+    }
   }
 
   handleUpdate = (intervalId) => {
@@ -75,9 +78,11 @@ class Main extends Component {
           component={
             () => <ShowPage
             formType="Notebooks"
+            currentNote={this.props.currentNote}
             notebooks={this.props.notebooks}
             openModal={this.props.openModal}
-            closeModal={this.props.closeModal}/> } />
+            closeModal={this.props.closeModal}
+            fetchAllNotebooks={this.props.fetchAllNotebooks}/> } />
 
         <ProtectedRoute
           exact path='/client/tags'

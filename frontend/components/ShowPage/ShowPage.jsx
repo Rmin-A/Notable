@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import Notebooks from './Notebooks';
 import Tags from './Tags';
 
-const showPage = (props) => {
+class ShowPage extends Component {
 
-  const handleChildCompnentRender = () => {
-    if(props.formType === "Notebooks") {
+  handleChildCompnentRender = () => {
+    if(this.props.formType === "Notebooks") {
       return(
         <Notebooks
-          notebooks={props.notebooks}/>
+          notebooks={this.props.notebooks}/>
       );
     } else {
       return(
@@ -18,52 +18,54 @@ const showPage = (props) => {
     }
   };
 
-  const handleOnClick = () => {
-    
+  handleOnClick = () => {
+
     return (e) => {
       e.preventDefault();
-      if(props.formType === "Notebooks") {
-        props.openModal("Notebook");
+      if(this.props.formType === "Notebooks") {
+        this.props.openModal("Notebook");
       } else {
-        props.openModal("Tag");
+        this.props.openModal("Tag");
       }
     };
   };
 
-  return(
-    <div
-      className="ShowPage">
+  render() {
+    return(
       <div
-        className="ShowPage-Header">
+        className="ShowPage">
         <div
-          className="ShowPage-Header-Title">
-          {props.formType}
-        </div>
-      </div>
-      <div
-        className="ShowPage-Footer">
-        <div
-          className="ShowPage-Footer-left">
-          { (props.formType === 'Notebooks') ? "My notebook list" : "My tag list" }
+          className="ShowPage-Header">
+          <div
+            className="ShowPage-Header-Title">
+            {this.props.formType}
+          </div>
         </div>
         <div
-          className="ShowPage-Footer-right">
-          <button
-            className="ShowPage-Add"
-            onClick={handleOnClick()}>
-            <img
-              src= { window.staticImages.add }>
-            </img>
-            { (props.formType === 'Notebooks') ? "New notebook" : "New tags" }
-          </button>
+          className="ShowPage-Footer">
+          <div
+            className="ShowPage-Footer-left">
+            { (this.props.formType === 'Notebooks') ? "My notebook list" : "My tag list" }
+          </div>
+          <div
+            className="ShowPage-Footer-right">
+            <button
+              className="ShowPage-Add"
+              onClick={this.handleOnClick()}>
+              <img
+                src= { window.staticImages.add }>
+              </img>
+              { (this.props.formType === 'Notebooks') ? "New notebook" : "New tags" }
+            </button>
+          </div>
+        </div>
+        <div
+          className="ShowPage-Content">
+          { this.handleChildCompnentRender() }
         </div>
       </div>
-      <div
-        className="ShowPage-Content">
-        { handleChildCompnentRender() }
-      </div>
-    </div>
-  );
+    )
+  }
 };
 
-export default showPage;
+export default ShowPage;
