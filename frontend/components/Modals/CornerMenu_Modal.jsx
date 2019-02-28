@@ -23,7 +23,8 @@ const createNewModal = (props) => {
             Add shortcut...
           </div>
           <div
-            className="">
+            className=""
+            onClick={handleRedirect("Notebook_Delete")}>
             Delete note...
           </div>
 

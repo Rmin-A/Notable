@@ -1,7 +1,9 @@
 import { connect }
   from 'react-redux';
+
 import { withRouter }
   from 'react-router-dom';
+
 import React
   from 'react';
 
@@ -11,7 +13,7 @@ import { closeModal, openModal }
 import { createNotebook }
   from '../../actions/notebook_actions';
 
-import { updateNote, setCurrentNote }
+import { updateNote, deleteNote, setCurrentNote }
   from '../../actions/note_actions';
 
 import CreateNew
@@ -19,6 +21,9 @@ import CreateNew
 
 import CornerMenu
   from './CornerMenu_Modal';
+
+import DeleteNote
+  from './DeleteNote_Modal';
 
 import Notebooks
   from '../ShowPage/Notebooks';
@@ -58,6 +63,14 @@ const modal = (props) => {
                   />;
       background = "Modal-Background";
     break;
+    case 'Notebook_Delete':
+      component = <DeleteNote
+                    closeModal={props.closeModal}
+                    deleteNote={props.deleteNote}
+                    currentNote={props.currentNote}
+                  />;
+      background = "Modal-Background";
+    break;
     default:
      return null;
   }
@@ -84,6 +97,7 @@ const mapDispatchToProps = dispatch => {
     openModal: (m) => dispatch(openModal(m)),
     closeModal: () => dispatch(closeModal()),
     updateNote: (note) => dispatch(updateNote(note)),
+    deleteNote: (id) => dispatch(deleteNote(id)),
     setCurrentNote: (note) => dispatch(setCurrentNote(note)),
     createNotebook: (notebook) => dispatch(createNotebook(notebook)),
   };

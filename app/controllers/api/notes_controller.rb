@@ -29,7 +29,11 @@ class Api::NotesController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
+    note = Note.find(params[:id])
+    note.destroy
+    @notes = current_user.notes
+    render :index
   end
 
   def note_params

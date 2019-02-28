@@ -16,7 +16,9 @@ class ShowBar extends Component {
       let selectedNote = Array.prototype.slice.call(items).find( (item) => {
         return item.getAttribute('note-id') === that.props.selectedNoteId.toString()
       })
-      selectedNote.classList.toggle('ShowBar-Item-Box-Selected');
+      if (selectedNote) {
+        selectedNote.classList.toggle('ShowBar-Item-Box-Selected');        
+      }
     }
   }
 

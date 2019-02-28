@@ -20,3 +20,10 @@ export const updateNote = (note) => (
     data: { note: note }
   })
 );
+
+export const deleteNote = (id) => (
+  $.ajax({
+    url: `/api/notes/${id}`,
+    method: 'DELETE'
+  })
+);

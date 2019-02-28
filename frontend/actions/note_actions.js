@@ -60,3 +60,11 @@ export const updateNote = note => dispatch => (
     dispatch(receiveNoteErrors(err.responseJSON))
   ))
 );
+
+export const deleteNote = (id) => dispatch => (
+  APIUtil.deleteNote(id).then( payload =>
+    (dispatch(receiveAllNotes(payload))
+  ), err => (
+    dispatch(receiveNoteErrors(err.responseJSON))
+  ))
+);
