@@ -20,9 +20,9 @@ export const receiveNotebookErrors = errors => ({
   errors
 });
 
-export const setCurrentNotebook = notebook => ({
+export const setCurrentNotebook = notebookId => ({
   type: SET_CURRENT_NOTEBOOK,
-  notebook
+  notebookId
 });
 
 

@@ -34,7 +34,7 @@ const notebooks = (props) => {
         );
         props.closeModal();
       } else {
-        alert(`hello ${notebookId}`);
+        props.setCurrentNotebook(notebookId);
       }
     };
   };
@@ -45,10 +45,10 @@ const notebooks = (props) => {
       Object.keys(props.notebooks).forEach ( (key) => {
         items.push(
           <Link
-            to="/client/notes">
+            to="/client/notes"
+            key={key}>
             <div
               className="Notebook-Box"
-              key={key}
               onClick={handleClick(key)}>
               <div
                 className="Notebook-Box-Title">

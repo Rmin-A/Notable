@@ -80,6 +80,7 @@ class Main extends Component {
             notebooks={this.props.notebooks}
             openModal={this.props.openModal}
             closeModal={this.props.closeModal}
+            setCurrentNotebook={this.props.setCurrentNotebook}
             fetchAllNotebooks={this.props.fetchAllNotebooks}/> } />
 
         <ProtectedRoute

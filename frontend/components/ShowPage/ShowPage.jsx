@@ -9,7 +9,8 @@ class ShowPage extends Component {
     if(this.props.formType === "Notebooks") {
       return(
         <Notebooks
-          notebooks={this.props.notebooks}/>
+          notebooks={this.props.notebooks}
+          setCurrentNotebook={this.props.setCurrentNotebook}/>
       );
     } else {
       return(

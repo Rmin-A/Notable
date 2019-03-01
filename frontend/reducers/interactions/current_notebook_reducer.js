@@ -15,6 +15,8 @@ const currentNotebookreducer = (state = {}, action) => {
   switch(action.type) {
     case SET_CURRENT_NOTE:
       return action.note.notebook_id;
+    case SET_CURRENT_NOTEBOOK:
+      return action.notebookId;
     default:
       return state;
   }

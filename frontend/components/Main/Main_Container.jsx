@@ -18,6 +18,7 @@ import {
 
 import {
   fetchAllNotebooks,
+  setCurrentNotebook
 } from '../../actions/notebook_actions';
 
 import {
@@ -46,6 +47,7 @@ const mapDispatchToProps = dispatch => ({
   createNote: () => dispatch(createNote()),
   updateNote: (note) => dispatch(updateNote(note)),
   setCurrentNote: (note) => dispatch(setCurrentNote(note)),
+  setCurrentNotebook: (notebook) => dispatch(setCurrentNotebook(notebook)),
   updateCurrentNoteBody: (body) => dispatch(updateCurrentNoteBody(body)),
   updateCurrentNoteTitle: (title) => dispatch(updateCurrentNoteTitle(title)),
   setIntervalId: (id) => dispatch(setIntervalId(id)),
