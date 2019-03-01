@@ -17,7 +17,7 @@ class ShowBar extends Component {
         return item.getAttribute('note-id') === that.props.selectedNoteId.toString()
       })
       if (selectedNote) {
-        selectedNote.classList.toggle('ShowBar-Item-Box-Selected');        
+        selectedNote.classList.toggle('ShowBar-Item-Box-Selected');
       }
     }
   }

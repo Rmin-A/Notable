@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const notebooks = (props) => {
 
@@ -24,8 +25,8 @@ const notebooks = (props) => {
 
   const handleClick = (notebookId) => {
     return (e) => {
-      e.preventDefault();
       if (props.formType === "modal") {
+        e.preventDefault();
         let note = Object.assign({}, props.currentNote);
         note.notebook_id = notebookId;
         props.onCLick(note).then(
@@ -43,31 +44,32 @@ const notebooks = (props) => {
     if (Object.keys(props.notebooks).length > 0) {
       Object.keys(props.notebooks).forEach ( (key) => {
         items.push(
-          <div
-            className="Notebook-Box"
-            key={key}
-            onClick={handleClick(key)}>
-
+          <Link
+            to="/client/notes">
             <div
+              className="Notebook-Box"
+              key={key}
+              onClick={handleClick(key)}>
+              <div
                 className="Notebook-Box-Title">
-              <div
-                className="Notebook-Box-Image">
-                <img
-                  src={window.staticImages.notebook}>
-                </img>
+                <div
+                  className="Notebook-Box-Image">
+                  <img
+                    src={window.staticImages.notebook}>
+                  </img>
+                </div>
+                <div
+                  className="Notebook-Box-Text">
+                  {`${props.notebooks[key].name} (${props.notebooks[key].number_of_notes})`}
+                </div>
               </div>
               <div
-                className="Notebook-Box-Text">
-                {`${props.notebooks[key].name} (${props.notebooks[key].number_of_notes})`}
+                className="Notebook-Box-Date">
+                {handleDateRender(props.notebooks[key].updated_at)}
               </div>
-            </div>
 
-            <div
-              className="Notebook-Box-Date">
-              {handleDateRender(props.notebooks[key].updated_at)}
             </div>
-
-          </div>
+          </Link>
         );
       });
     }
