@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import modal from './interactions/modal_reducer';
+import changes from './interactions/unsaved_changes_reducer';
 
 export default combineReducers({
-  modal
+  changes
 });

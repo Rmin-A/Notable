@@ -32,15 +32,12 @@ const mapStateToProps = ({
   entities: { notes },
   entities: { notebooks },
   entities: { interactions: { currentNote }},
-  ui: { unsavedChanges: {intervalId}, unsavedChanges: { currentNoteChanges }},
 }) => {
   return {
     currentNote,
     currentUser,
     notes,
     notebooks,
-    currentNoteChanges,
-    intervalId
   };
 };
 

@@ -3,7 +3,7 @@ import {
   RECEIVE_ALL_NOTES,
   RECEIVE_NOTE,
   DELETE_NOTE
-} from '../actions/note_actions';
+} from '../../actions/note_actions';
 
 const sessionReducer = (state = {}, action) => {
   Object.freeze(state);

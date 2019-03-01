@@ -4,7 +4,7 @@ import {
   UPDATE_CURRENT_NOTE_BODY,
   UPDATE_CURRENT_NOTE_TITLE,
   DELETE_NOTE
-} from '../actions/note_actions';
+} from '../../actions/note_actions';
 
 const _nullNote = Object.freeze({
   id: null,

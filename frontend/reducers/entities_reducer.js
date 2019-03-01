@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 
-import notes from './notes_reducer';
-import notebooks from './notebooks_reducer';
-import interactions from './current_note_reducer';
+import notes from './entities/notes_reducer';
+import notebooks from './entities/notebooks_reducer';
+import interactions from './interactions/current_note_reducer';
 
 export default combineReducers({
   notes,

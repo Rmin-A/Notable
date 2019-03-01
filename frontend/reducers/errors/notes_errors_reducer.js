@@ -2,7 +2,7 @@ import {
   RECEIVE_ALL_NOTES,
   RECEIVE_NOTE,
   RECEIVE_NOTE_ERRORS
-} from '../actions/note_actions';
+} from '../../actions/note_actions';
 
 export default (state = [], action) => {
   Object.freeze(state);
