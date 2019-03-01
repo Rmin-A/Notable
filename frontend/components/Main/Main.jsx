@@ -11,10 +11,6 @@ import ShowPage   from '../ShowPage/ShowPage';
 
 class Main extends Component {
 
-    state = {
-      showBarType: "All Notes",
-    }
-
   componentDidMount() {
     this.props.fetchAllNotes();
     this.props.fetchAllNotebooks();
@@ -39,17 +35,19 @@ class Main extends Component {
       type: null,
       notes: null
     }
-    switch ( this.state.showBarType ) {
+    switch ( this.props.showBarStatus ) {
       case "All Notes":
         list.type = "All Notes";
         list.notes = this.props.notes;
-      break;
+        break;
       case "Notebook":
-      break;
+        break;
       case "Tag":
-      break;
+        break;
       default:
-      break;
+        list.type = "";
+        list.notes = {};
+        break;
     }
     return list;
   }

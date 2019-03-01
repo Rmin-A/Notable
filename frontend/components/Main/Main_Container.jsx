@@ -32,7 +32,8 @@ const mapStateToProps = (state) => {
     notes: state.entities.notes,
     notebooks: state.entities.notebooks,
     currentNote: state.interactions.currentNote,
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    showBarStatus: state.interactions.showBarStatus
   };
 };
 

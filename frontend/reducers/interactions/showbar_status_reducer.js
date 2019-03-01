@@ -10,7 +10,7 @@ const showBarStatusReducer = (state = {}, action) => {
     case SET_SHOWBAR_STATUS:
       return action.status;
     default:
-      return "All notes";
+      return "All Notes";
   }
 };
 
