@@ -28,7 +28,6 @@ import {
 import Main from './Main';
 
 const mapStateToProps = (state) => {
-  debugger
   return {
     notes: state.entities.notes,
     notebooks: state.entities.notebooks,

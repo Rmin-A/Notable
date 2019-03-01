@@ -1,12 +1,12 @@
-export const SET_CURRENT_NOTE  = 'SET_CURRENT_NOTE';
+export const SET_SHOWBAR_STATUS  = 'SET_SHOWBAR_STATUS';
 export const UPDATE_CURRENT_NOTE_BODY    = 'UPDATE_CURRENT_NOTE_BODY';
 export const UPDATE_CURRENT_NOTE_TITLE   = 'UPDATE_CURRENT_NOTE_TITLE';
 export const SET_INTERVAL_ID   = 'SET_INTERVAL_ID';
 export const CLEAR_INTERVAL_ID   = 'CLEAR_INTERVAL_ID';
 
-export const setCurrentNote = note => ({
-  type: SET_CURRENT_NOTE,
-  note
+export const setShowBarStatus = status => ({
+  type: SET_SHOWBAR_STATUS,
+  status
 });
 
 export const updateCurrentNoteBody = body => ({

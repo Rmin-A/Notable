@@ -1,7 +1,13 @@
-import { merge } from 'lodash';
+import { merge }
+  from 'lodash';
+
 import {
   SET_CURRENT_NOTE,
 } from '../../actions/note_actions';
+
+import {
+  SET_CURRENT_NOTEBOOK,
+} from '../../actions/notebook_actions';
 
 const currentNotebookreducer = (state = {}, action) => {
   Object.freeze(state);
