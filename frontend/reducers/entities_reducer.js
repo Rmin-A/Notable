@@ -6,6 +6,5 @@ import interactions from './interactions/current_note_reducer';
 
 export default combineReducers({
   notes,
-  interactions,
   notebooks,
 });

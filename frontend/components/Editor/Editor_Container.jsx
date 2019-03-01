@@ -12,13 +12,10 @@ import {
 
 import Editor from './Editor';
 
-const mapStateToProps = ({
-  entities: { interactions: { currentNote } },
-  entities: { notebooks }
-}) => {
+const mapStateToProps = (state) => {
   return {
-    currentNote,
-    notebooks
+    currentNote: state.interactions.currentNote,
+    notebooks: state.entities.notebooks
   };
 };
 

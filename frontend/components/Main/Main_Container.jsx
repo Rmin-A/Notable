@@ -27,17 +27,13 @@ import {
 
 import Main from './Main';
 
-const mapStateToProps = ({
-  session: { currentUser },
-  entities: { notes },
-  entities: { notebooks },
-  entities: { interactions: { currentNote }},
-}) => {
+const mapStateToProps = (state) => {
+  debugger
   return {
-    currentNote,
-    currentUser,
-    notes,
-    notebooks,
+    notes: state.entities.notes,
+    notebooks: state.entities.notebooks,
+    currentNote: state.interactions.currentNote,
+    currentUser: state.session.currentUser
   };
 };
 

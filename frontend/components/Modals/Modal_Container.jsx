@@ -87,7 +87,7 @@ const modal = (props) => {
 const mapStateToProps = state => {
   return {
     modal: state.ui.modal,
-    currentNote: state.entities.interactions.currentNote,
+    currentNote: state.interactions.currentNote,
     notebooks: state.entities.notebooks
   };
 };

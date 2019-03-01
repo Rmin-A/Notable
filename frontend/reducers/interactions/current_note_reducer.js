@@ -12,22 +12,22 @@ const _nullNote = Object.freeze({
   name: null,
 });
 
-const currentNoteReducer = (state = { currentNote: _nullNote }, action) => {
+const currentNoteReducer = (state = _nullNote, action) => {
   Object.freeze(state);
   let newState;
   switch(action.type) {
     case SET_CURRENT_NOTE:
-      return merge({}, state, { currentNote: Object.assign({}, action.note)});
+      return merge({}, state, Object.assign({}, action.note));
     case UPDATE_CURRENT_NOTE_BODY:
       newState = Object.assign({}, state);
-      newState.currentNote.body = action.body;
+      newState.body = action.body;
       return newState;
     case UPDATE_CURRENT_NOTE_TITLE:
       newState = Object.assign({}, state);
-      newState.currentNote.name = action.title;
+      newState.name = action.title;
       return newState;
     case DELETE_NOTE:
-      return { currentNote: _nullNote };
+      return _nullNote;
     default:
       return state;
   }
