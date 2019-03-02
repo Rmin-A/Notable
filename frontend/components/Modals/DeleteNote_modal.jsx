@@ -15,8 +15,8 @@ const deleteNoteModal = (props) => {
   const handleSubmit = () => {
     return (e) => {
       e.preventDefault();
-      let noteId = props.currentNote.id;
-      props.deleteNote(noteId);
+      let note = props.currentNote;
+      props.deleteNote(note);
       props.closeModal();
     };
   };

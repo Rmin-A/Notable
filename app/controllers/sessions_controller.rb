@@ -7,6 +7,7 @@ class Api::SessionsController < ApplicationController
 
     if @user
       login(@user)
+      @notebook = @user.notebooks.find_by_name("General")
       render "api/users/show"
     else
       render json: ["Invalid username/password combination"], status: 401
@@ -16,6 +17,7 @@ class Api::SessionsController < ApplicationController
   def destroy
     @user = current_user
     if @user
+      @notebook = @user.notebooks.find_by_name("General")
       logout
       render "api/users/show"
     else

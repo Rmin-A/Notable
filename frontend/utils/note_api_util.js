@@ -5,15 +5,9 @@ export const fetchAllNotes = () => (
   })
 );
 
-const _nullNote = {
-  name: null,
-  body: null,
-  notebook_id: null
-};
-
-export const createNote = (note = _nullNote) => (
+export const createNote = (note) => (
   $.ajax({
-    url: '/api/notes',
+    url: `/api/notebooks/${note.notebook_id}/notes`,
     method: 'POST',
     data: { note: note }
   })
@@ -21,15 +15,15 @@ export const createNote = (note = _nullNote) => (
 
 export const updateNote = (note) => (
   $.ajax({
-    url: `/api/notes/${note.id}`,
+    url: `/api/notebooks/${note.notebook_id}/notes/${note.id}`,
     method: 'PATCH',
     data: { note: note }
   })
 );
 
-export const deleteNote = (id) => (
+export const deleteNote = (note) => (
   $.ajax({
-    url: `/api/notes/${id}`,
+    url: `/api/notebooks/${note.notebook_id}/notes/${note.id}`,
     method: 'DELETE'
   })
 );

@@ -60,7 +60,7 @@ class ShowBar extends Component {
   }
 
   handleItems = () => {
-    if ( !this.props.list.notes ) {
+    if ( !this.props.notes ) {
       return(
         <div
           className="ShowBar-Item-Boxes">
@@ -69,7 +69,7 @@ class ShowBar extends Component {
     }
 
     let itemBoxes = [];
-    Object.values(this.props.list.notes).forEach(
+    Object.values(this.props.notes).forEach(
       (note, idx ) => {
         itemBoxes.push(
           <div
@@ -110,7 +110,7 @@ class ShowBar extends Component {
   }
 
   handleItemCount = () => {
-    let count = Object.keys(this.props.list.notes).length;
+    let count = Object.keys(this.props.notes).length;
     switch (count) {
       case undefined:
         return "";
@@ -130,7 +130,7 @@ class ShowBar extends Component {
         <div
           className="ShowBar-Header">
           <div>
-            {this.props.list.type}
+            {this.props.type}
           </div>
           <div>
             {this.handleItemCount()}

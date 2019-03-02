@@ -39,7 +39,9 @@ const mapStateToProps = (state) => {
     currentUser:
       state.session.currentUser,
     showBarStatus:
-      state.interactions.showBarStatus
+      state.interactions.showBarStatus,
+    currentNotebookId:
+      state.interactions.currentNotebookId,
   };
 };
 
@@ -55,7 +57,7 @@ const mapDispatchToProps = dispatch => ({
   fetchAllNotebooks:
     () => dispatch(fetchAllNotebooks()),
   createNote:
-    () => dispatch(createNote()),
+    (note) => dispatch(createNote(note)),
   updateNote:
     (note) => dispatch(updateNote(note)),
   setCurrentNote:

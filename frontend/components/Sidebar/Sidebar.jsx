@@ -5,10 +5,16 @@ import { Link }
 
 const sideBar = (props) => {
 
+  const _nullNote = {
+    name: null,
+    boddy: null,
+    notebook_id: props.currentNotebookId
+  };
+
   const handleNewNote = () => {
     return (e) => {
       e.preventDefault();
-      props.createNote().then(
+      props.createNote(_nullNote).then(
         (payload) => props.handleShowBarSelect(
           parseInt(Object.keys(payload.note)[0])
         )

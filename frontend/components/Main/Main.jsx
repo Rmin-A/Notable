@@ -41,29 +41,6 @@ class Main extends Component {
     )
   }
 
-  handleShowBarProps = () => {
-    let list = {
-      type: null,
-      notes: null
-    }
-
-    switch ( this.props.showBarStatus ) {
-      case "All Notes":
-        list.type = "All Notes";
-        list.notes = this.props.notes;
-        break;
-      case "Notebook":
-        break;
-      case "Tag":
-        break;
-      default:
-        list.type = "";
-        list.notes = {};
-        break;
-    }
-    return list;
-  }
-
   handleShowBarSelect = (id) => {
     const that = this;
     const note = that.props.notes[id];
@@ -81,7 +58,17 @@ class Main extends Component {
           logOut={this.props.logOut}
           createNote={this.props.createNote}
           handleShowBarSelect={this.handleShowBarSelect}
-          currentUser={this.props.currentUser} />
+          currentUser={this.props.currentUser}
+          currentNotebookId={this.props.currentNotebookId}/>
+
+        <ProtectedRoute
+          exact path='/client/notes'
+          component={
+            () => <ShowBar
+            type="All Notes"
+            notes={this.props.notes}
+            handleShowBarSelect={this.handleShowBarSelect}
+            selectedNoteId={this.props.currentNote.id} /> } />
 
         <ProtectedRoute
           exact path='/client/notebooks'
@@ -103,14 +90,6 @@ class Main extends Component {
             notebooks={this.props.notebooks}
             openModal={this.props.openModal}
             closeModal={this.props.closeModal}/> } />
-
-        <ProtectedRoute
-          exact path='/client/notes'
-          component={
-          () => <ShowBar
-            list={this.handleShowBarProps()}
-            handleShowBarSelect={this.handleShowBarSelect}
-            selectedNoteId={this.props.currentNote.id} /> } />
 
         <ProtectedRoute
           exact path='/client/notes'

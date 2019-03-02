@@ -1,7 +1,11 @@
 class Api::NotesController < ApplicationController
 
   def index
-    @notes = current_user.notes
+    if params[:notebook_id]
+      @notes = Notebook.find_by_id(params[:notebook_id]).notes
+    else
+      @notes = current_user.notes
+    end
   end
 
   def create
@@ -32,8 +36,7 @@ class Api::NotesController < ApplicationController
   def destroy
     note = Note.find(params[:id])
     note.destroy
-    @notes = current_user.notes
-    render :index
+    render json: { id: note.id }
   end
 
   def note_params
