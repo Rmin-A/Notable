@@ -1,6 +1,6 @@
 import React
   from 'react';
-import { Link }
+import { Link, Redirect }
   from 'react-router-dom';
 
 const notebooks = (props) => {
@@ -40,7 +40,7 @@ const notebooks = (props) => {
         );
         props.closeModal();
       } else {
-        props.setCurrentNotebook(notebookId);
+        return false
       }
     };
   };
@@ -52,7 +52,7 @@ const notebooks = (props) => {
         (key) => {
           items.push(
             <Link
-              to="/client/notes"
+              to={`/client/notebook/${props.notebooks[key].id}/notes`}
               key={key}>
               <div
                 className="Notebook-Box"
@@ -91,7 +91,7 @@ const notebooks = (props) => {
     <div
       className={
         `Notebooks Notebooks-Header
-      
+
         ${
           (props.className) ?
             props.className
