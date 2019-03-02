@@ -20,9 +20,9 @@ export const receiveNotebookErrors = errors => ({
   errors
 });
 
-export const setCurrentNotebook = notebookId => ({
+export const setCurrentNotebook = notebook => ({
   type: SET_CURRENT_NOTEBOOK,
-  notebookId
+  notebook
 });
 
 export const fetchAllNotebooks = () => dispatch => (

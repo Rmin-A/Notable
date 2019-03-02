@@ -23,14 +23,25 @@ class Main extends Component {
     this.props.fetchAllNotebooks();
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
     if (
-      this.props.currentNote.id ===
-        prevProps.currentNote.id
-      && this.props.currentNote.notebook_id !==
-        prevProps.currentNote.notebook_id
+      prevProps.currentNotebook
+      && this.props.currentNotebook
+      && prevProps.currentNotebook.id !== this.props.currentNotebook.id
     ){
-      this.props.fetchAllNotebooks();
+      this.props.fetchAllNotes(this.props.currentNotebook.id);
+    }
+    if (
+      !prevProps.currentNotebook
+      && this.props.currentNotebook
+    ){
+      this.props.fetchAllNotes(this.props.currentNotebook.id);
+    }
+    if (
+      prevProps.currentNotebook
+      && !this.props.currentNotebook
+    ){
+      this.props.fetchAllNotes();
     }
   }
 
@@ -71,6 +82,15 @@ class Main extends Component {
             selectedNoteId={this.props.currentNote.id} /> } />
 
         <ProtectedRoute
+          exact path='/client/notebooks/:notebook_id/notes'
+          component={
+            () => <ShowBar
+            type={`${this.props.currentNotebook.name}`}
+            notes={this.props.notes}
+            handleShowBarSelect={this.handleShowBarSelect}
+            selectedNoteId={this.props.currentNote.id} /> } />
+
+        <ProtectedRoute
           exact path='/client/notebooks'
           component={
             () => <ShowPage
@@ -92,7 +112,7 @@ class Main extends Component {
             closeModal={this.props.closeModal}/> } />
 
         <ProtectedRoute
-          exact path='/client/notes'
+          path='/client'
           component={Editor} />
       </div>
     );

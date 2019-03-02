@@ -28,19 +28,20 @@ const notebooks = (props) => {
     );
   };
 
-  const handleClick = (notebookId) => {
+  const handleClick = (notebook) => {
     return (e) => {
       if (props.formType === "modal") {
         e.preventDefault();
         let note = Object.assign({}, props.currentNote);
-        note.notebook_id = notebookId;
+        note.notebook_id = notebook.id;
         props.onCLick(note).then(
           (payload) =>
             props.setCurrentNote(Object.values(payload.note)[0])
         );
         props.closeModal();
       } else {
-        return false
+        props.setCurrentNotebook(notebook);
+        return false;
       }
     };
   };
@@ -52,11 +53,11 @@ const notebooks = (props) => {
         (key) => {
           items.push(
             <Link
-              to={`/client/notebook/${props.notebooks[key].id}/notes`}
+              to={`/client/notebooks/${props.notebooks[key].id}/notes`}
               key={key}>
               <div
                 className="Notebook-Box"
-                onClick={handleClick(key)}>
+                onClick={handleClick(props.notebooks[key])}>
                 <div
                   className="Notebook-Box-Title">
                   <div

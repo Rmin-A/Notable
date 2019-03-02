@@ -1,9 +1,20 @@
-export const fetchAllNotes = () => (
-  $.ajax({
-    url: '/api/notes',
-    method: 'GET'
-  })
-);
+export const fetchAllNotes = (notebookId) => {
+  if (notebookId) {
+    return(
+      $.ajax({
+        url: `/api/notebooks/${notebookId}/notes`,
+        method: 'GET'
+      })
+    );
+  } else {
+    return(
+      $.ajax({
+        url: '/api/notes',
+        method: 'GET'
+      })
+    );
+  }
+};
 
 export const createNote = (note) => (
   $.ajax({

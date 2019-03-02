@@ -28,7 +28,7 @@ import {
 
 import Main from './Main';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     notes:
       state.entities.notes,
@@ -40,8 +40,8 @@ const mapStateToProps = (state) => {
       state.session.currentUser,
     showBarStatus:
       state.interactions.showBarStatus,
-    currentNotebookId:
-      state.interactions.currentNotebookId,
+    currentNotebook:
+      state.interactions.currentNotebook,
   };
 };
 
@@ -53,7 +53,7 @@ const mapDispatchToProps = dispatch => ({
   signUp:
     () => dispatch(signup()),
   fetchAllNotes:
-    () => dispatch(fetchAllNotes()),
+    (notebookId) => dispatch(fetchAllNotes(notebookId)),
   fetchAllNotebooks:
     () => dispatch(fetchAllNotebooks()),
   createNote:

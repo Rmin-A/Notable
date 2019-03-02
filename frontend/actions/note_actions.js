@@ -42,8 +42,8 @@ export const receiveDeletedNote = (deletedNoteId) => ({
   deletedNoteId
 });
 
-export const fetchAllNotes = () => dispatch => (
-  APIUtil.fetchAllNotes().then( payload => (
+export const fetchAllNotes = (notebookId) => dispatch => (
+  APIUtil.fetchAllNotes(notebookId).then( payload => (
     dispatch(receiveAllNotes( payload ))
   ), err => (
     dispatch(receiveNoteErrors(err.responseJSON))
