@@ -69,7 +69,7 @@ const notebooks = (props) => {
                     className="Notebook-Box-Text">
                     {
                       `${props.notebooks[key].name}
-                       {' '}
+
                        (${props.notebooks[key].number_of_notes})`
                     }
                   </div>
@@ -91,7 +91,7 @@ const notebooks = (props) => {
     <div
       className={
         `Notebooks Notebooks-Header
-        {' '}
+      
         ${
           (props.className) ?
             props.className
