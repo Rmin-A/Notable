@@ -1,8 +1,9 @@
-import { merge } from 'lodash';
+import { merge }
+  from 'lodash';
 import {
   RECEIVE_ALL_NOTEBOOKS,
-  RECEIVE_NOTEBOOK,
-} from '../../actions/notebook_actions';
+  RECEIVE_NOTEBOOK }
+  from '../../actions/notebook_actions';
 
 const notebookReducer = (state = {}, action) => {
   Object.freeze(state);

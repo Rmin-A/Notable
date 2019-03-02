@@ -1,9 +1,9 @@
 import * as APIUtil from '../utils/notebook_api_util';
 
-export const RECEIVE_NOTEBOOK_ERRORS  = 'RECEIVE_NOTEBOOK_ERRORS';
-export const RECEIVE_ALL_NOTEBOOKS    = 'RECEIVE_ALL_NOTEBOOKS';
-export const RECEIVE_NOTEBOOK         = 'RECEIVE_NOTEBOOK';
-export const SET_CURRENT_NOTEBOOK         = 'SET_CURRENT_NOTEBOOK';
+export const RECEIVE_NOTEBOOK_ERRORS = 'RECEIVE_NOTEBOOK_ERRORS';
+export const RECEIVE_ALL_NOTEBOOKS = 'RECEIVE_ALL_NOTEBOOKS';
+export const RECEIVE_NOTEBOOK = 'RECEIVE_NOTEBOOK';
+export const SET_CURRENT_NOTEBOOK = 'SET_CURRENT_NOTEBOOK';
 
 export const receiveAllNotebooks = notebooks => ({
   type: RECEIVE_ALL_NOTEBOOKS,
@@ -24,7 +24,6 @@ export const setCurrentNotebook = notebookId => ({
   type: SET_CURRENT_NOTEBOOK,
   notebookId
 });
-
 
 export const fetchAllNotebooks = () => dispatch => (
   APIUtil.fetchAllNotebooks().then( payload => (

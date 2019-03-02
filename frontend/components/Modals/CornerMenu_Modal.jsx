@@ -1,4 +1,5 @@
-import React from 'react';
+import React
+  from 'react';
 
 const createNewModal = (props) => {
 
@@ -11,24 +12,20 @@ const createNewModal = (props) => {
   };
 
   return(
-      <div
-        className="Corner-Menu">
-          <div
-            className=""
-            onClick={handleRedirect("Notebook_Move")}>
-            Move to...
-          </div>
-          <div
-            className="">
-            Add shortcut...
-          </div>
-          <div
-            className=""
-            onClick={handleRedirect("Notebook_Delete")}>
-            Delete note...
-          </div>
-
-      </div>
+    <div
+      className="Corner-Menu">
+        <div
+          onClick={handleRedirect("Notebook_Move")}>
+          Move to...
+        </div>
+        <div>
+          Add shortcut...
+        </div>
+        <div
+          onClick={handleRedirect("Notebook_Delete")}>
+          Delete note...
+        </div>
+    </div>
   );
 };
 

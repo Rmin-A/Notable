@@ -1,12 +1,12 @@
 import * as APIUtil from '../utils/note_api_util';
 
-export const RECEIVE_NOTE_ERRORS  = 'RECEIVE_NOTE_ERRORS';
-export const RECEIVE_ALL_NOTES    = 'RECEIVE_ALL_NOTES';
-export const RECEIVE_NOTE         = 'RECEIVE_NOTE';
+export const RECEIVE_NOTE_ERRORS = 'RECEIVE_NOTE_ERRORS';
+export const RECEIVE_ALL_NOTES = 'RECEIVE_ALL_NOTES';
+export const RECEIVE_NOTE = 'RECEIVE_NOTE';
 
-export const SET_CURRENT_NOTE  = 'SET_CURRENT_NOTE';
-export const UPDATE_CURRENT_NOTE_BODY    = 'UPDATE_CURRENT_NOTE_BODY';
-export const UPDATE_CURRENT_NOTE_TITLE   = 'UPDATE_CURRENT_NOTE_TITLE';
+export const UPDATE_CURRENT_NOTE_TITLE = 'UPDATE_CURRENT_NOTE_TITLE';
+export const UPDATE_CURRENT_NOTE_BODY = 'UPDATE_CURRENT_NOTE_BODY';
+export const SET_CURRENT_NOTE = 'SET_CURRENT_NOTE';
 
 export const receiveAllNotes = notes => ({
   type: RECEIVE_ALL_NOTES,

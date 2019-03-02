@@ -1,13 +1,20 @@
-import React, { Component } from 'react';
-import { merge } from 'lodash';
+import React, { Component }
+  from 'react';
+import { merge }
+  from 'lodash';
 
-import { ProtectedRoute } from '../../utils/route_util';
-import { fetchAllNotes } from '../../actions/note_actions';
-
-import Sidebar  from '../Sidebar/Sidebar';
-import ShowBar  from '../ShowBar/ShowBar';
-import Editor   from '../Editor/Editor_Container';
-import ShowPage   from '../ShowPage/ShowPage';
+import { ProtectedRoute }
+  from '../../utils/route_util';
+import { fetchAllNotes }
+  from '../../actions/note_actions';
+import Sidebar
+  from '../Sidebar/Sidebar';
+import ShowBar
+  from '../ShowBar/ShowBar';
+import Editor
+  from '../Editor/Editor_Container';
+import ShowPage
+  from '../ShowPage/ShowPage';
 
 class Main extends Component {
 
@@ -17,8 +24,12 @@ class Main extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.props.currentNote.id === prevProps.currentNote.id &&
-        this.props.currentNote.notebook_id !== prevProps.currentNote.notebook_id ) {
+    if (
+      this.props.currentNote.id ===
+        prevProps.currentNote.id
+      && this.props.currentNote.notebook_id !==
+        prevProps.currentNote.notebook_id
+    ){
       this.props.fetchAllNotebooks();
     }
   }
@@ -35,6 +46,7 @@ class Main extends Component {
       type: null,
       notes: null
     }
+
     switch ( this.props.showBarStatus ) {
       case "All Notes":
         list.type = "All Notes";

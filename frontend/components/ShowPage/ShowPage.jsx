@@ -1,7 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component }
+  from 'react';
 
-import Notebooks from './Notebooks';
-import Tags from './Tags';
+import Notebooks
+  from './Notebooks';
+import Tags
+  from './Tags';
 
 class ShowPage extends Component {
 
@@ -46,7 +49,12 @@ class ShowPage extends Component {
           className="ShowPage-Footer">
           <div
             className="ShowPage-Footer-left">
-            { (this.props.formType === 'Notebooks') ? "My notebook list" : "My tag list" }
+            {
+              (this.props.formType === 'Notebooks') ?
+                "My notebook list"
+              :
+                "My tag list"
+            }
           </div>
           <div
             className="ShowPage-Footer-right">
@@ -54,15 +62,20 @@ class ShowPage extends Component {
               className="ShowPage-Add"
               onClick={this.handleOnClick()}>
               <img
-                src= { window.staticImages.add }>
+                src= {window.staticImages.add}>
               </img>
-              { (this.props.formType === 'Notebooks') ? "New notebook" : "New tags" }
+              {
+                (this.props.formType === 'Notebooks') ?
+                  "New notebook"
+                :
+                  "New tags"
+              }
             </button>
           </div>
         </div>
         <div
           className="ShowPage-Content">
-          { this.handleChildCompnentRender() }
+          {this.handleChildCompnentRender()}
         </div>
       </div>
     )

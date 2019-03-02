@@ -1,9 +1,10 @@
-import { merge } from 'lodash';
+import { merge }
+  from 'lodash';
 import {
   RECEIVE_ALL_NOTES,
   RECEIVE_NOTE,
-  DELETE_NOTE
-} from '../../actions/note_actions';
+  DELETE_NOTE }
+  from '../../actions/note_actions';
 
 const sessionReducer = (state = {}, action) => {
   Object.freeze(state);

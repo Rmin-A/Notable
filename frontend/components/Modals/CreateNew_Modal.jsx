@@ -1,4 +1,5 @@
-import React from 'react';
+import React
+  from 'react';
 
 const createNewModal = (props) => {
 
@@ -12,15 +13,17 @@ const createNewModal = (props) => {
   const handleSubmit = () => {
     return (e) => {
       e.preventDefault();
-      let inputBox = document.querySelectorAll(".Modal-Box-Form-Input")[0];
-      props.handleSubmit({ name: inputBox.value});
+      let inputBox =
+        document.querySelectorAll(".Modal-Box-Form-Input")[0];
+      props.handleSubmit({ name: inputBox.value });
       props.closeModal();
     };
   };
 
   const handleInputChange = () => {
     return (e) => {
-      let submitButton = document.querySelectorAll(".Modal-Box-Form-Buttons-Submit")[0];
+      let submitButton =
+        document.querySelectorAll(".Modal-Box-Form-Buttons-Submit")[0];
       if (e.currentTarget.value === "") {
         submitButton.disabled = true;
       } else {
@@ -32,7 +35,7 @@ const createNewModal = (props) => {
   return(
       <div
         className="Modal-Box"
-        onClick={ e => e.stopPropagation() }>
+        onClick={e => e.stopPropagation()}>
         <div
           className="Modal-Box-Header">
           <div

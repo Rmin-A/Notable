@@ -1,12 +1,13 @@
-import { connect } from 'react-redux';
-import { withRouter } from "react-router";
+import { connect }
+  from 'react-redux';
+import { withRouter }
+  from "react-router";
 
-import TagBar from './TagBar';
+import TagBar
+  from './TagBar';
 
 const mapStateToProps = () => {
-  return {
-
-  };
+  return {};
 };
 
 const mapDispatchToProps = dispatch => ({

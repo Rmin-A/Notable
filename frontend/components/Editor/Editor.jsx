@@ -1,8 +1,12 @@
-import React, { Component }from 'react';
-import ReactQuill from 'react-quill';
+import React, { Component }
+  from 'react';
+import ReactQuill
+  from 'react-quill';
 
-import TagBar from '../TagBar/TagBar_Container';
-import ActionBar from '../ActionBar/ActionBar';
+import TagBar
+  from '../TagBar/TagBar_Container';
+import ActionBar
+  from '../ActionBar/ActionBar';
 
 const editor = (props) => {
   return(
@@ -25,8 +29,7 @@ const editor = (props) => {
               value={props.currentNote.body}
               onChange={props.updateCurrentNoteBody}
               modules={ modules }
-              placeholder="Start writing..."
-              />
+              placeholder="Start writing..."/>
           </div>
           <div
             className="Editor-Quill-Title">
@@ -34,8 +37,7 @@ const editor = (props) => {
               value={props.currentNote.name}
               onChange={props.updateCurrentNoteTitle}
               modules={ { toolbar: "" } }
-              placeholder="Title"
-              />
+              placeholder="Title"/>
           </div>
         </div>
       </div>
@@ -49,14 +51,13 @@ const editor = (props) => {
 
 const toolBarOpts = [
   [{ font: [] }],
-  [{ size: ["small", false, "large", "huge"] }], // custom dropdown
-  ["bold", "italic"], // toggled buttons
-  [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+  [{ size: ["small", false, "large", "huge"] }],
+  ["bold", "italic"],
+  [{ color: [] }, { background: [] }],
   ["blockquote", "code-block"],
   [{ align: [] }],
   [{ list: "ordered" }, { list: "bullet" }],
-
-  ["link", "image", "video"] // misc
+  ["link", "image", "video"]
 ];
 
 const modules = {

@@ -9,13 +9,15 @@ const actionBar = (props) => {
         <div
           className="ActionBar-Left-Logo">
           <img
-            src={window.staticImages.notebook} />
+            src={window.staticImages.notebook}/>
         </div>
         <div>
           {
-           (Object.keys(props.notebooks).length > 0 && props.currentNote.id) ?
-           props.notebooks[props.currentNote.notebook_id].name :
-           null
+            (Object.keys(props.notebooks).length > 0
+            && props.currentNote.id) ?
+              props.notebooks[props.currentNote.notebook_id].name
+            :
+              null
           }
         </div>
       </div>
@@ -23,7 +25,7 @@ const actionBar = (props) => {
         className="ActionBar-Right">
         <img
           src={window.staticImages.dotsMenu}
-          onClick={ () => props.openModal('Corner_Menu')}/>
+          onClick={() => props.openModal('Corner_Menu')}/>
       </div>
     </div>
   );

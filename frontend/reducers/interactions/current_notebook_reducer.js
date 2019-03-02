@@ -2,12 +2,11 @@ import { merge }
   from 'lodash';
 
 import {
-  SET_CURRENT_NOTE,
-} from '../../actions/note_actions';
-
+  SET_CURRENT_NOTE }
+  from '../../actions/note_actions';
 import {
-  SET_CURRENT_NOTEBOOK,
-} from '../../actions/notebook_actions';
+  SET_CURRENT_NOTEBOOK }
+  from '../../actions/notebook_actions';
 
 const currentNotebookreducer = (state = {}, action) => {
   Object.freeze(state);

@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-
+import React, { Component }
+  from 'react';
+import { Link }
+  from 'react-router-dom';
 
 class Auth extends Component {
 
@@ -33,18 +34,26 @@ class Auth extends Component {
           <p>
             {
               (this.props.formType === "Sign in") ?
-                "Don't Have an account?" :
+                "Don't Have an account?"
+              :
                 "Already have an account?"
             }
           </p>
           <button
             onClick={ (e) => e.preventDefault() }>
             <Link
-              to={`/${
-                (this.props.formType === "Sign in") ? "signup" : "signin"
-              }`
+              to={
+                `/${(this.props.formType === "Sign in") ?
+                  "signup"
+                :
+                  "signin"}`
               }>
-               {(this.props.formType === "Sign in") ? "Sign up" : "Sign in"}
+              {
+                (this.props.formType === "Sign in") ?
+                  "Sign up"
+                :
+                  "Sign in"
+              }
             </Link>
           </button>
         </div>

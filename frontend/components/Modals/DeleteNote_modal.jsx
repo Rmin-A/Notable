@@ -1,5 +1,7 @@
-import React from 'react';
-import htmlToText from 'html-to-text';
+import React
+  from 'react';
+import htmlToText
+  from 'html-to-text';
 
 const deleteNoteModal = (props) => {
 
@@ -48,7 +50,6 @@ const deleteNoteModal = (props) => {
       </div>
     </div>
   );
-
 };
 
 export default deleteNoteModal;

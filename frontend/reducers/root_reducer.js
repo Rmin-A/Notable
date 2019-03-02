@@ -1,4 +1,5 @@
-import { combineReducers } from 'redux';
+import { combineReducers }
+  from 'redux';
 
 import session
   from './session_reducer';
@@ -11,12 +12,14 @@ import ui
 import interactions
   from './interactions_reducer';
 
-const rootReducer = combineReducers({
-  entities,
-  session,
-  errors,
-  interactions,
-  ui
-});
+const rootReducer = combineReducers(
+  {
+    entities,
+    session,
+    errors,
+    interactions,
+    ui
+  }
+);
 
 export default rootReducer;
