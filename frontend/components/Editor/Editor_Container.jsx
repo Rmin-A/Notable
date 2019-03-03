@@ -18,7 +18,7 @@ const mapStateToProps = (state) => {
     currentNote:
       state.interactions.currentNote,
     notebooks:
-      state.entities.notebooks
+      state.entities.notebooks,
   };
 };
 

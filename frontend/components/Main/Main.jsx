@@ -60,7 +60,9 @@ class Main extends Component {
             updateNote={this.props.updateNote}
             setCurrentNote={this.props.setCurrentNote} /> } />
 
-
+        <ProtectedRoute
+          path='/dashboard'
+          component={Editor} />
 
       </div>
     );

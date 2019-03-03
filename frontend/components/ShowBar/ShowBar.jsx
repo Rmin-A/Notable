@@ -171,30 +171,3 @@ class ShowBar extends Component {
 }
 
 export default ShowBar;
-
-
-
-
-
-/**
-
-if ( !this.props.currentNote.id ) {
-  if (items.legth > 0) {
-    let noteId = items[0].getAttribute('note-id');
-    this.props.setCurrentNote(this.props.notes[noteId]);
-  }
-} else {
-  let that = this;
-  let currentNote =
-    Array.prototype.slice.call(items).find(
-      (item) => {
-        return (
-          item.getAttribute('note-id') ===
-          that.props.currentNote.id.toString()
-        )
-      }
-    )
-  }
-currentNote.classList.toggle('ShowBar-Item-Box-Selected');
-
-*/
