@@ -1,4 +1,4 @@
-.Modal-Box {
+.Delete-Note-Modal-Box {
   background-color: white;
   position: fixed;
   left: 50%;
@@ -6,81 +6,53 @@
   transform: translate(-50%, -50%);
   border-radius: 5px;
   box-shadow: 10px 10px 30px #888888;
-  width: 700px;
-  height: 350px;
+  width: 550px;
+  height: 250px;
   z-index: 4;
   color: rgb(100,100,100);
-}
-
-.Modal-Box-Header {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 20px;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.Modal-Box-Header button{
-  font-weight: bold;
+.Delete-Note-Modal-Notif {
+  margin 30 auto;
 }
 
-.Modal-Box-Header button:hover{
-  color: black;
+.Delete-Note-Modal-Notif div:last-child {
+  margin-top: 30px;
+  text-align: center;
+  color :red;
+  font-weight: bolder;
 }
 
-.Modal-Box-Header div:last-child{
-  margin-top: 20px;
-}
 
-.Modal-Box-Header-Navbar {
+.Delete-Note-Buttons {
   display: flex;
-  justify-content: space-between;
-}
-
-.Modal-Box-Form {
-  padding: 20px;
-}
-
-.Modal-Box-Form input{
-  width: 100%;
-  height: 40px;
-  margin-top: 15px;
-  border: 1px solid rgb(230,230,230);
-  text-indent: 10px;
-}
-
-.Modal-Box-Form-Buttons {
-  display: flex;
-  justify-content: flex-end;
+  justify-content: space-around;
   padding: 10px;
-  border-top: 1px solid rgb(230,230,230);
   margin-top: 70px;
 }
 
-.Modal-Box-Form-Buttons button{
-  width: 90px;
+.Delete-Note-Buttons button{
+  width: 110px;
   height: 35px;
   border: 1px solid rgb(230,230,230);
   text-align: center;
 }
 
-.Modal-Box-Form-Buttons-Cancel:hover {
+.Delete-Note-Buttons-Cancel:hover {
   border: 1px solid black;
   color: black;
 }
 
-.Modal-Box-Form-Buttons-Submit {
+.Delete-Note-Buttons-Submit {
   margin-left: 10px;
+  background-color: rgb(220,20,60);
+  color: white;
 }
 
-.Modal-Box-Form-Buttons-Submit:disabled {
-  color: white;
-  background-color: rgb(230,230,230);
-}
-.Modal-Box-Form-Buttons-Submit:enabled {
-  color: white;
-  background-color: rgb(75,165,64);
-}
-.Modal-Box-Form-Buttons-Submit:enabled:hover {
-  color: white;
-  background-color: #327029;
+.Delete-Note-Buttons-Submit:hover {
+  background-color: rgb(139,0,0);
 }
