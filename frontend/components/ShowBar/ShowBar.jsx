@@ -6,11 +6,21 @@ import htmlToText
 class ShowBar extends Component {
 
   componentDidMount() {
+    this.handleAutoSelect();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.currentNotebookId !== prevProps.currentNotebookId) {
+      this.handleAutoSelect();
+    }
+  }
+
+  handleAutoSelect() {
     const items = document.querySelectorAll(".ShowBar-Item-Box");
-    if ( !this.props.selectedNoteId ) {
+    if ( !this.props.selectedNote.id ) {
       if ( items.length > 0 ) {
-        let firstNoteId = items[0].getAttribute('note-id');
-        this.props.handleShowBarSelect(firstNoteId);
+        let noteId = items[0].getAttribute('note-id');
+        this.props.setCurrentNote(this.props.notes[noteId]);
       }
     } else {
       let that = this;
@@ -19,13 +29,21 @@ class ShowBar extends Component {
           (item) => {
             return (
               item.getAttribute('note-id') ===
-              that.props.selectedNoteId.toString()
+              that.props.selectedNote.id.toString()
             )
           }
         )
       if (selectedNote) {
         selectedNote.classList.toggle('ShowBar-Item-Box-Selected');
       }
+    }
+  }
+
+  handleSelect (id) {
+    let that = this;
+    return (e) => {
+      that.props.updateNote(that.props.selectedNote);
+      that.props.setCurrentNote(that.props.notes[id]);
     }
   }
 
@@ -76,8 +94,7 @@ class ShowBar extends Component {
             className="ShowBar-Item-Box"
             key={note.id}
             note-id={note.id}
-            onClick={
-              (e) => this.props.handleShowBarSelect(note.id)}>
+            onClick={this.handleSelect(note.id)}>
             <div>
               <div
                 className="ShowBar-Item-Title">
@@ -130,7 +147,12 @@ class ShowBar extends Component {
         <div
           className="ShowBar-Header">
           <div>
-            {this.props.type}
+            {
+              (this.props.currentNotebook) ?
+                this.props.currentNotebook.name
+              :
+                "All Notes"
+            }
           </div>
           <div>
             {this.handleItemCount()}

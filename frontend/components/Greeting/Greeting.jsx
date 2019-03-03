@@ -2,7 +2,7 @@ import React
   from 'react';
 
 import { AuthRoute, ProtectedRoute }
-  from '../../utils/route_util';
+  from '../../utils/route_api_util';
 import Navbar
   from '../Navbar/Navbar';
 import SignIn

@@ -38,10 +38,8 @@ const mapStateToProps = (state, ownProps) => {
       state.interactions.currentNote,
     currentUser:
       state.session.currentUser,
-    showBarStatus:
-      state.interactions.showBarStatus,
-    currentNotebook:
-      state.interactions.currentNotebook,
+    currentNotebookId:
+      state.interactions.currentNotebookId,
   };
 };
 

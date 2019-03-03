@@ -2,9 +2,12 @@ import React, { Component }
   from 'react';
 import { merge }
   from 'lodash';
+import {
+  Switch }
+  from 'react-router-dom';
 
 import { ProtectedRoute }
-  from '../../utils/route_util';
+  from '../../utils/route_api_util';
 import { fetchAllNotes }
   from '../../actions/note_actions';
 import Sidebar
@@ -23,43 +26,16 @@ class Main extends Component {
     this.props.fetchAllNotebooks();
   }
 
-  componentDidUpdate(prevProps) {
-    if (
-      prevProps.currentNotebook
-      && this.props.currentNotebook
-      && prevProps.currentNotebook.id !== this.props.currentNotebook.id
-    ){
-      this.props.fetchAllNotes(this.props.currentNotebook.id);
-    }
-    if (
-      !prevProps.currentNotebook
-      && this.props.currentNotebook
-    ){
-      this.props.fetchAllNotes(this.props.currentNotebook.id);
-    }
-    if (
-      prevProps.currentNotebook
-      && !this.props.currentNotebook
-    ){
-      this.props.fetchAllNotes();
-    }
-  }
-
-  handleUpdate = (intervalId) => {
-    let that = this;
-    that.props.updateNote(that.props.currentNote).then(
-      () => that.props.clearIntervalId(intervalId)
-    )
-  }
-
-  handleShowBarSelect = (id) => {
-    const that = this;
-    const note = that.props.notes[id];
-    if (that.props.currentNote.id) {
-      this.handleUpdate(that.props.intervalId)
-    }
-    that.props.setCurrentNote(note);
-  }
+  //   componentDidUpdate(prevProps) {
+  //     if (prevProps.currentNotebookId !== this.props.currentNotebookId) {
+  //       this.props.fetchAllNotes(this.props.currentNotebookId)
+  //     }
+  //   }
+  //
+  // handleUpdate = (intervalId) => {
+  //   let that = this;
+  //   that.props.updateNote(that.props.currentNote);
+  // }
 
   render() {
     return (
@@ -72,51 +48,57 @@ class Main extends Component {
           currentUser={this.props.currentUser}
           currentNotebookId={this.props.currentNotebookId}/>
 
-        <ProtectedRoute
-          exact path='/client/notes'
-          component={
-            () => <ShowBar
-            type="All Notes"
-            notes={this.props.notes}
-            handleShowBarSelect={this.handleShowBarSelect}
-            selectedNoteId={this.props.currentNote.id} /> } />
 
-        <ProtectedRoute
-          exact path='/client/notebooks/:notebook_id/notes'
-          component={
-            () => <ShowBar
-            type={`${this.props.currentNotebook.name}`}
-            notes={this.props.notes}
-            handleShowBarSelect={this.handleShowBarSelect}
-            selectedNoteId={this.props.currentNote.id} /> } />
 
-        <ProtectedRoute
-          exact path='/client/notebooks'
-          component={
-            () => <ShowPage
-            formType="Notebooks"
-            currentNote={this.props.currentNote}
-            notebooks={this.props.notebooks}
-            openModal={this.props.openModal}
-            closeModal={this.props.closeModal}
-            setCurrentNotebook={this.props.setCurrentNotebook}
-            fetchAllNotebooks={this.props.fetchAllNotebooks}/> } />
-
-        <ProtectedRoute
-          exact path='/client/tags'
-          component={
-            () => <ShowPage
-            formType="Tags"
-            notebooks={this.props.notebooks}
-            openModal={this.props.openModal}
-            closeModal={this.props.closeModal}/> } />
-
-        <ProtectedRoute
-          path='/client'
-          component={Editor} />
       </div>
     );
   }
 }
 
 export default Main;
+
+
+
+/**
+<Switch>
+  <ProtectedRoute
+    exact path='/client/notebooks'
+    component={
+      () => <ShowPage
+      formType="Notebooks"
+      currentNote={this.props.currentNote}
+      notebooks={this.props.notebooks}
+      openModal={this.props.openModal}
+      closeModal={this.props.closeModal}
+      setCurrentNotebook={this.props.setCurrentNotebook}
+      fetchAllNotebooks={this.props.fetchAllNotebooks}/> } />
+
+  <ProtectedRoute
+    exact path='/client/tags'
+    component={
+      () => <ShowPage
+      formType="Tags"
+      notebooks={this.props.notebooks}
+      openModal={this.props.openModal}
+      closeModal={this.props.closeModal}/> } />
+
+  <ProtectedRoute
+    path='/client'
+    component={
+      () => <ShowBar
+      notes={this.props.notes}
+      currentNotebookId={this.props.currentNotebookId}
+      updateNote={this.props.updateNote}
+      setCurrentNote={this.props.setCurrentNote}
+      selectedNote={this.props.currentNote} /> } />
+</Switch>
+
+<ProtectedRoute
+  exact path='/client/notes'
+  component={Editor} />
+
+<ProtectedRoute
+  path='/client/notebooks/:notebook_id/notes'
+  component={Editor} />
+
+*/

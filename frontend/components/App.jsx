@@ -7,10 +7,10 @@ import {
   Redirect,
   Switch,
   Link,
-  HashRouter
-} from 'react-router-dom';
+  HashRouter }
+  from 'react-router-dom';
 import { AuthRoute, ProtectedRoute }
-  from '../utils/route_util';
+  from '../utils/route_api_util';
 
 import Greeting
   from './Greeting/Greeting';
@@ -28,7 +28,7 @@ const App = () => (
     <Modal />
     <Switch>
       <ProtectedRoute
-        path="/client"
+        path="/dashboard"
         component={ Main } />
       <AuthRoute
         exact path="/signin"

@@ -2,9 +2,7 @@ import { merge }
   from 'lodash';
 
 import {
-  RECEIVE_CURRENT_USER }
-  from '../../actions/session_actions';
-import {
+  RECEIVE_ALL_NOTEBOOKS,
   SET_CURRENT_NOTEBOOK }
   from '../../actions/notebook_actions';
 
@@ -12,10 +10,8 @@ const currentNotebookreducer = (state = null, action) => {
   Object.freeze(state);
   let newState;
   switch(action.type) {
-    case RECEIVE_CURRENT_USER:
-      return action.currentUser.general_notebook;
     case SET_CURRENT_NOTEBOOK:
-      return action.notebook;
+      return action.notebook.id;
     default:
       return state;
   }
