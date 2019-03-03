@@ -6,12 +6,18 @@ import {
   SET_CURRENT_NOTEBOOK }
   from '../../actions/notebook_actions';
 
-const currentNotebookreducer = (state = null, action) => {
+  const _nullNotebook = Object.freeze(
+    {
+      id: null,
+    }
+  );
+
+const currentNotebookreducer = (state = _nullNotebook, action) => {
   Object.freeze(state);
   let newState;
   switch(action.type) {
     case SET_CURRENT_NOTEBOOK:
-      return action.notebook.id;
+      return action.notebook;
     default:
       return state;
   }

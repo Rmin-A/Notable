@@ -22,9 +22,11 @@ import ShowPage
 class Main extends Component {
 
   componentDidMount() {
-    this.props.fetchAllNotes();
+    this.props.fetchAllNotes(null);
     this.props.fetchAllNotebooks();
   }
+
+  componentDidUpdate() {}
 
   //   componentDidUpdate(prevProps) {
   //     if (prevProps.currentNotebookId !== this.props.currentNotebookId) {
@@ -47,6 +49,16 @@ class Main extends Component {
           handleShowBarSelect={this.handleShowBarSelect}
           currentUser={this.props.currentUser}
           currentNotebookId={this.props.currentNotebookId}/>
+
+        <ProtectedRoute
+          path='/dashboard'
+          component={
+            () => <ShowBar
+            notes={this.props.notes}
+            currentNote={this.props.currentNote}
+            currentNotebookId={this.props.currentNotebookId}
+            updateNote={this.props.updateNote}
+            setCurrentNote={this.props.setCurrentNote} /> } />
 
 
 
@@ -82,15 +94,7 @@ export default Main;
       openModal={this.props.openModal}
       closeModal={this.props.closeModal}/> } />
 
-  <ProtectedRoute
-    path='/client'
-    component={
-      () => <ShowBar
-      notes={this.props.notes}
-      currentNotebookId={this.props.currentNotebookId}
-      updateNote={this.props.updateNote}
-      setCurrentNote={this.props.setCurrentNote}
-      selectedNote={this.props.currentNote} /> } />
+
 </Switch>
 
 <ProtectedRoute

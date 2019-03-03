@@ -9,40 +9,43 @@ class ShowBar extends Component {
     this.handleAutoSelect();
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.currentNotebookId !== prevProps.currentNotebookId) {
-      this.handleAutoSelect();
-    }
+  componentDidUpdate() {
+
   }
+
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.currentNotebookId !== prevProps.currentNotebookId) {
+  //     this.handleAutoSelect();
+  //   }
+  // }
 
   handleAutoSelect() {
     const items = document.querySelectorAll(".ShowBar-Item-Box");
-    if ( !this.props.selectedNote.id ) {
-      if ( items.length > 0 ) {
-        let noteId = items[0].getAttribute('note-id');
-        this.props.setCurrentNote(this.props.notes[noteId]);
-      }
-    } else {
+    if (items.length === 0 ) {
+      return null;
+    }
+    if (this.props.currentNote.id) {
       let that = this;
-      let selectedNote =
+      let currentNote =
         Array.prototype.slice.call(items).find(
           (item) => {
             return (
               item.getAttribute('note-id') ===
-              that.props.selectedNote.id.toString()
+              that.props.currentNote.id.toString()
             )
           }
         )
-      if (selectedNote) {
-        selectedNote.classList.toggle('ShowBar-Item-Box-Selected');
-      }
+      currentNote.classList.toggle('ShowBar-Item-Box-Selected');
+    } else {
+      let noteId = items[0].getAttribute('note-id');
+      this.props.setCurrentNote(this.props.notes[noteId]);
     }
   }
 
   handleSelect (id) {
     let that = this;
     return (e) => {
-      that.props.updateNote(that.props.selectedNote);
+      that.props.updateNote(that.props.currentNote);
       that.props.setCurrentNote(that.props.notes[id]);
     }
   }
@@ -168,3 +171,30 @@ class ShowBar extends Component {
 }
 
 export default ShowBar;
+
+
+
+
+
+/**
+
+if ( !this.props.currentNote.id ) {
+  if (items.legth > 0) {
+    let noteId = items[0].getAttribute('note-id');
+    this.props.setCurrentNote(this.props.notes[noteId]);
+  }
+} else {
+  let that = this;
+  let currentNote =
+    Array.prototype.slice.call(items).find(
+      (item) => {
+        return (
+          item.getAttribute('note-id') ===
+          that.props.currentNote.id.toString()
+        )
+      }
+    )
+  }
+currentNote.classList.toggle('ShowBar-Item-Box-Selected');
+
+*/
