@@ -47,7 +47,8 @@ const sideBar = (props) => {
 
           <button>
             <Link
-              to={`/dashboard/notebooks/${props.currentUser.general_notebook_name}/notes`}>
+              to={
+                `/dashboard/notebooks/${props.currentUser.general_notebook_name}/notes`}>
               All Notes
             </Link>
           </button>

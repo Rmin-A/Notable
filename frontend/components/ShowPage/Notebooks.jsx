@@ -53,7 +53,7 @@ const notebooks = (props) => {
         (key) => {
           items.push(
             <Link
-              to={`/client/notebooks/${props.notebooks[key].id}/notes`}
+              to={`/client/notebooks/${props.notebooks[key].name}/notes`}
               key={key}>
               <div
                 className="Notebook-Box"
