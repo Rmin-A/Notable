@@ -47,21 +47,21 @@ const sideBar = (props) => {
 
           <button>
             <Link
-              to="/client/notes">
+              to={`/dashboard/notebooks/${props.currentUser.general_notebook_name}/notes`}>
               All Notes
             </Link>
           </button>
 
           <button>
             <Link
-              to="/client/notebooks">
+              to="/dashboard/notebooks">
               All Notebooks
             </Link>
           </button>
 
           <button>
             <Link
-              to="/client/tags">
+              to="/dashboard/tags">
               All Tags
             </Link>
           </button>

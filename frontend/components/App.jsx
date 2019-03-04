@@ -28,7 +28,7 @@ const App = () => (
     <Modal />
     <Switch>
       <ProtectedRoute
-        path="/dashboard"
+        path="/"
         component={ Main } />
       <AuthRoute
         exact path="/signin"
@@ -37,7 +37,7 @@ const App = () => (
         exact path="/signup"
         component={ SignUp } />
       <AuthRoute
-        exact path="/"
+        exact path="/greeting"
         component={ Greeting } />
     </Switch>
   </div>

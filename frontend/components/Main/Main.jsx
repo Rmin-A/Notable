@@ -2,8 +2,7 @@ import React, { Component }
   from 'react';
 import { merge }
   from 'lodash';
-import {
-  Switch }
+import { Switch, Redirect }
   from 'react-router-dom';
 
 import { ProtectedRoute }
@@ -26,7 +25,9 @@ class Main extends Component {
     this.props.fetchAllNotebooks();
   }
 
-  componentDidUpdate() {}
+  componentDidUpdate() {
+
+  }
 
   //   componentDidUpdate(prevProps) {
   //     if (prevProps.currentNotebookId !== this.props.currentNotebookId) {
@@ -43,6 +44,7 @@ class Main extends Component {
     return (
       <div
         className='Main'>
+
         <Sidebar
           logOut={this.props.logOut}
           createNote={this.props.createNote}
@@ -51,7 +53,28 @@ class Main extends Component {
           currentNotebookId={this.props.currentNotebookId}/>
 
         <ProtectedRoute
-          path='/dashboard'
+          exact path='/dashboard/notebooks'
+          component={
+            () => <ShowPage
+            formType="Notebooks"
+            currentNote={this.props.currentNote}
+            notebooks={this.props.notebooks}
+            openModal={this.props.openModal}
+            closeModal={this.props.closeModal}
+            setCurrentNotebook={this.props.setCurrentNotebook}
+            fetchAllNotebooks={this.props.fetchAllNotebooks}/> } />
+
+        <ProtectedRoute
+          exact path='dashboard/tags'
+          component={
+            () => <ShowPage
+            formType="Tags"
+            notebooks={this.props.notebooks}
+            openModal={this.props.openModal}
+            closeModal={this.props.closeModal}/> } />
+
+        <ProtectedRoute
+          exact path='/dashboard/notebooks/:notebookName/notes'
           component={
             () => <ShowBar
             notes={this.props.notes}
@@ -61,8 +84,10 @@ class Main extends Component {
             setCurrentNote={this.props.setCurrentNote} /> } />
 
         <ProtectedRoute
-          path='/dashboard'
+          exact path='/dashboard/notebooks/:notebookName/notes'
           component={Editor} />
+
+        <Redirect to={`/dashboard/notebooks/${this.props.currentUser.general_notebook_name}/notes`} />
 
       </div>
     );
