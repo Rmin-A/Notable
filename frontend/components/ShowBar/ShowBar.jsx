@@ -9,16 +9,6 @@ class ShowBar extends Component {
     this.handleAutoSelect();
   }
 
-  componentDidUpdate() {
-
-  }
-
-  // componentDidUpdate(prevProps) {
-  //   if (this.props.currentNotebookId !== prevProps.currentNotebookId) {
-  //     this.handleAutoSelect();
-  //   }
-  // }
-
   handleAutoSelect() {
     const items = document.querySelectorAll(".ShowBar-Item-Box");
     if (items.length === 0 ) {

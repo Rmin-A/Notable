@@ -10,13 +10,14 @@ import Editor
 class NotePanel extends Component {
   render() {
     return (
-      <div>
-        <Showbar
-          logOut={this.props.logOut}
-          createNote={this.props.createNote}
-          handleShowBarSelect={this.handleShowBarSelect}
-          currentUser={this.props.currentUser}
-          currentNotebookId={this.props.currentNotebookId} />
+      <div
+        className="NotePanel">
+        <ShowBar
+          notes={this.props.notes}
+          currentNote={this.props.currentNote}
+          currentNotebook={this.props.currentNotebook}
+          updateNote={this.props.updateNote}
+          setCurrentNote={this.props.setCurrentNote} />
 
         <Editor />
       </div>

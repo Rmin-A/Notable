@@ -27,18 +27,21 @@ const App = () => (
   <div>
     <Modal />
     <Switch>
-      <ProtectedRoute
-        path="/"
-        component={ Main } />
       <AuthRoute
         exact path="/signin"
         component={ SignIn } />
+
       <AuthRoute
         exact path="/signup"
         component={ SignUp } />
+
       <AuthRoute
         exact path="/greeting"
         component={ Greeting } />
+
+      <ProtectedRoute
+        path="/"
+        component={ Main } />
     </Switch>
   </div>
 );
