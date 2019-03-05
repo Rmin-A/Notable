@@ -24,58 +24,24 @@ class Main extends Component {
             setCurrentNote={this.props.setCurrentNote}
             currentUser={this.props.currentUser}
             currentNotebookId={this.props.currentNotebookId}/>
-          <ProtectedRoute
-            exact path='/dashboard'
-            component={NotePanel}/>
+          <Switch>
+            <ProtectedRoute
+              exact path='/dashboard/notebooks'
+              component={ShowPage}/>
+
+              <ProtectedRoute
+                exact path='/dashboard/tags'
+                component={ShowPage}/>
+
+              <ProtectedRoute
+                path='/dashboard'
+                component={NotePanel}/>
+
+              <Redirect to="/Dashboard" />
+          </Switch>
       </div>
     );
   }
 }
 
 export default Main;
-
-
-// 
-// render() {
-//     return (
-//       <div
-//         className='Main'>
-//           <Sidebar
-//             logOut={this.props.logOut}
-//             createNote={this.props.createNote}
-//             handleShowBarSelect={this.handleShowBarSelect}
-//             currentUser={this.props.currentUser}
-//             setCurrentNotebook={this.props.setCurrentNotebook}
-//             currentNotebookId={this.props.currentNotebookId}/>
-//
-//           <Switch>
-//             <ProtectedRoute
-//               exact path='/dashboard/notebooks'
-//               component={
-//                 () => <ShowPage
-//                 formType="Notebooks"
-//                 currentNote={this.props.currentNote}
-//                 notebooks={this.props.notebooks}
-//                 openModal={this.props.openModal}
-//                 closeModal={this.props.closeModal}
-//                 setCurrentNotebook={this.props.setCurrentNotebook}
-//                 fetchAllNotebooks={this.props.fetchAllNotebooks}/> }/>
-//
-//               <ProtectedRoute
-//                 exact path='/dashboard/tags'
-//                 component={
-//                   () => <ShowPage
-//                   formType="Tags"
-//                   notebooks={this.props.notebooks}
-//                   openModal={this.props.openModal}
-//                   closeModal={this.props.closeModal}/> }/>
-//
-//               <ProtectedRoute
-//                 path='/dashboard'
-//                 component={NotePanel}/>
-//
-//               <Redirect to="/Dashboard" />
-//           </Switch>
-//       </div>
-//     );
-//   }
