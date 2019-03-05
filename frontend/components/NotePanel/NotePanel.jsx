@@ -1,33 +1,22 @@
-import React, { Component }
-  from 'react';
+import React from 'react';
 
 import ShowBar
   from '../ShowBar/ShowBar';
 import Editor
   from '../Editor/Editor_Container';
 
+const notePanel = (props) => {
+  return (
+    <div
+      className="NotePanel">
+      <ShowBar
+        notes={props.notes}
+        currentNote={props.currentNote}
+        currentNotebook={props.currentNotebook}
+        updateNote={props.updateNote}
+        setCurrentNote={props.setCurrentNote} />
+    </div>
+  );
+};
 
-class NotePanel extends Component {
-
-  componentDidMount() {
-    this.props.fetchAllNotes(this.props.match.params.notebookId);
-  }
-
-  render() {
-    return (
-      <div
-        className="NotePanel">
-        <ShowBar
-          notes={this.props.notes}
-          currentNote={this.props.currentNote}
-          currentNotebook={this.props.currentNotebook}
-          updateNote={this.props.updateNote}
-          setCurrentNote={this.props.setCurrentNote} />
-
-        <Editor />
-      </div>
-    );
-  }
-}
-
-export default NotePanel;
+export default notePanel;
