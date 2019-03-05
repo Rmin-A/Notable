@@ -3,7 +3,7 @@ import React
 import { Link, Redirect }
   from 'react-router-dom';
 
-const notebooks = (props) => {
+const notebooksPanel = (props) => {
 
   const handleDateRender = (date) => {
 
@@ -28,25 +28,6 @@ const notebooks = (props) => {
     );
   };
 
-  const handleClick = (notebook) => {
-    return (e) => {
-      if (props.formType === "modal") {
-        e.preventDefault();
-        let note = Object.assign({}, props.currentNote);
-        note.notebook_id = notebook.id;
-        props.onCLick(note).then(
-          (payload) =>
-            props.setCurrentNote(Object.values(payload.note)[0])
-        );
-        props.closeModal();
-      } else {
-        props.setCurrentNote({});
-        props.setCurrentNotebook(notebook);
-        return false;
-      }
-    };
-  };
-
   const notebooksRender= () => {
     let items = [];
     if (Object.keys(props.notebooks).length > 0) {
@@ -57,8 +38,7 @@ const notebooks = (props) => {
               to={`/dashboard/notebooks/${props.notebooks[key].id}/notes`}
               key={key}>
               <div
-                className="Notebook-Box"
-                onClick={handleClick(props.notebooks[key])}>
+                className="Notebook-Box">
                 <div
                   className="Notebook-Box-Title">
                   <div
@@ -91,33 +71,64 @@ const notebooks = (props) => {
 
   return (
     <div
-      className={
-        `Notebooks Notebooks-Header
-
-        ${
-          (props.className) ?
-            props.className
-          :
-            ""
-        }`
-      }>
+      className="ShowPage">
       <div
-        className="Notebook-Box Notebook-Box-Header">
+        className="ShowPage-Header">
         <div
-            className="Notebook-Box-Title">
-          <div
-            className="Notebook-Box-Name">
-            Name
-          </div>
-        </div>
-        <div
-          className="Notebook-Box-Date">
-          Last update
+          className="ShowPage-Header-Title">
+          Notebooks
         </div>
       </div>
-      {notebooksRender()}
+      <div
+        className="ShowPage-Footer">
+        <div
+          className="ShowPage-Footer-left">
+          My notebook list
+        </div>
+        <div
+          className="ShowPage-Footer-right">
+          <button
+            className="ShowPage-Add"
+            onClick={ () => props.openModal('notebook')}>
+            <img
+              src= {window.staticImages.add}>
+            </img>
+            New notebook
+          </button>
+        </div>
+      </div>
+      <div
+        className="ShowPage-Content">
+        <div
+          className={
+            `Notebooks Notebooks-Header
+
+            ${
+              (props.className) ?
+                props.className
+              :
+                ""
+            }`
+          }>
+          <div
+            className="Notebook-Box Notebook-Box-Header">
+            <div
+              className="Notebook-Box-Title">
+              <div
+                className="Notebook-Box-Name">
+                Name
+              </div>
+            </div>
+            <div
+              className="Notebook-Box-Date">
+              Last update
+            </div>
+          </div>
+          {notebooksRender()}
+        </div>
+      </div>
     </div>
   );
 };
 
-export default notebooks;
+export default notebooksPanel;

@@ -7,8 +7,8 @@ import { ProtectedRoute }
   from '../../utils/route_api_util';
 import Sidebar
   from '../Sidebar/Sidebar';
-import ShowPage
-  from '../ShowPage/ShowPage';
+import NotebooksPanel
+  from '../NotebooksPanel/NotebooksPanel_Container';
 import NotePanel
   from '../NotePanel/NotePanel_Container';
 
@@ -27,11 +27,9 @@ class Main extends Component {
           <Switch>
             <ProtectedRoute
               exact path='/dashboard/notebooks'
-              component={ShowPage}/>
+              component={NotebooksPanel}/>
 
-              <ProtectedRoute
-                exact path='/dashboard/tags'
-                component={ShowPage}/>
+
 
               <ProtectedRoute
                 path='/dashboard'
@@ -45,3 +43,8 @@ class Main extends Component {
 }
 
 export default Main;
+
+//
+// <ProtectedRoute
+//   exact path='/dashboard/tags'
+//   component={ShowPage}/>
