@@ -50,7 +50,9 @@ const showBar = (props) => {
 
   const handleSelect = (note) => {
     return (e) => {
-      props.updateNote(props.currentNote);
+      if (props.unsavedChanges) {
+        props.updateNote(props.currentNote);        
+      }
       props.setCurrentNote(note);
     };
   };

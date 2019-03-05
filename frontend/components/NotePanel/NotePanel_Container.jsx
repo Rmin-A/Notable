@@ -65,6 +65,8 @@ const mapStateToProps = (state, ownProps) => {
       state.interactions.currentNote,
     currentNotebook:
       state.interactions.currentNotebook,
+    unsavedChanges:
+      state.interactions.changes.currentNote
   };
 };
 
