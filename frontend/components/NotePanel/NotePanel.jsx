@@ -6,6 +6,11 @@ import Editor
   from '../Editor/Editor_Container';
 
 const notePanel = (props) => {
+
+  if (!props.currentNote.id && props.notes.length > 0) {
+    props.setCurrentNote( ( props.notes.length === 0 ) ? {} : props.notes[0]);
+  }
+
   return (
     <div
       className="NotePanel">

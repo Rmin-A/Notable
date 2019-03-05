@@ -48,27 +48,31 @@ const showBar = (props) => {
     }
   };
 
-  const handleSelect = (id) => {
+  const handleSelect = (note) => {
     return (e) => {
       props.updateNote(props.currentNote);
-      props.setCurrentNote(props.notes[id]);
+      props.setCurrentNote(note);
     };
   };
 
   const handleItems = () => {
-    if ( !props.notes ) {
+    if ( props.notes.length === 0 || !props.currentNote.id ) {
       return [];
     }
-    debugger
     let itemBoxes = [];
-    props.notes.forEach(
+    props.notes.reverse().forEach(
       (note) => {
         itemBoxes.push(
           <div
-            className="ShowBar-Item-Box"
+            className={
+              (note.id === props.currentNote.id) ?
+                "ShowBar-Item-Box ShowBar-Item-Box-Selected"
+              :
+                "ShowBar-Item-Box"
+            }
             key={note.id}
             note-id={note.id}
-            onClick={handleSelect(note.id)}>
+            onClick={handleSelect(note)}>
             <div>
               <div
                 className="ShowBar-Item-Title">
