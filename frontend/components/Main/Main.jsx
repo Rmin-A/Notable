@@ -29,13 +29,15 @@ class Main extends Component {
               exact path='/dashboard/notebooks'
               component={NotebooksPanel}/>
 
+            <ProtectedRoute
+              exact path='/dashboard/notebooks/:notebookId/notes'
+              component={NotePanel}/>
 
+            <ProtectedRoute
+              path='/dashboard'
+              component={NotePanel}/>
 
-              <ProtectedRoute
-                path='/dashboard'
-                component={NotePanel}/>
-
-              <Redirect to="/Dashboard" />
+            <Redirect to="/Dashboard" />
           </Switch>
       </div>
     );

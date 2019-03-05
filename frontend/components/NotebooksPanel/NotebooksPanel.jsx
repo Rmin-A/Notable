@@ -33,12 +33,14 @@ const notebooksPanel = (props) => {
     if (Object.keys(props.notebooks).length > 0) {
       Object.keys(props.notebooks).forEach(
         (key) => {
+          let notebook = props.notebooks[key];
           items.push(
             <Link
-              to={`/dashboard/notebooks/${props.notebooks[key].id}/notes`}
+              to={`/dashboard/notebooks/${notebook.id}/notes`}
               key={key}>
               <div
-                className="Notebook-Box">
+                className="Notebook-Box"
+                onClick={ () => props.clickHandler(notebook)}>
                 <div
                   className="Notebook-Box-Title">
                   <div
@@ -50,15 +52,15 @@ const notebooksPanel = (props) => {
                   <div
                     className="Notebook-Box-Text">
                     {
-                      `${props.notebooks[key].name}
+                      `${notebook.name}
 
-                       (${props.notebooks[key].number_of_notes})`
+                       (${notebook.number_of_notes})`
                     }
                   </div>
                 </div>
                 <div
                   className="Notebook-Box-Date">
-                  {handleDateRender(props.notebooks[key].updated_at)}
+                  {handleDateRender(notebook.updated_at)}
                 </div>
               </div>
             </Link>

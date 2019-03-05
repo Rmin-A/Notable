@@ -7,7 +7,7 @@ import { withRouter }
 
 import { updateNote }
   from '../../actions/note_actions';
-import { fetchAllNotebooks }
+import { fetchAllNotebooks, setCurrentNotebook }
   from '../../actions/notebook_actions';
 import { openModal, closeModal }
   from '../../actions/modal_actions';
@@ -24,7 +24,8 @@ class NotebooksPanelContainer extends Component {
     return(
       <NotebooksPanel
         notebooks={this.props.notebooks}
-        openModal={this.props.openModal}/>
+        openModal={this.props.openModal}
+        clickHandler={this.props.setCurrentNotebook}/>
     );
   }
 }
@@ -38,16 +39,20 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const mapDispatchToProps = dispatch => ({
-  updateNote:
-    (note) => dispatch(updateNote(note)),
-  fetchAllNotebooks:
-    () => dispatch(fetchAllNotebooks()),
-  openModal:
-    (modal) => dispatch(openModal(modal)),
-  closeModal:
-    () => dispatch(closeModal())
-});
+const mapDispatchToProps = dispatch => {
+  return {
+    updateNote:
+      (note) => dispatch(updateNote(note)),
+    fetchAllNotebooks:
+      () => dispatch(fetchAllNotebooks()),
+    setCurrentNotebook:
+      (notebook) => dispatch(setCurrentNotebook(notebook)),
+    openModal:
+      (modal) => dispatch(openModal(modal)),
+    closeModal:
+      () => dispatch(closeModal())
+  };
+};
 
 export default withRouter(connect(
   mapStateToProps,
