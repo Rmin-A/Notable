@@ -14,9 +14,7 @@ const sideBar = (props) => {
   const handleNewNote = () => {
     return (e) => {
       e.preventDefault();
-      props.createNote(_nullNote).then(
-        payload => props.setCurrentNote(payload.note)
-      );
+      props.createNote(_nullNote);
     };
   };
 
