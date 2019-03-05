@@ -16,6 +16,7 @@ const notePanel = (props) => {
         updateNote={props.updateNote}
         setCurrentNote={props.setCurrentNote}
         unsavedChanges={props.unsavedChanges}/>
+      <Editor />
     </div>
   );
 };

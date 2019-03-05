@@ -29,13 +29,20 @@ class NotePanelContainer extends Component {
     if (Object.keys(this.props.notes).length > 0) {
       if (
         !this.props.currentNote.id ||
-        Object.keys(this.props.notes).length !== Object.keys(prevProps.notes).length
+        Object.keys(
+          this.props.notes).length !==
+          Object.keys(prevProps.notes).length
       ){
         let newState = this.sortNotes();
         this.props.setCurrentNote(newState[0]);
       }
     }
-
+    if (prevProps.currentNote.id &&
+        this.props.currentNote.id &&
+        prevProps.currentNote.id !== this.props.currentNote.id)
+    {
+      this.props.updateNote(prevProps.currentNote);
+    }
   }
 
   sortNotes() {
@@ -97,10 +104,3 @@ export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
 )(NotePanelContainer));
-
-
-// if (!this.props.currentNote.id && Object.keys(this.props.notes).length > 0 ) {
-//   debugger
-//   let newState = this.sortNotes();
-//   this.props.setCurrentNote(newState[0]);
-// }
