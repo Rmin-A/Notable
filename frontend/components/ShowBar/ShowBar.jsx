@@ -5,49 +5,6 @@ import htmlToText
 
 class ShowBar extends Component {
 
-  componentDidMount() {
-  }
-
-  componentDidUpdate(prevProps) {
-  }
-
-  handleAutoSelect() {
-    const items = document.querySelectorAll(".ShowBar-Item-Box");
-    const selectedItem = document.querySelectorAll(".ShowBar-Item-Box-Selected");
-    debugger
-    if (items.length === 0 ) {
-      return null;
-    }
-    if (this.props.currentNote.id) {
-      let that = this;
-      let currentNote =
-        Array.prototype.slice.call(items).find(
-          (item) => {
-            return (
-              item.getAttribute('note-id') ===
-              that.props.currentNote.id.toString()
-            )
-          }
-        )
-      if (selectedItem[0]) {
-        selectedItem[0].classList.toggle('ShowBar-Item-Box-Selected');
-      }
-      currentNote.classList.toggle('ShowBar-Item-Box-Selected');
-    } else {
-      let noteId = items[0].getAttribute('note-id');
-      this.props.setCurrentNote(this.props.notes[noteId]);
-    }
-  }
-
-  handleSelect (id) {
-    let that = this;
-    return (e) => {
-      that.props.updateNote(that.props.currentNote);
-      that.props.setCurrentNote(that.props.notes[id]);
-      that.handleAutoSelect();
-    }
-  }
-
   handleCalculateUpdateHours = (date) => {
     var delta = Math.abs(new Date() - new Date(date)) / 1000;
     if (
@@ -78,13 +35,31 @@ class ShowBar extends Component {
     return "Less than an hour ago";
   }
 
+  handleItemCount = () => {
+    let count = Object.keys(this.props.notes).length;
+    switch (count) {
+      case undefined:
+        return "";
+        break;
+      case 1:
+        return "1 note";
+        break;
+      default:
+        return `${count} notes`;
+    }
+  }
+
+  handleSelect (id) {
+    let that = this;
+    return (e) => {
+      that.props.updateNote(that.props.currentNote);
+      that.props.setCurrentNote(that.props.notes[id]);
+    }
+  }
+
   handleItems = () => {
     if ( !this.props.notes ) {
-      return(
-        <div
-          className="ShowBar-Item-Boxes">
-        </div>
-      );
+      return [];
     }
 
     let itemBoxes = [];
@@ -125,20 +100,6 @@ class ShowBar extends Component {
       }
     );
     return itemBoxes.reverse();
-  }
-
-  handleItemCount = () => {
-    let count = Object.keys(this.props.notes).length;
-    switch (count) {
-      case undefined:
-        return "";
-        break;
-      case 1:
-        return "1 note";
-        break;
-      default:
-        return `${count} notes`;
-    }
   }
 
   render() {

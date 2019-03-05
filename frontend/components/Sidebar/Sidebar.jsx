@@ -14,11 +14,7 @@ const sideBar = (props) => {
   const handleNewNote = () => {
     return (e) => {
       e.preventDefault();
-      props.createNote(_nullNote).then(
-        (payload) => props.handleShowBarSelect(
-          parseInt(Object.keys(payload.note)[0])
-        )
-      );
+      props.createNote(_nullNote);
     };
   };
 
@@ -45,8 +41,7 @@ const sideBar = (props) => {
             New Note
           </button>
 
-          <button
-            onClick={ (e) => props.setCurrentNotebook({id: null})}>
+          <button>
             <Link
               to='/'>
               All Notes

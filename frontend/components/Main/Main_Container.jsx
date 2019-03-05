@@ -5,6 +5,47 @@ import { withRouter }
 
 import { logout, login, signup }
   from '../../actions/session_actions';
+import { createNote }
+  from '../../actions/note_actions';
+import { setCurrentNotebook }
+  from '../../actions/notebook_actions';
+
+import Main from './Main';
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    currentUser:
+      state.session.currentUser,
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  logOut:
+    () => dispatch(logout()),
+  signIn:
+    () => dispatch(login()),
+  signUp:
+    () => dispatch(signup()),
+  createNote:
+    (note) => dispatch(createNote(note)),
+});
+
+export default withRouter(connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Main));
+
+
+
+
+/**
+import { connect }
+  from 'react-redux';
+import { withRouter }
+  from "react-router";
+
+import { logout, login, signup }
+  from '../../actions/session_actions';
 import {
   fetchAllNotes,
   createNote,
@@ -80,3 +121,5 @@ export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
 )(Main));
+
+*/
