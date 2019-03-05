@@ -45,7 +45,8 @@ const sideBar = (props) => {
             New Note
           </button>
 
-          <button>
+          <button
+            onClick={ (e) => props.setCurrentNotebook({id: null})}>
             <Link
               to='/dashboard'>
               All Notes

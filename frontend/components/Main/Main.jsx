@@ -32,6 +32,7 @@ class Main extends Component {
             createNote={this.props.createNote}
             handleShowBarSelect={this.handleShowBarSelect}
             currentUser={this.props.currentUser}
+            setCurrentNotebook={this.props.setCurrentNotebook}
             currentNotebookId={this.props.currentNotebookId}/>
 
           <Switch>
