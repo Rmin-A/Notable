@@ -58,7 +58,7 @@ class Main extends Component {
 
               <ProtectedRoute
                 path='/dashboard'
-                component={ NotePanel }/>
+                component={NotePanel}/>
 
               <Redirect to="/Dashboard" />
           </Switch>

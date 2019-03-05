@@ -9,6 +9,10 @@ import Editor
 
 class NotePanel extends Component {
   render() {
+    if (Object.keys(this.props.notes).length === 0 ) {
+      return <div></div>;
+    }
+    
     return (
       <div
         className="NotePanel">
@@ -18,8 +22,6 @@ class NotePanel extends Component {
           currentNotebook={this.props.currentNotebook}
           updateNote={this.props.updateNote}
           setCurrentNote={this.props.setCurrentNote} />
-
-        <Editor />
       </div>
     );
   }

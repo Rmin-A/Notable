@@ -9,8 +9,16 @@ class ShowBar extends Component {
     this.handleAutoSelect();
   }
 
-  handleAutoSelect() {
+  componentDidUpdate(prevProps) {
+    if (prevProps.currentNote.id !== this.props.currentNote.id) {
+      this.handleAutoSelect();
+    }
+  }
+
+  handleAutoSelect(prevNote) {
     const items = document.querySelectorAll(".ShowBar-Item-Box");
+    const selectedItem = document.querySelectorAll(".ShowBar-Item-Box-Selected");
+    debugger
     if (items.length === 0 ) {
       return null;
     }
@@ -25,6 +33,10 @@ class ShowBar extends Component {
             )
           }
         )
+        debugger
+      if (selectedItem[0]) {
+        selectedItem[0].classList.toggle('ShowBar-Item-Box-Selected');
+      }
       currentNote.classList.toggle('ShowBar-Item-Box-Selected');
     } else {
       let noteId = items[0].getAttribute('note-id');
@@ -141,7 +153,7 @@ class ShowBar extends Component {
           className="ShowBar-Header">
           <div>
             {
-              (this.props.currentNotebook) ?
+              (this.props.currentNotebook.name) ?
                 this.props.currentNotebook.name
               :
                 "All Notes"

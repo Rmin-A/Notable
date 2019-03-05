@@ -34,10 +34,10 @@ const mapStateToProps = (state, ownProps) => {
       state.entities.notebooks,
     currentNote:
       state.interactions.currentNote,
-    currentUser:
-      state.session.currentUser,
     currentNotebook:
       state.interactions.currentNotebook,
+    currentUser:
+      state.session.currentUser,
   };
 };
 
