@@ -30,6 +30,8 @@ const mapDispatchToProps = dispatch => ({
     (note) => dispatch(createNote(note)),
   setCurrentNote:
     (note) => dispatch(setCurrentNote(note)),
+  setCurrentNotebook:
+    (note) => dispatch(setCurrentNotebook(note)),
 });
 
 export default withRouter(connect(

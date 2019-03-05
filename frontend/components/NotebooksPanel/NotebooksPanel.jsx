@@ -91,7 +91,7 @@ const notebooksPanel = (props) => {
           className="ShowPage-Footer-right">
           <button
             className="ShowPage-Add"
-            onClick={ () => props.openModal('notebook')}>
+            onClick={ () => props.openModal('Notebook')}>
             <img
               src= {window.staticImages.add}>
             </img>

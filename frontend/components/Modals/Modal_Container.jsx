@@ -18,7 +18,7 @@ import CornerMenu
 import DeleteNote
   from './DeleteNote_Modal';
 import Notebooks
-  from '../ShowPage/Notebooks';
+  from '../NotebooksPanel/NotebooksPanel_Modal_Container';
 
 const modal = (props) => {
   if (!props.modal) {

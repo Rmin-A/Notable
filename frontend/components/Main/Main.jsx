@@ -22,6 +22,7 @@ class Main extends Component {
             logOut={this.props.logOut}
             createNote={this.props.createNote}
             setCurrentNote={this.props.setCurrentNote}
+            setCurrentNotebook={this.props.setCurrentNotebook}
             currentUser={this.props.currentUser}
             currentNotebookId={this.props.currentNotebookId}/>
           <Switch>
