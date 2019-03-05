@@ -5,7 +5,7 @@ import { withRouter }
 
 import { logout, login, signup }
   from '../../actions/session_actions';
-import { createNote }
+import { createNote, setCurrentNote }
   from '../../actions/note_actions';
 import { setCurrentNotebook }
   from '../../actions/notebook_actions';
@@ -28,6 +28,8 @@ const mapDispatchToProps = dispatch => ({
     () => dispatch(signup()),
   createNote:
     (note) => dispatch(createNote(note)),
+  setCurrentNote:
+    (note) => dispatch(setCurrentNote(note)),
 });
 
 export default withRouter(connect(

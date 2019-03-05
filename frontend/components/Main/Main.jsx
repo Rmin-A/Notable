@@ -21,6 +21,7 @@ class Main extends Component {
           <Sidebar
             logOut={this.props.logOut}
             createNote={this.props.createNote}
+            setCurrentNote={this.props.setCurrentNote}
             currentUser={this.props.currentUser}
             currentNotebookId={this.props.currentNotebookId}/>
           <ProtectedRoute

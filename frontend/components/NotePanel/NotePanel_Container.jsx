@@ -1,4 +1,5 @@
-import React, { Component }from 'react';
+import React, { Component }
+  from 'react';
 import { connect }
   from 'react-redux';
 import { withRouter }
@@ -15,8 +16,8 @@ import {
   openModal,
   closeModal }
   from '../../actions/modal_actions';
-
-import NotePanel from './NotePanel';
+import NotePanel
+  from './NotePanel';
 
 class NotePanelContainer extends Component {
 
@@ -31,7 +32,7 @@ class NotePanelContainer extends Component {
         sortable.push(this.props.notes[id]);
       }
     }
-    sortable.sort( (a, b) => new Date(a.updated_at) - new Date(b.updated_at));
+    sortable.sort( (a, b) => new Date(b.updated_at) - new Date(a.updated_at));
     return sortable;
   }
 
@@ -39,6 +40,9 @@ class NotePanelContainer extends Component {
     let notes = [];
     if (Object.keys(this.props.notes).length > 0) {
       notes = this.sortNotes();
+      if (!this.props.currentNote.id) {
+        this.props.setCurrentNote(notes[0]);
+      }
     }
 
     let newProps = Object.assign({}, this.props);
