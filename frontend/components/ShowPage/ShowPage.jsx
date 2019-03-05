@@ -13,7 +13,8 @@ class ShowPage extends Component {
       return(
         <Notebooks
           notebooks={this.props.notebooks}
-          setCurrentNotebook={this.props.setCurrentNotebook}/>
+          setCurrentNotebook={this.props.setCurrentNotebook}
+          setCurrentNote={this.props.setCurrentNote}/>
       );
     } else {
       return(

@@ -36,7 +36,9 @@ const editor = (props) => {
             <ReactQuill
               value={props.currentNote.name}
               onChange={props.updateCurrentNoteTitle}
-              modules={ { toolbar: "" } }
+              modules={ { toolbar: "",  clipboard: {
+                  matchVisual: false,
+                } } }
               placeholder="Title"/>
           </div>
         </div>
@@ -61,7 +63,10 @@ const toolBarOpts = [
 ];
 
 const modules = {
-  toolbar: toolBarOpts
+  toolbar: toolBarOpts,
+  clipboard: {
+    matchVisual: false,
+  }
 };
 
 export default editor;

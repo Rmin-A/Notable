@@ -19,7 +19,6 @@ import NotePanel
 class Main extends Component {
 
   componentDidMount() {
-    this.props.fetchAllNotes(this.props.currentNotebook.id);
     this.props.fetchAllNotebooks();
   }
 
@@ -46,6 +45,7 @@ class Main extends Component {
                 openModal={this.props.openModal}
                 closeModal={this.props.closeModal}
                 setCurrentNotebook={this.props.setCurrentNotebook}
+                setCurrentNote={this.props.setCurrentNote}
                 fetchAllNotebooks={this.props.fetchAllNotebooks}/> }/>
 
               <ProtectedRoute
@@ -58,7 +58,11 @@ class Main extends Component {
                   closeModal={this.props.closeModal}/> }/>
 
               <ProtectedRoute
-                path='/dashboard'
+                exact path='/dashboard/notebooks/:notebookId/notes'
+                component={NotePanel}/>
+
+              <ProtectedRoute
+                exact path='/dashboard'
                 component={NotePanel}/>
 
               <Redirect to="/Dashboard" />

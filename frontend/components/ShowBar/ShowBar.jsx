@@ -6,16 +6,12 @@ import htmlToText
 class ShowBar extends Component {
 
   componentDidMount() {
-    this.handleAutoSelect();
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.currentNote.id !== this.props.currentNote.id) {
-      this.handleAutoSelect();
-    }
   }
 
-  handleAutoSelect(prevNote) {
+  handleAutoSelect() {
     const items = document.querySelectorAll(".ShowBar-Item-Box");
     const selectedItem = document.querySelectorAll(".ShowBar-Item-Box-Selected");
     debugger
@@ -33,7 +29,6 @@ class ShowBar extends Component {
             )
           }
         )
-        debugger
       if (selectedItem[0]) {
         selectedItem[0].classList.toggle('ShowBar-Item-Box-Selected');
       }
@@ -49,6 +44,7 @@ class ShowBar extends Component {
     return (e) => {
       that.props.updateNote(that.props.currentNote);
       that.props.setCurrentNote(that.props.notes[id]);
+      that.handleAutoSelect();
     }
   }
 

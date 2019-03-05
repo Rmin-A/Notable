@@ -40,6 +40,7 @@ const notebooks = (props) => {
         );
         props.closeModal();
       } else {
+        props.setCurrentNote({});
         props.setCurrentNotebook(notebook);
         return false;
       }
@@ -53,7 +54,7 @@ const notebooks = (props) => {
         (key) => {
           items.push(
             <Link
-              to={`/client/notebooks/${props.notebooks[key].name}/notes`}
+              to={`/dashboard/notebooks/${props.notebooks[key].id}/notes`}
               key={key}>
               <div
                 className="Notebook-Box"

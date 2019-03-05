@@ -8,11 +8,12 @@ import Editor
 
 
 class NotePanel extends Component {
-  render() {
-    if (Object.keys(this.props.notes).length === 0 ) {
-      return <div></div>;
-    }
 
+  componentDidMount() {
+    this.props.fetchAllNotes(this.props.match.params.notebookId);
+  }
+
+  render() {
     return (
       <div
         className="NotePanel">
