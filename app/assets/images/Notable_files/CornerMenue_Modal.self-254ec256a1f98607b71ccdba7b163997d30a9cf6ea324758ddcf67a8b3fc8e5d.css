@@ -1,0 +1,22 @@
+.Corner-Menu {
+  background-color: white;
+  width: 150px;
+  border: 1px solid rgb(230,230,230);
+
+  position: absolute;
+  margin-right: 10px;
+  right: 0;
+  top: 55px;
+}
+
+.Corner-Menu div {
+  padding: 15px 5px;
+  cursor: pointer;
+}
+
+.Corner-Menu div:hover {
+  background-color: rgb(230,230,230);
+}
+
+.Corner-Menu div:last-child {
+}

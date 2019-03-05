@@ -1,0 +1,103 @@
+.Auth-Page {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(235,247,239);
+}
+
+.Auth-Form {
+  background-color: white;
+
+  width: 400px;
+
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 10px 10px 30px #888888;
+  border-radius: 5px;
+}
+
+.Auth-Form-Header {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Auth-Form-Header img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+.Auth-Form-Header p {
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.Auth-Form-Logo-Text {
+  width: 100px;
+  height: 100px;
+}
+
+.Auth-Form input {
+  width: 75%;
+  height: 70px;
+  margin: 0px 50px 20px 50px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px #888888;
+  padding-left: 20px;
+}
+
+.Auth-Submit-Link p {
+  margin-bottom: 15px;
+}
+
+.Auth-Submit-Link button {
+  color: rgb(75,165,64);
+}
+
+.Auth-Submit-Buttons {
+  width: 80%;
+  margin: 0px 50px 50px 50px;
+}
+.Auth-Submit-button {
+  height: 50px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px #888888;
+  margin-bottom: 30px;
+}
+
+.Auth-Submit-Link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+@media only screen and (max-width: 768px) {
+  .Auth-Page {
+    background-color: white;
+  }
+
+  .Auth-Form {
+    background-color: white;
+    position: inherit;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    transform: none;
+    box-shadow: none;
+    border-radius: 0px;
+  }
+
+}

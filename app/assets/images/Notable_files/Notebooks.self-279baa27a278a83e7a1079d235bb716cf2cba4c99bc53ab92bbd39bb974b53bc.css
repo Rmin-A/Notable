@@ -1,0 +1,53 @@
+.Notebooks {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5px;
+  border-bottom: 0.5px solid rgb(26,26,26);
+}
+
+.Notebooks-Header {
+  border-bottom: none;
+}
+
+.Notebooks-Modal {
+  background-color: white;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  box-shadow: 10px 10px 30px #888888;
+  width: 500px;
+  height: 350px;
+  z-index: 4;
+  color: rgb(100,100,100);
+  overflow: scroll;
+}
+
+.Notebook-Box {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Notebook-Box:hover{
+  background-color: rgb(240,240,240);
+}
+
+.Notebook-Box-Header{
+  background-color: rgb(180,180,180);
+}
+
+.Notebook-Box-Header:hover{
+  background-color: rgb(180,180,180);
+}
+
+.Notebook-Box-Title {
+  display: flex;
+}
+
+.Notebook-Box-Image {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+}

@@ -1,0 +1,95 @@
+/* line 1, /Users/armin/Desktop/Hacks/notable/app/assets/stylesheets/api/Button.scss */
+/* line 3, /Users/armin/Desktop/Hacks/notable/app/assets/stylesheets/api/Button.scss */
+/* line 5, /Users/armin/Desktop/Hacks/notable/app/assets/stylesheets/api/Button.scss */
+.Hamburgermenu {
+  background-image: url(/assets/accordion-bc74b9d21580e21516eaeb0a255beee21d7d418950a62e58552dd83fc58ec140.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 19px;
+  height: 19px;
+}
+
+/* line 11, /Users/armin/Desktop/Hacks/notable/app/assets/stylesheets/api/Button.scss */
+/* line 13, /Users/armin/Desktop/Hacks/notable/app/assets/stylesheets/api/Button.scss */
+/* line 16, /Users/armin/Desktop/Hacks/notable/app/assets/stylesheets/api/Button.scss */
+.Navbar-LogIn {
+  width: 150px;
+  height: 50px;
+  border: 2px solid #4ba540;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  text-align: center;
+}
+
+/* line 21, /Users/armin/Desktop/Hacks/notable/app/assets/stylesheets/api/Button.scss */
+/* line 24, /Users/armin/Desktop/Hacks/notable/app/assets/stylesheets/api/Button.scss */
+/* line 28, /Users/armin/Desktop/Hacks/notable/app/assets/stylesheets/api/Button.scss */
+.Navbar-LogIn:hover {
+  background-color: #4ba540;
+  border: 2px solid #4ba540;
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+/* line 29, /Users/armin/Desktop/Hacks/notable/app/assets/stylesheets/api/Button.scss */
+/* line 32, /Users/armin/Desktop/Hacks/notable/app/assets/stylesheets/api/Button.scss */
+/* line 37, /Users/armin/Desktop/Hacks/notable/app/assets/stylesheets/api/Button.scss */
+.Navbar-SignUp {
+  width: 60px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+  color: black;
+  transition: color 0.2s ease;
+  text-align: center;
+}
+
+/* line 39, /Users/armin/Desktop/Hacks/notable/app/assets/stylesheets/api/Button.scss */
+/* line 43, /Users/armin/Desktop/Hacks/notable/app/assets/stylesheets/api/Button.scss */
+/* line 49, /Users/armin/Desktop/Hacks/notable/app/assets/stylesheets/api/Button.scss */
+.Navbar-SignUp:hover {
+  color: #4ba540;
+}
+
+/* line 47, /Users/armin/Desktop/Hacks/notable/app/assets/stylesheets/api/Button.scss */
+/* line 54, /Users/armin/Desktop/Hacks/notable/app/assets/stylesheets/api/Button.scss */
+.Demo-Login {
+  height: 50px;
+  width: 150px;
+  background-color: #f7f7f7;
+  text-align: center;
+  font-size: 15px;
+  color: black;
+  font-weight: bold;
+  border: 2px;
+  border-radius: 6px;
+}
+
+/* line 66, /Users/armin/Desktop/Hacks/notable/app/assets/stylesheets/api/Button.scss */
+.Demo-Login:hover {
+  background-color: #4ba540;
+  color: #f7f7f7;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+/* line 73, /Users/armin/Desktop/Hacks/notable/app/assets/stylesheets/api/Button.scss */
+.Auth-Submit {
+  width: 100%;
+  height: 100%;
+  background-color: #4ba540;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  text-align: center;
+}
+
+/* line 84, /Users/armin/Desktop/Hacks/notable/app/assets/stylesheets/api/Button.scss */
+.Auth-Submit:hover {
+  background-color: #327029;
+  color: white;
+  transition: background-color 0.2s ease;
+}

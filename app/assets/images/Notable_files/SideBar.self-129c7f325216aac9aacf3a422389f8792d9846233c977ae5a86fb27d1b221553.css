@@ -1,0 +1,47 @@
+.Sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(26,26,26);
+  min-width: 240px;
+  height: 100vh;
+  min-height: 400px;
+  font-family: Roboto;
+  color: white;
+}
+
+.Sidebar-User {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.Sidebar-Searchbar {
+  width: 80%;
+  height: 25px;
+  margin: 20px auto;
+  text-align: center;
+  background-color: rgb(51,51,51);
+  color: rgb(26,26,26);
+}
+
+.Sidebar-Menu {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.Sidebar-Menu button {
+  margin-bottom: 20px;
+}
+
+.Sidebar-New-Note {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.Sidebar-New-Note img {
+  height: 31px;
+  width: 31px;
+  margin-right: 15px;
+}

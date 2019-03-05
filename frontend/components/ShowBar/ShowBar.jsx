@@ -37,7 +37,7 @@ const showBar = (props) => {
   };
 
   const handleItemCount = () => {
-    let count = Object.keys(props.notes).length;
+    let count = props.notes.length;
     switch (count) {
       case undefined:
       return "";
@@ -59,10 +59,10 @@ const showBar = (props) => {
     if ( !props.notes ) {
       return [];
     }
-
+    debugger
     let itemBoxes = [];
-    Object.values(props.notes).forEach(
-      (note, idx ) => {
+    props.notes.forEach(
+      (note) => {
         itemBoxes.push(
           <div
             className="ShowBar-Item-Box"

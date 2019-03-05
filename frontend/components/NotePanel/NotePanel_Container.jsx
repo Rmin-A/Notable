@@ -24,10 +24,27 @@ class NotePanelContainer extends Component {
     this.props.fetchAllNotes(this.props.currentNotebook.id);
   }
 
+  sortNotes() {
+    let sortable = [];
+    for ( let id in this.props.notes) {
+      if (this.props.notes.hasOwnProperty(id)) {
+        sortable.push(this.props.notes[id]);
+      }
+    }
+    sortable.sort( (a, b) => new Date(a.updated_at) - new Date(b.updated_at));
+    return sortable;
+  }
+
   render() {
+    let notes = [];
+    if (Object.keys(this.props.notes).length > 0) {
+      notes = this.sortNotes();
+    }
+
+    let newProps = Object.assign({}, this.props);
+    newProps.notes = notes;
     return (
-      <NotePanel
-        {...this.props}/>
+      <NotePanel {...newProps}/>
     );
   }
 }

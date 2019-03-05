@@ -1,0 +1,37 @@
+.ShowPage {
+  min-width: 600px;
+  width: 81%;
+  margin: 30px auto 0px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.ShowPage-Add {
+  display: flex;
+  align-items: center;
+  color: rgb(75,165,64);
+}
+
+.ShowPage-Add:hover{
+  color: #327029;
+}
+
+.ShowPage-Add img {
+  height: 19px;
+  width: 19px;
+  margin-right: 9px;
+}
+
+.ShowPage-Footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 17px;
+  border-bottom: 2px solid rgb(26,26,26);
+}
+
+.ShowPage-Header{
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-weight: 500;
+}
