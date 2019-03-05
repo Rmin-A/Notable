@@ -56,7 +56,7 @@ const showBar = (props) => {
   };
 
   const handleItems = () => {
-    if ( props.notes.length === 0) {
+    if ( props.notes.length === 0 || !props.currentNote.id ) {
       return [];
     }
     let itemBoxes = [];

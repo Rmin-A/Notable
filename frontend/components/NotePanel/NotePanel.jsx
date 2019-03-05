@@ -20,10 +20,3 @@ const notePanel = (props) => {
 };
 
 export default notePanel;
-
-
-
-
-// if (!props.currentNote.id && props.notes.length > 0) {
-//   props.setCurrentNote( ( props.notes.length === 0 ) ? {} : props.notes[0]);
-// }

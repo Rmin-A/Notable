@@ -28,7 +28,6 @@ class NotePanelContainer extends Component {
   componentDidUpdate() {
     if (!this.props.currentNote.id && Object.keys(this.props.notes).length > 0) {
       let newState = this.sortNotes();
-      debugger
       this.props.setCurrentNote(newState[0]);
     }
   }
