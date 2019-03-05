@@ -39,7 +39,8 @@ class NotePanelContainer extends Component {
     }
     if (prevProps.currentNote.id &&
         this.props.currentNote.id &&
-        prevProps.currentNote.id !== this.props.currentNote.id)
+        prevProps.currentNote.id !== this.props.currentNote.id &&
+        prevProps.unsavedChanges)
     {
       this.props.updateNote(prevProps.currentNote);
     }

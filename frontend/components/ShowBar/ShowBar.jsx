@@ -5,7 +5,8 @@ import htmlToText
 
 
 const showBar = (props) => {
-
+  //elmnt.scrollIntoView(); needs to be added to the current note either here
+  //or in the notepanel.
   const handleCalculateUpdateHours = (date) => {
     var delta = Math.abs(new Date() - new Date(date)) / 1000;
     if (
@@ -69,6 +70,12 @@ const showBar = (props) => {
               :
                 "ShowBar-Item-Box"
             }
+            autoFocus={
+              (note.id === props.currentNote.id) ?
+                true
+              :
+                false
+            }
             key={note.id}
             note-id={note.id}
             onClick={handleSelect(note)}>
@@ -76,7 +83,7 @@ const showBar = (props) => {
               <div
                 className="ShowBar-Item-Title">
                 {
-                  (note.name) ?
+                  (note.name && note.name !== "<p><br></p>") ?
                   htmlToText.fromString(note.name)
                   :
                   "Untitled"
@@ -85,7 +92,7 @@ const showBar = (props) => {
               <div
                 className="ShowBar-Item-body">
                 {
-                  (note.body) ?
+                  (note.body && note.body !== "<p><br></p>") ?
                   htmlToText.fromString(note.body)
                   :
                   "Untitled"
