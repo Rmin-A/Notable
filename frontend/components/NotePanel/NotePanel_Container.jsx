@@ -21,15 +21,17 @@ import NotePanel
 
 class NotePanelContainer extends Component {
 
-  state = {
-    notes: {}
-  }
-
   componentDidMount() {
     this.props.fetchAllNotes(this.props.currentNotebook.id);
   }
 
-
+  componentDidUpdate() {
+    if (!this.props.currentNote.id && Object.keys(this.props.notes).length > 0) {
+      let newState = this.sortNotes();
+      debugger
+      this.props.setCurrentNote(newState[0]);
+    }
+  }
 
   sortNotes() {
     let sortable = [];
