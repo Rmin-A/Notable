@@ -9,4 +9,4 @@
 User.destroy_all
 guest = User.new(username: "Guest", password: "123456")
 guest.save!
-Notebook.create(title: "General", user_id: guest.id)
+Notebook.create(name: "General", user_id: guest.id)
