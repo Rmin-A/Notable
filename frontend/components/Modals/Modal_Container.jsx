@@ -17,6 +17,8 @@ import CornerMenu
   from './CornerMenu_Modal';
 import DeleteNote
   from './DeleteNote_Modal';
+import ComingSoon
+  from './ComingSoon_Modal';
 import NotebooksPanelModal
   from '../NotebooksPanel/NotebooksPanel_Modal_Container';
 
@@ -50,6 +52,11 @@ const modal = (props) => {
                     closeModal={props.closeModal}
                     deleteNote={props.deleteNote}
                     currentNote={props.currentNote}/>;
+      background = "Modal-Background";
+      break;
+    case 'Coming Soon':
+      component = <ComingSoon
+                    closeModal={props.closeModal}/>;
       background = "Modal-Background";
       break;
     default:

@@ -9,6 +9,8 @@ import { createNote, setCurrentNote }
   from '../../actions/note_actions';
 import { setCurrentNotebook }
   from '../../actions/notebook_actions';
+import { openModal }
+  from '../../actions/modal_actions';
 
 import Main from './Main';
 
@@ -37,6 +39,8 @@ const mapDispatchToProps = dispatch => ({
     (note) => dispatch(setCurrentNote(note)),
   setCurrentNotebook:
     (note) => dispatch(setCurrentNotebook(note)),
+  openModal:
+    (modal) => dispatch(openModal(modal)),
 });
 
 export default withRouter(connect(

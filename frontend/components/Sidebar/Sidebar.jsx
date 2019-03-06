@@ -56,11 +56,9 @@ const sideBar = (props) => {
             </Link>
           </button>
 
-          <button>
-            <Link
-              to="/dashboard/tags">
+          <button
+            onClick={ () => props.openModal('Coming Soon')}>
               All Tags
-            </Link>
           </button>
 
           <button
