@@ -12,7 +12,12 @@ const actionBar = (props) => {
             src={window.staticImages.notebook}/>
         </div>
         <div>
-          { props.currentNote.notebook_name }
+          {
+            (props.currentNote.notebook_name) ?
+              props.currentNote.notebook_name
+            :
+              props.currentNotebook.name
+          }
         </div>
       </div>
       <div

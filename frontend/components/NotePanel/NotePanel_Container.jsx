@@ -35,8 +35,7 @@ class NotePanelContainer extends Component {
     if (Object.keys(this.props.notes).length > 0) {
       if (
         !this.props.currentNote.id ||
-        Object.keys(
-          this.props.notes).length !==
+        Object.keys(this.props.notes).length !==
           Object.keys(prevProps.notes).length
       ){
         let newState = this.sortNotes();
@@ -51,7 +50,6 @@ class NotePanelContainer extends Component {
       this.props.updateNote(prevProps.currentNote);
     }
     if (prevProps.currentNotebook.id !== this.props.currentNotebook.id) {
-      this.props.setCurrentNote({ id: null });
       this.props.fetchAllNotes(this.props.currentNotebook.id);
     }
   }

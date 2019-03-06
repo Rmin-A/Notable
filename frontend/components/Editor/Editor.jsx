@@ -19,7 +19,8 @@ const editor = (props) => {
           <ActionBar
             notebooks={props.notebooks}
             currentNote={props.currentNote}
-            openModal={props.openModal}/>
+            openModal={props.openModal}
+            currentNotebook={props.currentNotebook}/>
         </div>
         <div
           className="Editor-Quill">
