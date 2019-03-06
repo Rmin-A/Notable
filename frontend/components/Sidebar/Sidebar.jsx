@@ -30,7 +30,7 @@ const sideBar = (props) => {
           className="Sidebar-Menu">
           <button
             className="Sidebar-New-Note"
-            onClick={handleNewNote()}>
+            onClick={ () => handleNewNote()}>
             <img
               src= {window.staticImages.new}>
             </img>

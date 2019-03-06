@@ -50,6 +50,9 @@ class NotePanelContainer extends Component {
     {
       this.props.updateNote(prevProps.currentNote);
     }
+    if (prevProps.currentNotebook.id !== this.props.currentNotebook.id) {
+      this.props.fetchAllNotes(this.props.currentNotebook.id);
+    }
   }
 
   sortNotes() {
