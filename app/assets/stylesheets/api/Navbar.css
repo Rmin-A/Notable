@@ -1,6 +1,6 @@
 .Navbar {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   background-color: rgb(247,247,247);
 }
 
@@ -93,7 +93,8 @@
     border: none;
     width: inherit;
     height: inherit;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    color: black;
   }
 
   .Navbar-link-toggle-show button:hover {

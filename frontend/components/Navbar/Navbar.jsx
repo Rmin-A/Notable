@@ -37,29 +37,6 @@ const navbar = (props) => {
       </div>
 
       <nav
-        className="Navbar-items">
-        <div
-          className="Navbar-link">
-          <button>
-            Plans
-          </button>
-        </div>
-        <div
-          className="Navbar-link">
-          <button>
-            Featurs
-          </button>
-        </div>
-
-        <div
-          className="Navbar-link">
-          <button>
-            About
-          </button>
-        </div>
-      </nav>
-
-      <nav
         className="Navbar-items Navbar-items-right">
         <div
           className="Navbar-link">

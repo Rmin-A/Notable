@@ -23,27 +23,29 @@ import Main
 import Modal
   from './Modals/Modal_Container';
 
-const App = () => (
-  <div>
-    <Modal />
-    <Switch>
-      <AuthRoute
-        exact path="/signin"
-        component={ SignIn } />
+const App = (props) => {
+  return(
+    <div>
+      <Modal />
+      <Switch>
+        <AuthRoute
+          exact path="/signin"
+          component={ SignIn } />
 
-      <AuthRoute
-        exact path="/signup"
-        component={ SignUp } />
+        <AuthRoute
+          exact path="/signup"
+          component={ SignUp } />
 
-      <AuthRoute
-        exact path="/greeting"
-        component={ Greeting } />
+        <AuthRoute
+          exact path="/greeting"
+          component={ Greeting } />
 
-      <ProtectedRoute
-        path="/"
-        component={ Main } />
-    </Switch>
-  </div>
-);
+        <ProtectedRoute
+          path="/"
+          component={ Main } />
+      </Switch>
+    </div>
+  );
+};
 
 export default App;
