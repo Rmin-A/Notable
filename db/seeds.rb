@@ -7,6 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-guest = User.new(email: "guest", password: "123456")
+guest = User.new(username: "Guest", password: "123456")
 guest.save!
 Notebook.create(title: "General", user_id: guest.id)
