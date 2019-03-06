@@ -67,7 +67,7 @@ const modal = (props) => {
     <div
       className={background}
       onClick={props.closeModal}>
-      {component}
+      { component }
     </div>
   );
 };
