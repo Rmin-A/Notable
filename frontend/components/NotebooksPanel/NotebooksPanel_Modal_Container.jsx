@@ -5,7 +5,7 @@ import { connect }
 import { withRouter }
   from "react-router";
 
-import { updateNote }
+import { updateNote, setCurrentNote }
   from '../../actions/note_actions';
 import { fetchAllNotebooks, setCurrentNotebook }
   from '../../actions/notebook_actions';
@@ -20,12 +20,23 @@ class NotebooksPanelContainer extends Component {
     this.props.fetchAllNotebooks();
   }
 
+  handleUpdate = () => {
+    let that = this;
+    return (notebook) => {
+      let note = Object.assign({}, that.props.currentNote);
+      note.notebook_id = notebook.id;
+      that.props.updateNote(note);
+      that.props.closeModal();
+    }
+  }
+
   render() {
     return(
       <NotebooksPanel
         notebooks={this.props.notebooks}
         openModal={this.props.openModal}
-        clickHandler={this.props.setCurrentNotebook}/>
+        clickHandler={ this.handleUpdate() }
+        className="Notebooks-Modal" />
     );
   }
 }
@@ -36,6 +47,8 @@ const mapStateToProps = (state, ownProps) => {
       state.entities.notebooks,
     currentNotebook:
       state.interactions.currentNotebook,
+    currentNote:
+      state.interactions.currentNote,
   };
 };
 
@@ -47,6 +60,8 @@ const mapDispatchToProps = dispatch => {
       () => dispatch(fetchAllNotebooks()),
     setCurrentNotebook:
       (notebook) => dispatch(setCurrentNotebook(notebook)),
+    setCurrentNote:
+      (note) => dispatch(setCurrentNote(note)),
     openModal:
       (modal) => dispatch(openModal(modal)),
     closeModal:

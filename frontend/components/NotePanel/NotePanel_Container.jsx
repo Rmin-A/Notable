@@ -25,6 +25,12 @@ class NotePanelContainer extends Component {
     this.props.fetchAllNotes(this.props.currentNotebook.id);
   }
 
+  componentWillUnmount() {
+    if (this.props.unsavedChanges) {
+      this.props.updateNote(this.props.currentNote);
+    }
+  }
+
   componentDidUpdate(prevProps) {
     if (Object.keys(this.props.notes).length > 0) {
       if (
@@ -72,13 +78,17 @@ class NotePanelContainer extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+  debugger
   return {
     notes:
       state.entities.notes,
     currentNote:
       state.interactions.currentNote,
     currentNotebook:
-      state.interactions.currentNotebook,
+      (ownProps.match.params.notebookId && Object.keys(state.entities.notebooks).length > 0) ?
+        state.entities.notebooks[ownProps.match.params.notebookId]
+      :
+        state.interactions.currentNotebook,
     unsavedChanges:
       state.interactions.changes.currentNote
   };

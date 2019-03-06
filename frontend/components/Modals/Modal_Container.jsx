@@ -17,7 +17,7 @@ import CornerMenu
   from './CornerMenu_Modal';
 import DeleteNote
   from './DeleteNote_Modal';
-import Notebooks
+import NotebooksPanelModal
   from '../NotebooksPanel/NotebooksPanel_Modal_Container';
 
 const modal = (props) => {
@@ -42,14 +42,7 @@ const modal = (props) => {
       background = "Menu-ModaL-Background";
       break;
     case 'Notebook_Move':
-      component = <Notebooks
-                    closeModal={props.closeModal}
-                    notebooks={props.notebooks}
-                    currentNote={props.currentNote}
-                    onCLick={props.updateNote}
-                    setCurrentNote={props.setCurrentNote}
-                    formType="modal"
-                    className="Notebooks-Modal"/>;
+      component = <NotebooksPanelModal />;
       background = "Modal-Background";
       break;
     case 'Notebook_Delete':

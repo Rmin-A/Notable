@@ -24,7 +24,7 @@ class Main extends Component {
             setCurrentNote={this.props.setCurrentNote}
             setCurrentNotebook={this.props.setCurrentNotebook}
             currentUser={this.props.currentUser}
-            currentNotebookId={this.props.currentNotebookId}/>
+            currentNotebook={this.props.currentNotebook}/>
           <Switch>
             <ProtectedRoute
               exact path='/dashboard/notebooks'

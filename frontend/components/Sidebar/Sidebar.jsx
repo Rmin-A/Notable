@@ -8,7 +8,7 @@ const sideBar = (props) => {
   const _nullNote = {
     name: null,
     body: null,
-    notebook_id: props.currentNotebookId
+    notebook_id: props.currentNotebook.id
   };
 
   const handleNewNote = () => {

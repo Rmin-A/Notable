@@ -5,7 +5,7 @@ import { connect }
 import { withRouter }
   from "react-router";
 
-import { updateNote }
+import { updateNote, setCurrentNote }
   from '../../actions/note_actions';
 import { fetchAllNotebooks, setCurrentNotebook }
   from '../../actions/notebook_actions';
@@ -20,12 +20,20 @@ class NotebooksPanelContainer extends Component {
     this.props.fetchAllNotebooks();
   }
 
+  handleUpdate = () => {
+    let that = this;
+    return (notebook) => {
+      that.props.setCurrentNotebook(notebook);
+      that.props.setCurrentNote({})
+    }
+  }
+
   render() {
     return(
       <NotebooksPanel
         notebooks={this.props.notebooks}
         openModal={this.props.openModal}
-        clickHandler={this.props.setCurrentNotebook}/>
+        clickHandler={ this.handleUpdate() }/>
     );
   }
 }
@@ -43,6 +51,8 @@ const mapDispatchToProps = dispatch => {
   return {
     updateNote:
       (note) => dispatch(updateNote(note)),
+    setCurrentNote:
+      (note) => dispatch(setCurrentNote(note)),
     fetchAllNotebooks:
       () => dispatch(fetchAllNotebooks()),
     setCurrentNotebook:

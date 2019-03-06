@@ -16,6 +16,11 @@ const mapStateToProps = (state, ownProps) => {
   return {
     currentUser:
       state.session.currentUser,
+    currentNotebook:
+      (ownProps.match.params.notebookId) ?
+        state.entities.notebooks[ownProps.match.params.notebookId]
+      :
+        state.interactions.currentNotebook,
   };
 };
 
