@@ -59,7 +59,6 @@ const showBar = (props) => {
     if ( props.notes.length === 0 || !props.currentNote.id ) {
       return [];
     }
-    debugger
     let itemBoxes = [];
     props.notes.reverse().forEach(
       (note) => {
@@ -111,7 +110,6 @@ const showBar = (props) => {
     return itemBoxes.reverse();
   };
 
-  debugger
   return (
     <div
       className="ShowBar">

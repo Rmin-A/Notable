@@ -26,6 +26,8 @@ class NotebooksPanelContainer extends Component {
       let note = Object.assign({}, that.props.currentNote);
       note.notebook_id = notebook.id;
       that.props.updateNote(note);
+      that.props.setCurrentNote(note);
+      that.props.setCurrentNotebook(notebook);
       that.props.closeModal();
     }
   }

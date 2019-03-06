@@ -27,10 +27,6 @@ const sideBar = (props) => {
         </div>
 
         <div
-          className="Sidebar-Searchbar">
-        </div>
-
-        <div
           className="Sidebar-Menu">
           <button
             className="Sidebar-New-Note"

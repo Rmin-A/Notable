@@ -78,7 +78,6 @@ class NotePanelContainer extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   return {
     notes:
       state.entities.notes,
