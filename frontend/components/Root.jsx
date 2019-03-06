@@ -5,7 +5,7 @@ import { Provider }
 import { HashRouter }
   from 'react-router-dom';
 
-import App from './app';
+import App from './App';
 
 const Root = ({ store }) => (
   <Provider store={store}>
