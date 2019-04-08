@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.1'
+ruby '2.6.2'
 
 gem 'sass-rails', '~> 5.0'
 # gem 'sassc'
@@ -54,6 +54,8 @@ group :development do
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
+
+  gem 'dotenv-rails'
 end
 
 group :test do
@@ -62,6 +64,8 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
