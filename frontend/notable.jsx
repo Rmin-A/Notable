@@ -8,7 +8,7 @@ import Root
 import configureStore
   from './store/store';
 
-
+// this is added with vscode
 document.addEventListener('DOMContentLoaded', () => {
   let store;
   if (window.currentUser) {

@@ -1,32 +1,29 @@
+# Set docker-compose version
+version: '3'
 
-version: '3.0'
 services:
-  db:
-    image: postgres:10
+  postgres:
+    container_name: postgres
     ports:
-      - 5432:5432
-    environment:
-      POSTGRES_PASSWORD: ${DB_USER_PASSWORD}
-
-  webpacker:
-    image: ${dockerrailsdemo}
-    command: ["./scripts/start_webpack_dev.sh"]
+      - "5432:5432"
     volumes:
-      - .:/opt/dockerrailsdemo:cached
-    ports:
-      - 3035:3035
+      - $HOME/postgres-data:/var/lib/postgresql
+    image: postgres:9.6.9
 
   web:
-    image: ${dockerrailsdemo}
-    build:
-      context: .
-      args:
-        precompileassets: 'not'
-    links:
-      - db
-      - webpacker
+    container_name: web
+    build: .
+    image: backend
     ports:
-      - 3000:3000
-    command: ["./scripts/wait-for-it.sh", "db:5432", "--", "./scripts/start_rails.sh"]
+      - "3000:3000"
+    command: /bin/sh -c "rails s -b 0.0.0.0 -p 3000"
     volumes:
-      - .:/opt/dockerrailsdemo:cached
+      - .:/app
+    depends_on:
+      - postgres
+
+  front:
+    build: ./frontend
+    image: frontend
+    volumes:
+      - .:/app
